@@ -1,0 +1,11 @@
+# Panic-mode recovery stress sample
+x = 1
+for i in range(1, 4)
+    x += i
+    print(i
+print(x)
+if true
+    print(x)
+else:
+    print(0)
+y +=

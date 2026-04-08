@@ -1,0 +1,25 @@
+# Sample program for the mini Python-like language
+x = 10
+y = 2.5
+name = "codex"
+flag = true
+nums = [1, 2, 3]
+cnt = 1
+
+x += 5
+y -= 1
+print(x + y)
+for ch in name:
+    print(ch)
+
+for n in nums:
+    cnt += n
+    print(n / 2)
+
+for i in range(1, 5):
+    if flag:
+        cnt += i
+        msg = "inside-if"
+        print(i)
+    else:
+        print(0)
