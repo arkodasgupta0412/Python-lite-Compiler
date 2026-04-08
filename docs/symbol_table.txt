@@ -1,0 +1,11 @@
+Symbol Table
+============
+
+Name                Type        Value
+------------------------------------------------------------------------
+cnt                 int         Identifier(i)
+flag                bool        BoolLiteral(true)
+name                str         StringLiteral("codex")
+nums                list        ListLiteral([IntLiteral(1), IntLiteral(2), IntLiteral(3)])
+x                   int         IntLiteral(5)
+y                   float       IntLiteral(1)

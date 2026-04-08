@@ -1,0 +1,341 @@
+Parse Table Report
+==================
+
+Conflicts: 0
+
+FIRST Sets
+----------
+Program = { epsilon, IF, FOR, PRINT, IDENT, SEMICOLON, NEWLINE }
+StmtList = { epsilon, IF, FOR, PRINT, IDENT, SEMICOLON, NEWLINE }
+MoreElements = { epsilon, COMMA }
+StmtTail = { epsilon, IF, FOR, PRINT, IDENT, SEMICOLON, NEWLINE }
+Term = { RANGE, IDENT, LPAREN, BOOL, STRING, FLOAT, INT, LBRACKET, MINUS }
+Stmt = { IF, FOR, PRINT, IDENT }
+AssignStmt = { IDENT }
+IfStmt = { IF }
+Term' = { epsilon, SLASH, STAR }
+ElementsOpt = { RANGE, IDENT, LPAREN, BOOL, STRING, INT, LBRACKET, MINUS, FLOAT, epsilon }
+ForStmt = { FOR }
+Expr' = { epsilon, MINUS, PLUS }
+RangeStepOpt = { epsilon, COMMA }
+SEP = { SEMICOLON, NEWLINE }
+Factor = { RANGE, IDENT, LPAREN, BOOL, STRING, FLOAT, INT, LBRACKET, MINUS }
+ForBody = { IF, FOR, PRINT, IDENT, NEWLINE }
+PrintStmt = { PRINT }
+ListLiteral = { LBRACKET }
+ElseOpt = { epsilon, ELSE }
+RangeCall = { RANGE }
+Primary = { LBRACKET, RANGE, IDENT, LPAREN, BOOL, STRING, FLOAT, INT }
+AssignOp = { MINUS_ASSIGN, PLUS_ASSIGN, ASSIGN }
+Expr = { RANGE, IDENT, LPAREN, BOOL, STRING, FLOAT, INT, LBRACKET, MINUS }
+
+FOLLOW Sets
+-----------
+Program = { EOF }
+StmtList = { DEDENT }
+MoreElements = { RBRACKET }
+StmtTail = { EOF, DEDENT }
+Term = { DEDENT, MINUS, RPAREN, RBRACKET, PLUS, NEWLINE, COMMA, COLON, IF, SEMICOLON, EOF, PRINT, FOR, IDENT }
+Stmt = { NEWLINE, SEMICOLON, EOF, IDENT, PRINT, FOR, IF, DEDENT }
+AssignStmt = {  }
+IfStmt = {  }
+Term' = { COMMA, COLON, IF, RBRACKET, RPAREN, NEWLINE, PLUS, IDENT, FOR, MINUS, DEDENT, SEMICOLON, EOF, PRINT }
+ElementsOpt = { RBRACKET }
+ForStmt = {  }
+Expr' = { SEMICOLON, EOF, IDENT, PRINT, FOR, DEDENT, COLON, IF, COMMA, NEWLINE, RBRACKET, RPAREN }
+RangeStepOpt = { RPAREN }
+SEP = {  }
+Factor = { IDENT, FOR, PRINT, STAR, SLASH, COMMA, COLON, IF, RBRACKET, RPAREN, NEWLINE, PLUS, MINUS, DEDENT, SEMICOLON, EOF }
+ForBody = { DEDENT, IF, FOR, PRINT, IDENT, EOF, SEMICOLON, NEWLINE }
+PrintStmt = {  }
+ListLiteral = {  }
+ElseOpt = { DEDENT, IF, FOR, PRINT, IDENT, EOF, SEMICOLON, NEWLINE }
+RangeCall = {  }
+Primary = {  }
+AssignOp = { RANGE, IDENT, LPAREN, BOOL, STRING, FLOAT, INT, LBRACKET, MINUS }
+Expr = { DEDENT, FOR, PRINT, IDENT, EOF, SEMICOLON, RPAREN, NEWLINE, RBRACKET, IF, COLON, COMMA }
+
+LL(1) Parse Table
+-----------------
+Program:
+  M[Program, IF] = if Expr : \n <INDENT> StmtList <DEDENT> ElseOpt StmtTail $
+  M[Program, FOR] = for IDENT in Expr : ForBody StmtTail $
+  M[Program, PRINT] = print ( Expr ) StmtTail $
+  M[Program, IDENT] = IDENT AssignOp Expr StmtTail $
+  M[Program, EOF] = ε $
+  M[Program, SEMICOLON] = ; StmtTail $
+  M[Program, NEWLINE] = \n StmtTail $
+StmtList:
+  M[StmtList, DEDENT] = ε
+  M[StmtList, IF] = if Expr : \n <INDENT> StmtList <DEDENT> ElseOpt StmtTail
+  M[StmtList, FOR] = for IDENT in Expr : ForBody StmtTail
+  M[StmtList, PRINT] = print ( Expr ) StmtTail
+  M[StmtList, IDENT] = IDENT AssignOp Expr StmtTail
+  M[StmtList, SEMICOLON] = ; StmtTail
+  M[StmtList, NEWLINE] = \n StmtTail
+MoreElements:
+  M[MoreElements, RBRACKET] = ε
+  M[MoreElements, COMMA] = , Expr MoreElements
+StmtTail:
+  M[StmtTail, DEDENT] = ε
+  M[StmtTail, IF] = if Expr : \n <INDENT> StmtList <DEDENT> ElseOpt StmtTail
+  M[StmtTail, FOR] = for IDENT in Expr : ForBody StmtTail
+  M[StmtTail, PRINT] = print ( Expr ) StmtTail
+  M[StmtTail, IDENT] = IDENT AssignOp Expr StmtTail
+  M[StmtTail, EOF] = ε
+  M[StmtTail, SEMICOLON] = ; StmtTail
+  M[StmtTail, NEWLINE] = \n StmtTail
+Term:
+  M[Term, RANGE] = range ( Expr , Expr RangeStepOpt ) Term'
+  M[Term, IDENT] = IDENT Term'
+  M[Term, LPAREN] = ( Expr ) Term'
+  M[Term, BOOL] = BOOL Term'
+  M[Term, STRING] = STRING Term'
+  M[Term, FLOAT] = FLOAT Term'
+  M[Term, INT] = INT Term'
+  M[Term, LBRACKET] = [ ElementsOpt ] Term'
+  M[Term, MINUS] = - Factor Term'
+Stmt:
+  M[Stmt, IF] = if Expr : \n <INDENT> StmtList <DEDENT> ElseOpt
+  M[Stmt, FOR] = for IDENT in Expr : ForBody
+  M[Stmt, PRINT] = print ( Expr )
+  M[Stmt, IDENT] = IDENT AssignOp Expr
+AssignStmt:
+  M[AssignStmt, IDENT] = IDENT AssignOp Expr
+IfStmt:
+  M[IfStmt, IF] = if Expr : \n <INDENT> StmtList <DEDENT> ElseOpt
+Term':
+  M[Term', PRINT] = ε
+  M[Term', EOF] = ε
+  M[Term', SEMICOLON] = ε
+  M[Term', STAR] = * Factor Term'
+  M[Term', SLASH] = / Factor Term'
+  M[Term', COMMA] = ε
+  M[Term', COLON] = ε
+  M[Term', IF] = ε
+  M[Term', RBRACKET] = ε
+  M[Term', RPAREN] = ε
+  M[Term', NEWLINE] = ε
+  M[Term', PLUS] = ε
+  M[Term', FOR] = ε
+  M[Term', IDENT] = ε
+  M[Term', MINUS] = ε
+  M[Term', DEDENT] = ε
+ElementsOpt:
+  M[ElementsOpt, RBRACKET] = ε
+  M[ElementsOpt, RANGE] = Expr MoreElements
+  M[ElementsOpt, IDENT] = Expr MoreElements
+  M[ElementsOpt, LPAREN] = Expr MoreElements
+  M[ElementsOpt, BOOL] = Expr MoreElements
+  M[ElementsOpt, STRING] = Expr MoreElements
+  M[ElementsOpt, FLOAT] = Expr MoreElements
+  M[ElementsOpt, INT] = Expr MoreElements
+  M[ElementsOpt, LBRACKET] = Expr MoreElements
+  M[ElementsOpt, MINUS] = Expr MoreElements
+ForStmt:
+  M[ForStmt, FOR] = for IDENT in Expr : ForBody
+Expr':
+  M[Expr', RPAREN] = ε
+  M[Expr', SEMICOLON] = ε
+  M[Expr', EOF] = ε
+  M[Expr', FOR] = ε
+  M[Expr', IDENT] = ε
+  M[Expr', PRINT] = ε
+  M[Expr', MINUS] = - Term Expr'
+  M[Expr', DEDENT] = ε
+  M[Expr', COLON] = ε
+  M[Expr', IF] = ε
+  M[Expr', COMMA] = ε
+  M[Expr', PLUS] = + Term Expr'
+  M[Expr', NEWLINE] = ε
+  M[Expr', RBRACKET] = ε
+RangeStepOpt:
+  M[RangeStepOpt, RPAREN] = ε
+  M[RangeStepOpt, COMMA] = , Expr
+SEP:
+  M[SEP, SEMICOLON] = ;
+  M[SEP, NEWLINE] = \n
+Factor:
+  M[Factor, RANGE] = range ( Expr , Expr RangeStepOpt )
+  M[Factor, IDENT] = IDENT
+  M[Factor, LPAREN] = ( Expr )
+  M[Factor, BOOL] = BOOL
+  M[Factor, STRING] = STRING
+  M[Factor, FLOAT] = FLOAT
+  M[Factor, INT] = INT
+  M[Factor, LBRACKET] = [ ElementsOpt ]
+  M[Factor, MINUS] = - Factor
+ForBody:
+  M[ForBody, NEWLINE] = \n <INDENT> StmtList <DEDENT>
+  M[ForBody, IF] = Stmt
+  M[ForBody, FOR] = Stmt
+  M[ForBody, PRINT] = Stmt
+  M[ForBody, IDENT] = Stmt
+PrintStmt:
+  M[PrintStmt, PRINT] = print ( Expr )
+ListLiteral:
+  M[ListLiteral, LBRACKET] = [ ElementsOpt ]
+ElseOpt:
+  M[ElseOpt, NEWLINE] = ε
+  M[ElseOpt, SEMICOLON] = ε
+  M[ElseOpt, EOF] = ε
+  M[ElseOpt, PRINT] = ε
+  M[ElseOpt, FOR] = ε
+  M[ElseOpt, IF] = ε
+  M[ElseOpt, DEDENT] = ε
+  M[ElseOpt, IDENT] = ε
+  M[ElseOpt, ELSE] = else : \n <INDENT> StmtList <DEDENT>
+RangeCall:
+  M[RangeCall, RANGE] = range ( Expr , Expr RangeStepOpt )
+Primary:
+  M[Primary, LBRACKET] = [ ElementsOpt ]
+  M[Primary, RANGE] = range ( Expr , Expr RangeStepOpt )
+  M[Primary, IDENT] = IDENT
+  M[Primary, LPAREN] = ( Expr )
+  M[Primary, BOOL] = BOOL
+  M[Primary, STRING] = STRING
+  M[Primary, FLOAT] = FLOAT
+  M[Primary, INT] = INT
+AssignOp:
+  M[AssignOp, MINUS_ASSIGN] = -=
+  M[AssignOp, PLUS_ASSIGN] = +=
+  M[AssignOp, ASSIGN] = =
+Expr:
+  M[Expr, RANGE] = Term Expr'
+  M[Expr, IDENT] = Term Expr'
+  M[Expr, LPAREN] = Term Expr'
+  M[Expr, BOOL] = Term Expr'
+  M[Expr, STRING] = Term Expr'
+  M[Expr, FLOAT] = Term Expr'
+  M[Expr, INT] = Term Expr'
+  M[Expr, LBRACKET] = Term Expr'
+  M[Expr, MINUS] = Term Expr'
+
+LL(1) Panic-Mode Recovery (Pop/Scan)
+------------------------------------
+Accepted without recovery errors: no
+Recovered errors: 4
+Actions:
+  - Expand Program -> IDENT AssignOp Expr StmtTail EOF
+  - Match terminal 'IDENT'
+  - Expand AssignOp -> ASSIGN
+  - Match terminal 'ASSIGN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> FOR IDENT IN Expr COLON ForBody StmtTail
+  - Match terminal 'FOR'
+  - Match terminal 'IDENT'
+  - Match terminal 'IN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> RANGE LPAREN Expr COMMA Expr RangeStepOpt RPAREN Term'
+  - Match terminal 'RANGE'
+  - Match terminal 'LPAREN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Match terminal 'COMMA'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand RangeStepOpt -> epsilon
+  - Match terminal 'RPAREN'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Panic pop: terminal mismatch, pop 'COLON' while seeing 'NEWLINE'
+  - Expand ForBody -> NEWLINE INDENT StmtList DEDENT
+  - Match terminal 'NEWLINE'
+  - Match terminal 'INDENT'
+  - Expand StmtList -> IDENT AssignOp Expr StmtTail
+  - Match terminal 'IDENT'
+  - Expand AssignOp -> PLUS_ASSIGN
+  - Match terminal 'PLUS_ASSIGN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> IDENT Term'
+  - Match terminal 'IDENT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> PRINT LPAREN Expr RPAREN StmtTail
+  - Match terminal 'PRINT'
+  - Match terminal 'LPAREN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> IDENT Term'
+  - Match terminal 'IDENT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Panic pop: terminal mismatch, pop 'RPAREN' while seeing 'NEWLINE'
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> epsilon
+  - Match terminal 'DEDENT'
+  - Expand StmtTail -> PRINT LPAREN Expr RPAREN StmtTail
+  - Match terminal 'PRINT'
+  - Match terminal 'LPAREN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> IDENT Term'
+  - Match terminal 'IDENT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Match terminal 'RPAREN'
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> IF Expr COLON NEWLINE INDENT StmtList DEDENT ElseOpt StmtTail
+  - Match terminal 'IF'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> BOOL Term'
+  - Match terminal 'BOOL'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Panic pop: terminal mismatch, pop 'COLON' while seeing 'NEWLINE'
+  - Match terminal 'NEWLINE'
+  - Match terminal 'INDENT'
+  - Expand StmtList -> PRINT LPAREN Expr RPAREN StmtTail
+  - Match terminal 'PRINT'
+  - Match terminal 'LPAREN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> IDENT Term'
+  - Match terminal 'IDENT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Match terminal 'RPAREN'
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> epsilon
+  - Match terminal 'DEDENT'
+  - Expand ElseOpt -> ELSE COLON NEWLINE INDENT StmtList DEDENT
+  - Match terminal 'ELSE'
+  - Match terminal 'COLON'
+  - Match terminal 'NEWLINE'
+  - Match terminal 'INDENT'
+  - Expand StmtList -> PRINT LPAREN Expr RPAREN StmtTail
+  - Match terminal 'PRINT'
+  - Match terminal 'LPAREN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Match terminal 'RPAREN'
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> epsilon
+  - Match terminal 'DEDENT'
+  - Expand StmtTail -> IDENT AssignOp Expr StmtTail
+  - Match terminal 'IDENT'
+  - Expand AssignOp -> PLUS_ASSIGN
+  - Match terminal 'PLUS_ASSIGN'
+  - Panic pop: pop non-terminal 'Expr' on lookahead 'NEWLINE'
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> epsilon
+  - ACCEPT

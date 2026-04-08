@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="744" height="260" viewBox="0 0 744 260">
+  <rect x="0" y="0" width="100%" height="100%" fill="#f8fafc"/>
+  <text x="10" y="28" font-family="Consolas, monospace" font-size="18" font-weight="700" fill="#0f172a">Symbol Table</text>
+  <rect x="10" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <text x="20" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Name</text>
+  <rect x="130" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <text x="140" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Type</text>
+  <rect x="250" y="44" width="484" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <text x="260" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Value</text>
+  <rect x="10" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">cnt</text>
+  <rect x="130" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="140" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">int</text>
+  <rect x="250" y="72" width="484" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="260" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Identifier(i)</text>
+  <rect x="10" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">flag</text>
+  <rect x="130" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="140" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">bool</text>
+  <rect x="250" y="100" width="484" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="260" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">BoolLiteral(true)</text>
+  <rect x="10" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">name</text>
+  <rect x="130" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="140" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">str</text>
+  <rect x="250" y="128" width="484" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="260" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">StringLiteral(&quot;codex&quot;)</text>
+  <rect x="10" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">nums</text>
+  <rect x="130" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="140" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">list</text>
+  <rect x="250" y="156" width="484" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="260" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ListLiteral([IntLiteral(1), IntLiteral(2), IntLiteral(3)])</text>
+  <rect x="10" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">x</text>
+  <rect x="130" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="140" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">int</text>
+  <rect x="250" y="184" width="484" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="260" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IntLiteral(5)</text>
+  <rect x="10" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">y</text>
+  <rect x="130" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="140" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">float</text>
+  <rect x="250" y="212" width="484" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="260" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IntLiteral(1)</text>
+</svg>
