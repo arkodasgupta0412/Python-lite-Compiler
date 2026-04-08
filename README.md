@@ -40,7 +40,6 @@ There are two parser passes:
 
 So for an invalid file, you may see multiple panic recoveries in reports, but only one strict parse error message in console.
 
-```
 
 ## Design (modular boundaries)
 
