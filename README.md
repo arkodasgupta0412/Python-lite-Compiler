@@ -19,19 +19,7 @@ Conditional support includes:
 
 Symbol table uses lexical scopes with shadowing (`enterScope` / `exitScope`).
 
-## Build and run
 
-```bash
-cmake -S . -B build
-cmake --build build
-./build/cd_frontend
-```
-
-With a custom source file:
-
-```bash
-./build/cd_frontend path/to/file.cd
-```
 
 ## Panic-Mode Recovery (LL(1))
 
@@ -52,19 +40,6 @@ There are two parser passes:
 
 So for an invalid file, you may see multiple panic recoveries in reports, but only one strict parse error message in console.
 
-### Panic-mode test sample
-
-Use `examples/sample_program_panic_mode.cd` (intentionally contains syntax errors):
-
-```bash
-./build/cd_frontend examples/sample_program_panic_mode.cd
-```
-
-Windows CMD example:
-
-```cmd
-cd /d "C:\Users\Aneek\Downloads\CD project_Arjeesh"
-"CD project\cd_frontend.exe" "CD project\examples\sample_program_panic_mode.cd"
 ```
 
 ## Design (modular boundaries)
@@ -84,5 +59,12 @@ cd /d "C:\Users\Aneek\Downloads\CD project_Arjeesh"
 To change symbol-table implementation, modify only `src/compiler/symbol_table.cpp` or add a new `ISymbolTable` implementation and swap construction in `src/compiler/pipeline.cpp`.
 
 
-Run Command
-Set-Location "C:\Users\Nabasree\Downloads\CD project_Arjeesh"; $env:Path="C:\msys64\ucrt64\bin;$env:Path"; & ".\CD project\cd_frontend.exe" ".\CD project\examples\sample_program_panic_mode.cd"
+Run Commands:
+Make sure you are at the root directory of the project
+
+- Compilation:
+```g++ -std=gnu++17 -Iinclude src/main.cpp src/compiler/*.cpp -o cd_frontend.exe```
+- Execution: 
+```./cd_frontend.exe examples/sample_program.cd```
+
+Other programs in ```examples/``` directory can be tested out as well.
