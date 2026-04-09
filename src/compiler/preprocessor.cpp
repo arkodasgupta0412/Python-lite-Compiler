@@ -7,6 +7,8 @@ std::string Preprocessor::run(const std::string& source) const {
 
     bool inSingle = false;
     bool inDouble = false;
+    bool inTripleSingle = false;
+    bool inTripleDouble = false;
     bool inLineComment = false;
     bool inBlockComment = false;
     bool escaping = false;
@@ -14,6 +16,7 @@ std::string Preprocessor::run(const std::string& source) const {
     for (std::size_t i = 0; i < out.size(); ++i) {
         char cur = out[i];
         char nxt = (i + 1 < out.size()) ? out[i + 1] : '\0';
+        char nxt2 = (i + 2 < out.size()) ? out[i + 2] : '\0';
 
         if (inLineComment) {
             if (cur == '\n') {
@@ -36,6 +39,32 @@ std::string Preprocessor::run(const std::string& source) const {
             continue;
         }
 
+        if (inTripleSingle) {
+            if (cur == '\'' && nxt == '\'' && nxt2 == '\'') {
+                out[i] = ' ';
+                out[i + 1] = ' ';
+                out[i + 2] = ' ';
+                i += 2;
+                inTripleSingle = false;
+            } else if (cur != '\n') {
+                out[i] = ' ';
+            }
+            continue;
+        }
+
+        if (inTripleDouble) {
+            if (cur == '"' && nxt == '"' && nxt2 == '"') {
+                out[i] = ' ';
+                out[i + 1] = ' ';
+                out[i + 2] = ' ';
+                i += 2;
+                inTripleDouble = false;
+            } else if (cur != '\n') {
+                out[i] = ' ';
+            }
+            continue;
+        }
+
         if (inSingle || inDouble) {
             if (escaping) {
                 escaping = false;
@@ -50,6 +79,24 @@ std::string Preprocessor::run(const std::string& source) const {
             } else if (inDouble && cur == '"') {
                 inDouble = false;
             }
+            continue;
+        }
+
+        if (cur == '\'' && nxt == '\'' && nxt2 == '\'') {
+            out[i] = ' ';
+            out[i + 1] = ' ';
+            out[i + 2] = ' ';
+            i += 2;
+            inTripleSingle = true;
+            continue;
+        }
+
+        if (cur == '"' && nxt == '"' && nxt2 == '"') {
+            out[i] = ' ';
+            out[i + 1] = ' ';
+            out[i + 2] = ' ';
+            i += 2;
+            inTripleDouble = true;
             continue;
         }
 
