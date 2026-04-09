@@ -1,5 +1,7 @@
 #include "compiler/parser.hpp"
 
+#include <sstream>
+
 namespace cd {
 
 Program TopDownParser::parse() {
@@ -17,9 +19,7 @@ std::unique_ptr<Statement> TopDownParser::statement() {
   if (matchKeyword("for")) return forStatement();
   if (matchKeyword("if")) return ifStatement();
   if (check(TokenType::IDENTIFIER)) return assignmentStatement();
-  const auto& t = peek();
-  throw ParseError("Unexpected token '" + t.lexeme + "' at line " + std::to_string(t.line) + ", column " +
-                   std::to_string(t.column));
+  throw errorExpected("Unexpected token while parsing statement", {"print", "for", "if", "IDENT"}, "Stmt");
 }
 
 std::unique_ptr<Statement> TopDownParser::printStatement() {
@@ -79,9 +79,7 @@ std::unique_ptr<Statement> TopDownParser::assignmentStatement() {
   } else if (matchOperator("-=")) {
     op = "-=";
   } else {
-    const auto& t = peek();
-    throw ParseError("Expected assignment operator at line " + std::to_string(t.line) + ", column " +
-                     std::to_string(t.column));
+    throw errorExpected("Expected assignment operator", {"=", "+=", "-="}, "AssignStmt");
   }
   auto expr = expression();
   return std::make_unique<AssignmentStatement>(name.lexeme, op, std::move(expr));
@@ -149,9 +147,8 @@ std::unique_ptr<Expression> TopDownParser::primary() {
     consumePunctuator("]", "Expected ']' after list");
     return list;
   }
-  const auto& t = peek();
-  throw ParseError("Unexpected token '" + t.lexeme + "' at line " + std::to_string(t.line) + ", column " +
-                   std::to_string(t.column));
+  throw errorExpected("Unexpected token while parsing primary expression",
+                      {"INT", "FLOAT", "STRING", "BOOL", "IDENT", "range", "(", "["}, "Primary");
 }
 
 void TopDownParser::consumeSeparators() {
@@ -197,20 +194,17 @@ bool TopDownParser::matchPunctuator(const std::string& lexeme) {
 
 const Token& TopDownParser::consumeKeyword(const std::string& lexeme, const std::string& message) {
   if (checkKeyword(lexeme)) return advance();
-  const auto& t = peek();
-  throw ParseError(message + " at line " + std::to_string(t.line) + ", column " + std::to_string(t.column));
+  throw errorExpected(message, {lexeme}, "Keyword");
 }
 
 const Token& TopDownParser::consumeOperator(const std::string& lexeme, const std::string& message) {
   if (checkOperator(lexeme)) return advance();
-  const auto& t = peek();
-  throw ParseError(message + " at line " + std::to_string(t.line) + ", column " + std::to_string(t.column));
+  throw errorExpected(message, {lexeme}, "Operator");
 }
 
 const Token& TopDownParser::consumePunctuator(const std::string& lexeme, const std::string& message) {
   if (checkPunctuator(lexeme)) return advance();
-  const auto& t = peek();
-  throw ParseError(message + " at line " + std::to_string(t.line) + ", column " + std::to_string(t.column));
+  throw errorExpected(message, {lexeme}, "Punctuator");
 }
 
 bool TopDownParser::match(std::initializer_list<TokenType> types) {
@@ -225,8 +219,7 @@ bool TopDownParser::match(std::initializer_list<TokenType> types) {
 
 const Token& TopDownParser::consume(TokenType type, const std::string& message) {
   if (check(type)) return advance();
-  const auto& t = peek();
-  throw ParseError(message + " at line " + std::to_string(t.line) + ", column " + std::to_string(t.column));
+  throw errorExpected(message, {tokenTypeName(type)}, "Token");
 }
 
 bool TopDownParser::check(TokenType type) const {
@@ -242,5 +235,22 @@ const Token& TopDownParser::advance() {
 bool TopDownParser::isAtEnd() const { return peek().type == TokenType::ENDMARKER; }
 const Token& TopDownParser::peek() const { return tokens_[current_]; }
 const Token& TopDownParser::previous() const { return tokens_[current_ - 1]; }
+
+ParseError TopDownParser::errorExpected(const std::string& message,
+                                        const std::vector<std::string>& expected,
+                                        const std::string& context) const {
+  const auto& t = peek();
+  std::ostringstream out;
+  out << message << " at line " << t.line << ", column " << t.column << ". Found '" << t.lexeme << "'";
+  if (!expected.empty()) {
+    out << ". Expected one of: ";
+    for (std::size_t i = 0; i < expected.size(); ++i) {
+      out << expected[i];
+      if (i + 1 < expected.size()) out << ", ";
+    }
+  }
+  out << ". Context: " << context;
+  return ParseError(out.str(), t.line, t.column, t.lexeme, expected, context);
+}
 
 }  // namespace cd

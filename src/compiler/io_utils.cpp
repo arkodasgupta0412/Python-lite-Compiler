@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <iostream>
 #include <map>
+#include <regex>
 #include <set>
 #include <sstream>
 #include <stdexcept>
@@ -128,6 +129,22 @@ namespace cd
                     line << " ";
             }
             return line.str();
+        }
+
+        std::vector<std::string> splitLines(const std::string &source)
+        {
+            std::vector<std::string> lines;
+            std::istringstream in(source);
+            std::string line;
+            while (std::getline(in, line))
+            {
+                if (!line.empty() && line.back() == '\r')
+                    line.pop_back();
+                lines.push_back(line);
+            }
+            if (lines.empty())
+                lines.push_back("");
+            return lines;
         }
 
         void writeSVGTable(const std::string &path, const std::string &title,
@@ -381,6 +398,39 @@ namespace cd
 
     void OutputWriter::write(const std::string &text) const { std::cout << text << "\n"; }
 
+    bool OutputWriter::extractLineColumn(const std::string &message, int &line, int &column)
+    {
+        std::regex rgx("line\\s+([0-9]+),\\s*column\\s+([0-9]+)");
+        std::smatch match;
+        if (!std::regex_search(message, match, rgx) || match.size() < 3)
+            return false;
+        line = std::stoi(match[1]);
+        column = std::stoi(match[2]);
+        return true;
+    }
+
+    void OutputWriter::writeDiagnosticWithSnippet(const std::string &kind,
+                                                  const std::string &message,
+                                                  const std::string &source,
+                                                  int line,
+                                                  int column) const
+    {
+        std::cerr << kind << ": " << message << "\n";
+        if (line <= 0 || column <= 0)
+            return;
+
+        const auto lines = splitLines(source);
+        if (line > static_cast<int>(lines.size()))
+            return;
+
+        const std::string &srcLine = lines[static_cast<std::size_t>(line - 1)];
+        std::cerr << "  " << line << " | " << srcLine << "\n";
+        std::cerr << "    | ";
+        for (int i = 1; i < column; ++i)
+            std::cerr << ' ';
+        std::cerr << "^\n";
+    }
+
     void OutputWriter::writeParseTableReport(const std::string &path, const GrammarArtifacts &artifacts) const
     {
         std::filesystem::path outPath(path);
@@ -405,14 +455,16 @@ namespace cd
 
         out << "FIRST Sets\n";
         out << "----------\n";
-        for (const auto &[nonTerminal, setValues] : artifacts.first)
+        std::map<std::string, std::unordered_set<std::string>> sortedFirst(artifacts.first.begin(), artifacts.first.end());
+        for (const auto &[nonTerminal, setValues] : sortedFirst)
         {
             out << nonTerminal << " = { ";
+            std::set<std::string> ordered(setValues.begin(), setValues.end());
             std::size_t k = 0;
-            for (const auto &item : setValues)
+            for (const auto &item : ordered)
             {
                 out << item;
-                if (++k < setValues.size())
+                if (++k < ordered.size())
                     out << ", ";
             }
             out << " }\n";
@@ -421,26 +473,46 @@ namespace cd
 
         out << "FOLLOW Sets\n";
         out << "-----------\n";
-        for (const auto &[nonTerminal, setValues] : artifacts.follow)
+        std::map<std::string, std::unordered_set<std::string>> sortedFollow(artifacts.follow.begin(), artifacts.follow.end());
+        for (const auto &[nonTerminal, setValues] : sortedFollow)
         {
             out << nonTerminal << " = { ";
+            std::set<std::string> ordered(setValues.begin(), setValues.end());
             std::size_t k = 0;
-            for (const auto &item : setValues)
+            for (const auto &item : ordered)
             {
                 out << item;
-                if (++k < setValues.size())
+                if (++k < ordered.size())
                     out << ", ";
             }
             out << " }\n";
         }
         out << "\n";
 
+        out << "LL(1) Validation\n";
+        out << "---------------\n";
+        out << "Valid LL(1): " << (artifacts.ll1Validation.valid ? "yes" : "no") << "\n";
+        out << "FIRST/FIRST conflicts: " << artifacts.ll1Validation.firstFirstConflicts.size() << "\n";
+        for (const auto &conflict : artifacts.ll1Validation.firstFirstConflicts)
+        {
+            out << "  - " << conflict << "\n";
+        }
+        out << "FIRST/FOLLOW conflicts: " << artifacts.ll1Validation.firstFollowConflicts.size() << "\n";
+        for (const auto &conflict : artifacts.ll1Validation.firstFollowConflicts)
+        {
+            out << "  - " << conflict << "\n";
+        }
+        out << "\n";
+
         out << "LL(1) Parse Table\n";
         out << "-----------------\n";
-        for (const auto &[nonTerminal, row] : artifacts.parseTable)
+        std::map<std::string, std::unordered_map<std::string, std::vector<std::string>>> sortedTable(
+            artifacts.parseTable.begin(), artifacts.parseTable.end());
+        for (const auto &[nonTerminal, row] : sortedTable)
         {
             out << nonTerminal << ":\n";
-            for (const auto &[terminal, production] : row)
+            std::map<std::string, std::vector<std::string>> orderedRow(row.begin(), row.end());
+            for (const auto &[terminal, production] : orderedRow)
             {
                 out << "  M[" << nonTerminal << ", " << terminal << "] = " << joinProduction(production) << "\n";
             }
@@ -451,6 +523,22 @@ namespace cd
         out << "------------------------------------\n";
         out << "Accepted without recovery errors: " << (artifacts.ll1PanicParse.accepted ? "yes" : "no") << "\n";
         out << "Recovered errors: " << artifacts.ll1PanicParse.errorsRecovered << "\n";
+        std::size_t popTerminal = 0;
+        std::size_t popNonTerminal = 0;
+        std::size_t scanDiscard = 0;
+        for (const auto &action : artifacts.ll1PanicParse.actionLog)
+        {
+            if (action.find("Panic pop: terminal mismatch") == 0)
+                ++popTerminal;
+            else if (action.find("Panic pop: pop non-terminal") == 0)
+                ++popNonTerminal;
+            else if (action.find("Panic scan:") == 0)
+                ++scanDiscard;
+        }
+        out << "Category summary:\n";
+        out << "  - Panic pop (terminal mismatch): " << popTerminal << "\n";
+        out << "  - Panic pop (sync non-terminal): " << popNonTerminal << "\n";
+        out << "  - Panic scan (discard token): " << scanDiscard << "\n";
         out << "Actions:\n";
         if (artifacts.ll1PanicParse.actionLog.empty())
         {
@@ -524,6 +612,22 @@ namespace cd
         std::vector<std::vector<std::string>> rows;
         rows.push_back({"Accepted without recovery errors", panicResult.accepted ? "yes" : "no"});
         rows.push_back({"Recovered errors", std::to_string(panicResult.errorsRecovered)});
+
+        std::size_t popTerminal = 0;
+        std::size_t popNonTerminal = 0;
+        std::size_t scanDiscard = 0;
+        for (const auto &action : panicResult.actionLog)
+        {
+            if (action.find("Panic pop: terminal mismatch") == 0)
+                ++popTerminal;
+            else if (action.find("Panic pop: pop non-terminal") == 0)
+                ++popNonTerminal;
+            else if (action.find("Panic scan:") == 0)
+                ++scanDiscard;
+        }
+        rows.push_back({"Panic pop (terminal mismatch)", std::to_string(popTerminal)});
+        rows.push_back({"Panic pop (sync non-terminal)", std::to_string(popNonTerminal)});
+        rows.push_back({"Panic scan (discard token)", std::to_string(scanDiscard)});
 
         if (panicResult.actionLog.empty())
         {

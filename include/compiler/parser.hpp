@@ -10,7 +10,31 @@ namespace cd {
 
 class ParseError : public std::runtime_error {
  public:
-  explicit ParseError(const std::string& msg) : std::runtime_error(msg) {}
+  ParseError(std::string msg,
+             int line = -1,
+             int column = -1,
+             std::string foundLexeme = "",
+             std::vector<std::string> expected = {},
+             std::string context = "")
+      : std::runtime_error(std::move(msg)),
+        line_(line),
+        column_(column),
+        foundLexeme_(std::move(foundLexeme)),
+        expected_(std::move(expected)),
+        context_(std::move(context)) {}
+
+  int line() const { return line_; }
+  int column() const { return column_; }
+  const std::string& foundLexeme() const { return foundLexeme_; }
+  const std::vector<std::string>& expected() const { return expected_; }
+  const std::string& context() const { return context_; }
+
+ private:
+  int line_;
+  int column_;
+  std::string foundLexeme_;
+  std::vector<std::string> expected_;
+  std::string context_;
 };
 
 class TopDownParser {
@@ -51,6 +75,9 @@ class TopDownParser {
   bool isAtEnd() const;
   const Token& peek() const;
   const Token& previous() const;
+  ParseError errorExpected(const std::string& message,
+                           const std::vector<std::string>& expected,
+                           const std::string& context) const;
 };
 
 }  // namespace cd

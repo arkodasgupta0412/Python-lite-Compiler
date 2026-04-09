@@ -1,6 +1,7 @@
 #include "compiler/grammar_tools.hpp"
 
 #include <algorithm>
+#include <set>
 #include <sstream>
 
 namespace {
@@ -35,14 +36,138 @@ std::string productionToString(const std::vector<std::string>& production) {
   return out.str();
 }
 
+std::vector<std::string> sortedNonTerminals(const cd::GrammarMap& grammar) {
+  std::vector<std::string> nts;
+  nts.reserve(grammar.size());
+  for (const auto& [k, _] : grammar) nts.push_back(k);
+  std::sort(nts.begin(), nts.end());
+  return nts;
+}
+
+std::set<std::string> sortedSetNoEpsilon(const std::unordered_set<std::string>& values) {
+  std::set<std::string> out;
+  for (const auto& s : values) {
+    if (s != cd::EPSILON) out.insert(s);
+  }
+  return out;
+}
+
+std::unordered_set<std::string> firstOfSequenceLocal(const std::vector<std::string>& sequence,
+                                                     const cd::GrammarMap& grammar,
+                                                     const cd::SetMap& first) {
+  auto isNonTerminal = [&grammar](const std::string& symbol) { return grammar.find(symbol) != grammar.end(); };
+
+  std::unordered_set<std::string> result;
+  if (sequence.empty()) return {cd::EPSILON};
+
+  for (const auto& symbol : sequence) {
+    if (symbol == cd::EPSILON) {
+      result.insert(cd::EPSILON);
+      break;
+    }
+    if (!isNonTerminal(symbol)) {
+      result.insert(symbol);
+      break;
+    }
+    const auto& firstSet = first.at(symbol);
+    for (const auto& s : firstSet) {
+      if (s != cd::EPSILON) result.insert(s);
+    }
+    if (firstSet.find(cd::EPSILON) == firstSet.end()) break;
+  }
+
+  bool allNullable = true;
+  for (const auto& symbol : sequence) {
+    if (symbol == cd::EPSILON) continue;
+    if (!isNonTerminal(symbol) || first.at(symbol).find(cd::EPSILON) == first.at(symbol).end()) {
+      allNullable = false;
+      break;
+    }
+  }
+  if (allNullable) result.insert(cd::EPSILON);
+  return result;
+}
+
+std::string joinSorted(const std::set<std::string>& values) {
+  std::ostringstream out;
+  bool first = true;
+  for (const auto& v : values) {
+    if (!first) out << ", ";
+    out << v;
+    first = false;
+  }
+  return out.str();
+}
+
+cd::LL1ValidationResult validateLL1(const cd::GrammarMap& grammar,
+                                    const cd::SetMap& first,
+                                    const cd::SetMap& follow) {
+  cd::LL1ValidationResult result;
+
+  auto nts = sortedNonTerminals(grammar);
+  for (const auto& nt : nts) {
+    const auto gIt = grammar.find(nt);
+    if (gIt == grammar.end()) continue;
+    const auto& prods = gIt->second;
+
+    std::vector<std::unordered_set<std::string>> seqFirst;
+    seqFirst.reserve(prods.size());
+    for (const auto& p : prods) {
+      seqFirst.push_back(firstOfSequenceLocal(p, grammar, first));
+    }
+
+    for (std::size_t i = 0; i < prods.size(); ++i) {
+      for (std::size_t j = i + 1; j < prods.size(); ++j) {
+        auto lhs = sortedSetNoEpsilon(seqFirst[i]);
+        auto rhs = sortedSetNoEpsilon(seqFirst[j]);
+        std::set<std::string> inter;
+        std::set_intersection(lhs.begin(), lhs.end(), rhs.begin(), rhs.end(), std::inserter(inter, inter.begin()));
+        if (!inter.empty()) {
+          result.valid = false;
+          result.firstFirstConflicts.push_back(
+              "FIRST/FIRST conflict for " + nt + " between productions [" + productionToString(prods[i]) +
+              "] and [" + productionToString(prods[j]) + "] on {" + joinSorted(inter) + "}");
+        }
+      }
+    }
+
+    for (std::size_t i = 0; i < prods.size(); ++i) {
+      if (seqFirst[i].find(cd::EPSILON) == seqFirst[i].end()) continue;
+
+      std::set<std::string> unionOthers;
+      for (std::size_t j = 0; j < prods.size(); ++j) {
+        if (i == j) continue;
+        auto other = sortedSetNoEpsilon(seqFirst[j]);
+        unionOthers.insert(other.begin(), other.end());
+      }
+
+      std::set<std::string> followSet;
+      const auto fIt = follow.find(nt);
+      if (fIt != follow.end()) {
+        followSet.insert(fIt->second.begin(), fIt->second.end());
+      }
+
+      std::set<std::string> inter;
+      std::set_intersection(unionOthers.begin(), unionOthers.end(), followSet.begin(), followSet.end(),
+                            std::inserter(inter, inter.begin()));
+      if (!inter.empty()) {
+        result.valid = false;
+        result.firstFollowConflicts.push_back(
+            "FIRST/FOLLOW conflict for nullable production " + nt + " -> [" + productionToString(prods[i]) +
+            "] on {" + joinSorted(inter) + "}");
+      }
+    }
+  }
+
+  return result;
+}
+
 }  // namespace
 
 namespace cd {
 
 GrammarMap GrammarTransformer::removeLeftRecursion() {
-  std::vector<std::string> nts;
-  nts.reserve(grammar_.size());
-  for (const auto& [k, _] : grammar_) nts.push_back(k);
+  auto nts = sortedNonTerminals(grammar_);
 
   for (std::size_t i = 0; i < nts.size(); ++i) {
     const auto& ai = nts[i];
@@ -53,8 +178,14 @@ GrammarMap GrammarTransformer::removeLeftRecursion() {
         if (!prod.empty() && prod[0] == aj) {
           std::vector<std::string> suffix(prod.begin() + 1, prod.end());
           for (const auto& beta : grammar_[aj]) {
-            auto merged = beta;
-            merged.insert(merged.end(), suffix.begin(), suffix.end());
+            std::vector<std::string> merged;
+            if (beta.size() == 1 && beta[0] == EPSILON) {
+              merged = suffix;
+            } else {
+              merged = beta;
+              merged.insert(merged.end(), suffix.begin(), suffix.end());
+            }
+            if (merged.empty()) merged.push_back(EPSILON);
             replaced.push_back(std::move(merged));
           }
         } else {
@@ -79,8 +210,14 @@ GrammarMap GrammarTransformer::removeLeftRecursion() {
 
     std::vector<std::vector<std::string>> aiProds;
     for (auto& b : beta) {
-      b.push_back(aiDash);
-      aiProds.push_back(b);
+      std::vector<std::string> transformed;
+      if (b.size() == 1 && b[0] == EPSILON) {
+        transformed.push_back(aiDash);
+      } else {
+        transformed = b;
+        transformed.push_back(aiDash);
+      }
+      aiProds.push_back(std::move(transformed));
     }
     grammar_[ai] = aiProds;
 
@@ -99,7 +236,9 @@ GrammarMap GrammarTransformer::leftFactor() {
   bool changed = true;
   while (changed) {
     changed = false;
-    for (const auto& [nt, prods] : grammar_) {
+    const auto nts = sortedNonTerminals(grammar_);
+    for (const auto& nt : nts) {
+      const auto& prods = grammar_[nt];
       std::unordered_map<std::string, std::vector<std::vector<std::string>>> groups;
       for (const auto& p : prods) {
         std::string key = p.empty() ? EPSILON : p[0];
@@ -107,7 +246,13 @@ GrammarMap GrammarTransformer::leftFactor() {
       }
 
       std::vector<std::vector<std::string>> factorGroup;
-      for (const auto& [key, grouped] : groups) {
+      std::vector<std::string> groupKeys;
+      groupKeys.reserve(groups.size());
+      for (const auto& [key, _] : groups) groupKeys.push_back(key);
+      std::sort(groupKeys.begin(), groupKeys.end());
+
+      for (const auto& key : groupKeys) {
+        const auto& grouped = groups[key];
         if (key != EPSILON && grouped.size() > 1) {
           factorGroup = grouped;
           break;
@@ -184,6 +329,7 @@ std::unordered_set<std::string> FirstFollowAnalyzer::firstOfSequence(const std::
   }
   bool allNullable = true;
   for (const auto& symbol : sequence) {
+    if (symbol == EPSILON) continue;
     if (!isNonTerminal(symbol) || first.at(symbol).find(EPSILON) == first.at(symbol).end()) {
       allNullable = false;
       break;
@@ -224,6 +370,7 @@ SetMap FirstFollowAnalyzer::computeFollow(const SetMap& first) const {
         std::unordered_set<std::string> trailer = follow[lhs];
         for (auto it = p.rbegin(); it != p.rend(); ++it) {
           const auto& symbol = *it;
+          if (symbol == EPSILON) continue;
           if (isNonTerminal(symbol)) {
             auto before = follow[symbol].size();
             follow[symbol].insert(trailer.begin(), trailer.end());
@@ -285,7 +432,8 @@ GrammarArtifacts analyzeCFG(const CFGDefinition& cfg) {
   auto first = analyzer.computeFirst();
   auto follow = analyzer.computeFollow(first);
   auto [parseTable, conflicts] = analyzer.buildParseTable(first, follow);
-  return GrammarArtifacts{factored, first, follow, parseTable, conflicts, {}};
+  auto ll1Validation = validateLL1(factored, first, follow);
+  return GrammarArtifacts{factored, first, follow, parseTable, conflicts, ll1Validation, {}};
 }
 
 LL1PanicParseResult parseLL1WithPanicMode(const std::vector<Token>& tokens,

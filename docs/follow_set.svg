@@ -56,7 +56,7 @@
   <rect x="10" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Primary</text>
   <rect x="130" y="408" width="572" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">{  }</text>
+  <text x="140" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">{ :, ,, &lt;DEDENT&gt;, $, for, IDENT, if, -, \n, +, print, ], ), ;, /, * }</text>
   <rect x="10" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PrintStmt</text>
   <rect x="130" y="436" width="572" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
@@ -68,7 +68,7 @@
   <rect x="10" y="492" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RangeCall</text>
   <rect x="130" y="492" width="572" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">{  }</text>
+  <text x="140" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">{ :, ,, &lt;DEDENT&gt;, $, for, IDENT, if, -, \n, +, print, ], ), ;, /, * }</text>
   <rect x="10" y="520" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RangeStepOpt</text>
   <rect x="130" y="520" width="572" height="28" fill="#ffffff" stroke="#cbd5e1"/>
@@ -84,7 +84,7 @@
   <rect x="10" y="604" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">StmtList</text>
   <rect x="130" y="604" width="572" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">{ &lt;DEDENT&gt; }</text>
+  <text x="140" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">{ &lt;DEDENT&gt;, $ }</text>
   <rect x="10" y="632" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">StmtTail</text>
   <rect x="130" y="632" width="572" height="28" fill="#ffffff" stroke="#cbd5e1"/>
