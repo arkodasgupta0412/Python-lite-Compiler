@@ -306,7 +306,7 @@ LL1PanicParseResult parseLL1WithPanicMode(const std::vector<Token>& tokens,
 
   auto lookahead = [&tokens, &index]() -> std::string {
     if (index >= tokens.size()) return "EOF";
-    return tokenTypeName(tokens[index].type);
+    return tokenGrammarSymbol(tokens[index]);
   };
 
   while (!stack.empty() && steps++ < maxSteps) {
