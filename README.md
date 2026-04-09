@@ -20,6 +20,20 @@ Conditional support includes:
 Symbol table uses lexical scopes with shadowing (`enterScope` / `exitScope`).
 
 
+## Recent Semantic + Symbol Table Behavior
+
+- Symbol table outputs are environment-tree aware:
+  - `docs/symbol_table.txt` now prints per-scope sections (`Global Scope`, `Scope Depth N (Child K)`).
+  - `docs/symbol_table.svg` includes a `Scope` column and preserves sibling scopes without flattening.
+- Semantic analysis is non-aborting:
+  - semantic errors are reported, but symbol-table and AST artifacts are still produced when strict parse succeeds.
+  - unresolved identifiers are tracked through poison/error typing so later expressions can continue analysis.
+- Assignment rule for `name = expr`:
+  - if `name` already resolves in scope chain, it is treated as assignment and type-checked only.
+  - existing symbol declaration metadata is not overwritten.
+  - if `name` does not resolve, it is declared in the current scope.
+
+
 
 ## Panic-Mode Recovery (LL(1))
 
