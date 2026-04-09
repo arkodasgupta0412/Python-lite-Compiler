@@ -767,5 +767,127 @@ namespace cd
         int code = std::system(command.c_str());
         return code == 0;
     }
+    rows.push_back({nt, rhs.str()});
+  }
 
-} // namespace cd
+  writeSVGTable(path, "Grammar Rules (Raw CFG, Start=" + cfg.startSymbol + ")", {"Non-Terminal", "Production"}, rows);
+}
+
+void OutputWriter::writeTokenStreamReport(const std::string& path, const std::vector<Token>& tokens) const {
+  std::filesystem::path outPath(path);
+  if (outPath.has_parent_path()) {
+    std::filesystem::create_directories(outPath.parent_path());
+  }
+
+  std::ofstream out(path);
+  if (!out) throw std::runtime_error("Failed to write token report: " + path);
+  out << "Token Stream\n";
+  out << "============\n\n";
+  out << std::left << std::setw(16) << "Type" << std::setw(16) << "Lexeme" << std::setw(8) << "Line"
+      << std::setw(8) << "Col" << "\n";
+  out << std::string(48, '-') << "\n";
+
+  for (const auto& token : tokens) {
+    out << std::left << std::setw(16) << tokenTypeName(token.type) << std::setw(16) << token.lexeme << std::setw(8)
+        << token.line << std::setw(8) << token.column << "\n";
+  }
+}
+
+void OutputWriter::writeSymbolTableReport(const std::string& path,
+                                          const std::vector<ScopeSnapshot>& symbolSnapshot) const {
+  std::filesystem::path outPath(path);
+  if (outPath.has_parent_path()) {
+    std::filesystem::create_directories(outPath.parent_path());
+  }
+
+  std::ofstream out(path);
+  if (!out) throw std::runtime_error("Failed to write symbol table report: " + path);
+  out << "Symbol Table (Environment Tree)\n";
+  out << "===============================\n\n";
+
+  for (const auto& scope : symbolSnapshot) {
+    if (scope.depth == 0) {
+      out << "=== Global Scope ===\n";
+    } else {
+      out << "=== Scope Depth " << scope.depth << " (Child " << scope.childIndex << ") ===\n";
+    }
+
+    out << std::left << std::setw(20) << "Name" << std::setw(18) << "Type" << std::setw(12) << "Kind"
+        << std::setw(8) << "Line" << std::setw(8) << "Col" << "Offset\n";
+    out << std::string(86, '-') << "\n";
+
+    if (scope.locals.empty()) {
+      out << "(no symbols)\n\n";
+      continue;
+    }
+
+    for (const auto& symbol : scope.locals) {
+      const std::string name = (symbol.name == nullptr) ? "<null>" : *symbol.name;
+      out << std::left << std::setw(20) << name << std::setw(18) << typeDebugName(symbol.type) << std::setw(12)
+          << symbolKindName(symbol.kind) << std::setw(8) << symbol.line << std::setw(8) << symbol.column
+          << symbol.memoryOffset << "\n";
+    }
+    out << "\n";
+  }
+}
+
+void OutputWriter::writeTokenStreamImage(const std::string& path, const std::vector<Token>& tokens) const {
+  std::vector<std::vector<std::string>> rows;
+  rows.reserve(tokens.size());
+  for (const auto& token : tokens) {
+    rows.push_back({tokenTypeName(token.type), token.lexeme, std::to_string(token.line), std::to_string(token.column)});
+  }
+  writeSVGTable(path, "Token Stream", {"Type", "Lexeme", "Line", "Column"}, rows);
+}
+
+void OutputWriter::writeSymbolTableImage(const std::string& path,
+                                         const std::vector<ScopeSnapshot>& symbolSnapshot) const {
+
+  std::vector<std::vector<std::string>> rows;
+  for (const auto& scope : symbolSnapshot) {
+    const std::string scopeLabel = (scope.depth == 0)
+                                       ? "Global"
+                                       : ("Depth " + std::to_string(scope.depth) + " / Child " +
+                                          std::to_string(scope.childIndex));
+
+    if (scope.locals.empty()) {
+      rows.push_back({scopeLabel, "(no symbols)", "", "", "", "", ""});
+      continue;
+    }
+
+    for (const auto& symbol : scope.locals) {
+      rows.push_back({scopeLabel,
+                      (symbol.name == nullptr) ? "<null>" : *symbol.name,
+                      typeDebugName(symbol.type),
+                      symbolKindName(symbol.kind),
+                      std::to_string(symbol.line),
+                      std::to_string(symbol.column),
+                      std::to_string(symbol.memoryOffset)});
+    }
+  }
+
+  writeSVGTable(path, "Symbol Table (Environment Tree)", {"Scope", "Name", "Type", "Kind", "Line", "Col", "Offset"}, rows);
+}
+
+void OutputWriter::writeASTDot(const std::string& path, const Program& program) const {
+  std::filesystem::path outPath(path);
+  if (outPath.has_parent_path()) {
+    std::filesystem::create_directories(outPath.parent_path());
+  }
+  ASTDotBuilder builder;
+  std::ofstream out(path);
+  if (!out) throw std::runtime_error("Failed to write AST dot file: " + path);
+  out << builder.build(program);
+}
+
+bool OutputWriter::renderDotToSvg(const std::string& dotPath, const std::string& svgPath) const {
+  std::filesystem::path outPath(svgPath);
+  if (outPath.has_parent_path()) {
+    std::filesystem::create_directories(outPath.parent_path());
+  }
+  std::string command = "dot -Tsvg \"" + dotPath + "\" -o \"" + svgPath + "\"";
+  int code = std::system(command.c_str());
+  return code == 0;
+}
+
+}  // namespace cd

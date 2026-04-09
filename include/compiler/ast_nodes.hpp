@@ -42,7 +42,10 @@ struct BoolLiteral final : public Expression {
 
 struct Identifier final : public Expression {
   std::string name;
-  explicit Identifier(std::string n) : name(std::move(n)) {}
+  int line{0};
+  int column{0};
+  explicit Identifier(std::string n, int lineNo = 0, int columnNo = 0)
+      : name(std::move(n)), line(lineNo), column(columnNo) {}
   std::string repr() const override;
 };
 
@@ -79,7 +82,10 @@ struct AssignmentStatement final : public Statement {
   std::string name;
   std::string op;
   std::unique_ptr<Expression> expression;
-  AssignmentStatement(std::string n, std::string oper, std::unique_ptr<Expression> expr);
+  int line{0};
+  int column{0};
+  AssignmentStatement(std::string n, std::string oper, std::unique_ptr<Expression> expr, int lineNo = 0,
+                      int columnNo = 0);
 };
 
 struct PrintStatement final : public Statement {
@@ -95,7 +101,10 @@ struct ForStatement final : public Statement {
   std::string loopVar;
   std::unique_ptr<Expression> iterable;
   std::unique_ptr<Statement> body;
-  ForStatement(std::string var, std::unique_ptr<Expression> iter, std::unique_ptr<Statement> stmt);
+  int loopVarLine{0};
+  int loopVarColumn{0};
+  ForStatement(std::string var, std::unique_ptr<Expression> iter, std::unique_ptr<Statement> stmt,
+               int lineNo = 0, int columnNo = 0);
 };
 
 struct IfStatement final : public Statement {

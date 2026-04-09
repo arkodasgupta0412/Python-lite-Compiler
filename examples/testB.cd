@@ -1,0 +1,23 @@
+x = 100
+y = "global_y"
+
+if true:
+    # Inner scope 1
+    x = 50 
+    z = 10
+    print(x)
+    print(z)
+
+for i in range(0, 3):
+    # Inner scope 2
+    y = "local_y" 
+    print(y)
+    print(i)
+
+# Back in Global Scope.
+print(x)
+print(y)
+
+# ERROR TRIGGER: 'z' and 'i' are out of scope. 
+# This should trigger an undeclared identifier error.
+print(z)

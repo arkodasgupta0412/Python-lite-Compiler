@@ -35,10 +35,10 @@ std::unique_ptr<Statement> TopDownParser::forStatement() {
   auto iter = expression();
   consumePunctuator(":", "Expected ':' after iterable");
   if (match({TokenType::NEWLINE})) {
-    return std::make_unique<ForStatement>(name.lexeme, std::move(iter), blockStatement());
+    return std::make_unique<ForStatement>(name.lexeme, std::move(iter), blockStatement(), name.line, name.column);
   }
   auto body = statement();
-  return std::make_unique<ForStatement>(name.lexeme, std::move(iter), std::move(body));
+  return std::make_unique<ForStatement>(name.lexeme, std::move(iter), std::move(body), name.line, name.column);
 }
 
 std::unique_ptr<Statement> TopDownParser::ifStatement() {
@@ -82,7 +82,7 @@ std::unique_ptr<Statement> TopDownParser::assignmentStatement() {
     throw errorExpected("Expected assignment operator", {"=", "+=", "-="}, "AssignStmt");
   }
   auto expr = expression();
-  return std::make_unique<AssignmentStatement>(name.lexeme, op, std::move(expr));
+  return std::make_unique<AssignmentStatement>(name.lexeme, op, std::move(expr), name.line, name.column);
 }
 
 std::unique_ptr<Expression> TopDownParser::expression() {

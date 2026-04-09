@@ -1,7 +1,1 @@
-Symbol Table
-============
-
-Name                Type        Value
-------------------------------------------------------------------------
-x                   int         IntLiteral(1)
-y                   int         IntLiteral(2)
+Symbol Table (Environment Tree)

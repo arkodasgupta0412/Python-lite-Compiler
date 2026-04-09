@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <unordered_map>
 #include <vector>
 
 #include "compiler/cfg.hpp"
@@ -31,11 +30,9 @@ class OutputWriter {
   void writePanicRecoveryImage(const std::string& path, const LL1PanicParseResult& panicResult) const;
   void writeGrammarRulesImage(const std::string& path, const CFGDefinition& cfg) const;
   void writeTokenStreamReport(const std::string& path, const std::vector<Token>& tokens) const;
-  void writeSymbolTableReport(const std::string& path,
-                              const std::unordered_map<std::string, SymbolRecord>& symbolSnapshot) const;
+  void writeSymbolTableReport(const std::string& path, const std::vector<ScopeSnapshot>& symbolSnapshot) const;
   void writeTokenStreamImage(const std::string& path, const std::vector<Token>& tokens) const;
-  void writeSymbolTableImage(const std::string& path,
-                             const std::unordered_map<std::string, SymbolRecord>& symbolSnapshot) const;
+  void writeSymbolTableImage(const std::string& path, const std::vector<ScopeSnapshot>& symbolSnapshot) const;
   void writeASTDot(const std::string& path, const Program& program) const;
   bool renderDotToSvg(const std::string& dotPath, const std::string& svgPath) const;
 };
