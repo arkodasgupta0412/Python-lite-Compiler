@@ -1,680 +1,1196 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="788" height="4796" viewBox="0 0 788 4796">
+<svg xmlns="http://www.w3.org/2000/svg" width="956" height="8408" viewBox="0 0 956 8408">
   <rect x="0" y="0" width="100%" height="100%" fill="#f8fafc"/>
   <text x="10" y="28" font-family="Consolas, monospace" font-size="18" font-weight="700" fill="#0f172a">LL(1) Panic-Mode Recovery (Pop/Scan)</text>
   <rect x="10" y="44" width="276" height="28" fill="#dbeafe" stroke="#94a3b8"/>
   <text x="20" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Step</text>
-  <rect x="286" y="44" width="492" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <rect x="286" y="44" width="660" height="28" fill="#dbeafe" stroke="#94a3b8"/>
   <text x="296" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Action</text>
   <rect x="10" y="72" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Accepted without recovery errors</text>
-  <rect x="286" y="72" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="286" y="72" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="296" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">yes</text>
   <rect x="10" y="100" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Recovered errors</text>
-  <rect x="286" y="100" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="286" y="100" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="296" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">0</text>
   <rect x="10" y="128" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
-  <rect x="286" y="128" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Program -&gt; IDENT AssignOp Expr StmtTail EOF</text>
+  <rect x="286" y="128" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Program -&gt; StmtList EOF</text>
   <rect x="10" y="156" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
-  <rect x="286" y="156" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="286" y="156" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtList -&gt; StmtTail</text>
   <rect x="10" y="184" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
-  <rect x="286" y="184" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
+  <rect x="286" y="184" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
   <rect x="10" y="212" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
-  <rect x="286" y="212" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
+  <rect x="286" y="212" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="240" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
-  <rect x="286" y="240" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="240" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
   <rect x="10" y="268" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
-  <rect x="286" y="268" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; LBRACKET ElementsOpt RBRACKET Term&apos;</text>
+  <rect x="286" y="268" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
   <rect x="10" y="296" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
-  <rect x="286" y="296" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LBRACKET&apos;</text>
+  <rect x="286" y="296" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="324" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
-  <rect x="286" y="324" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ElementsOpt -&gt; Expr MoreElements</text>
+  <rect x="286" y="324" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
   <rect x="10" y="352" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
-  <rect x="286" y="352" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="352" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
   <rect x="10" y="380" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
-  <rect x="286" y="380" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="380" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="408" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
-  <rect x="286" y="408" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="408" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="436" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
-  <rect x="286" y="436" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="436" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="464" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">13</text>
-  <rect x="286" y="464" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="464" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="492" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">14</text>
-  <rect x="286" y="492" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
+  <rect x="286" y="492" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
   <rect x="10" y="520" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">15</text>
-  <rect x="286" y="520" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
+  <rect x="286" y="520" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="548" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">16</text>
-  <rect x="286" y="548" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="548" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
   <rect x="10" y="576" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">17</text>
-  <rect x="286" y="576" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="576" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
   <rect x="10" y="604" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">18</text>
-  <rect x="286" y="604" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="604" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="632" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">19</text>
-  <rect x="286" y="632" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="632" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; FLOAT Term&apos;</text>
   <rect x="10" y="660" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">20</text>
-  <rect x="286" y="660" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="660" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;FLOAT&apos;</text>
   <rect x="10" y="688" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">21</text>
-  <rect x="286" y="688" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
+  <rect x="286" y="688" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="716" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">22</text>
-  <rect x="286" y="716" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
+  <rect x="286" y="716" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="744" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">23</text>
-  <rect x="286" y="744" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="744" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="772" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">24</text>
-  <rect x="286" y="772" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="772" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="800" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">25</text>
-  <rect x="286" y="800" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="800" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
   <rect x="10" y="828" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">26</text>
-  <rect x="286" y="828" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="828" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="856" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">27</text>
-  <rect x="286" y="856" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="856" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
   <rect x="10" y="884" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">28</text>
-  <rect x="286" y="884" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; epsilon</text>
+  <rect x="286" y="884" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
   <rect x="10" y="912" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">29</text>
-  <rect x="286" y="912" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RBRACKET&apos;</text>
+  <rect x="286" y="912" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="940" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">30</text>
-  <rect x="286" y="940" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="940" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; STRING Term&apos;</text>
   <rect x="10" y="968" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">31</text>
-  <rect x="286" y="968" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="968" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;STRING&apos;</text>
   <rect x="10" y="996" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">32</text>
-  <rect x="286" y="996" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="286" y="996" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="1024" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">33</text>
-  <rect x="286" y="1024" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="286" y="1024" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="1052" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">34</text>
-  <rect x="286" y="1052" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
+  <rect x="286" y="1052" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="1080" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">35</text>
-  <rect x="286" y="1080" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="286" y="1080" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="1108" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">36</text>
-  <rect x="286" y="1108" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
+  <rect x="286" y="1108" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
   <rect x="10" y="1136" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">37</text>
-  <rect x="286" y="1136" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
+  <rect x="286" y="1136" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="1164" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">38</text>
-  <rect x="286" y="1164" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="1164" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
   <rect x="10" y="1192" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">39</text>
-  <rect x="286" y="1192" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; LBRACKET ElementsOpt RBRACKET Term&apos;</text>
+  <rect x="286" y="1192" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
   <rect x="10" y="1220" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">40</text>
-  <rect x="286" y="1220" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LBRACKET&apos;</text>
+  <rect x="286" y="1220" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="1248" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1266" font-family="Consolas, monospace" font-size="13" fill="#1e293b">41</text>
-  <rect x="286" y="1248" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1266" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ElementsOpt -&gt; Expr MoreElements</text>
+  <rect x="286" y="1248" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1266" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; BOOL Term&apos;</text>
   <rect x="10" y="1276" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">42</text>
-  <rect x="286" y="1276" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="1276" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;BOOL&apos;</text>
   <rect x="10" y="1304" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">43</text>
-  <rect x="286" y="1304" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="1304" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="1332" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">44</text>
-  <rect x="286" y="1332" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="1332" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="1360" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">45</text>
-  <rect x="286" y="1360" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="1360" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="1388" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">46</text>
-  <rect x="286" y="1388" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="1388" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="1416" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">47</text>
-  <rect x="286" y="1416" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
+  <rect x="286" y="1416" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
   <rect x="10" y="1444" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">48</text>
-  <rect x="286" y="1444" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
+  <rect x="286" y="1444" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="1472" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">49</text>
-  <rect x="286" y="1472" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="1472" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
   <rect x="10" y="1500" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">50</text>
-  <rect x="286" y="1500" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="1500" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
   <rect x="10" y="1528" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">51</text>
-  <rect x="286" y="1528" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="1528" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="1556" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1574" font-family="Consolas, monospace" font-size="13" fill="#1e293b">52</text>
-  <rect x="286" y="1556" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1574" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="1556" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1574" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; LBRACKET ElementsOpt RBRACKET Term&apos;</text>
   <rect x="10" y="1584" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1602" font-family="Consolas, monospace" font-size="13" fill="#1e293b">53</text>
-  <rect x="286" y="1584" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1602" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="1584" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1602" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LBRACKET&apos;</text>
   <rect x="10" y="1612" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1630" font-family="Consolas, monospace" font-size="13" fill="#1e293b">54</text>
-  <rect x="286" y="1612" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1630" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
+  <rect x="286" y="1612" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1630" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ElementsOpt -&gt; Expr MoreElements</text>
   <rect x="10" y="1640" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1658" font-family="Consolas, monospace" font-size="13" fill="#1e293b">55</text>
-  <rect x="286" y="1640" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1658" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
+  <rect x="286" y="1640" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1658" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="1668" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1686" font-family="Consolas, monospace" font-size="13" fill="#1e293b">56</text>
-  <rect x="286" y="1668" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1686" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="1668" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1686" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
   <rect x="10" y="1696" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1714" font-family="Consolas, monospace" font-size="13" fill="#1e293b">57</text>
-  <rect x="286" y="1696" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1714" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="1696" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1714" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
   <rect x="10" y="1724" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1742" font-family="Consolas, monospace" font-size="13" fill="#1e293b">58</text>
-  <rect x="286" y="1724" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1742" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="1724" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1742" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="1752" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1770" font-family="Consolas, monospace" font-size="13" fill="#1e293b">59</text>
-  <rect x="286" y="1752" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1770" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="1752" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1770" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="1780" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1798" font-family="Consolas, monospace" font-size="13" fill="#1e293b">60</text>
-  <rect x="286" y="1780" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1798" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="1780" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1798" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
   <rect x="10" y="1808" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1826" font-family="Consolas, monospace" font-size="13" fill="#1e293b">61</text>
-  <rect x="286" y="1808" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1826" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; epsilon</text>
+  <rect x="286" y="1808" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1826" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
   <rect x="10" y="1836" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1854" font-family="Consolas, monospace" font-size="13" fill="#1e293b">62</text>
-  <rect x="286" y="1836" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1854" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RBRACKET&apos;</text>
+  <rect x="286" y="1836" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1854" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="1864" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1882" font-family="Consolas, monospace" font-size="13" fill="#1e293b">63</text>
-  <rect x="286" y="1864" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1882" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="1864" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1882" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
   <rect x="10" y="1892" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1910" font-family="Consolas, monospace" font-size="13" fill="#1e293b">64</text>
-  <rect x="286" y="1892" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1910" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="1892" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1910" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
   <rect x="10" y="1920" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1938" font-family="Consolas, monospace" font-size="13" fill="#1e293b">65</text>
-  <rect x="286" y="1920" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1938" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="286" y="1920" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1938" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="1948" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1966" font-family="Consolas, monospace" font-size="13" fill="#1e293b">66</text>
-  <rect x="286" y="1948" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="1966" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="286" y="1948" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="1966" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="1976" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1994" font-family="Consolas, monospace" font-size="13" fill="#1e293b">67</text>
-  <rect x="286" y="1976" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="1994" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
+  <rect x="286" y="1976" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="1994" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
   <rect x="10" y="2004" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2022" font-family="Consolas, monospace" font-size="13" fill="#1e293b">68</text>
-  <rect x="286" y="2004" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2022" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="286" y="2004" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2022" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
   <rect x="10" y="2032" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2050" font-family="Consolas, monospace" font-size="13" fill="#1e293b">69</text>
-  <rect x="286" y="2032" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2050" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
+  <rect x="286" y="2032" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2050" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="2060" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2078" font-family="Consolas, monospace" font-size="13" fill="#1e293b">70</text>
-  <rect x="286" y="2060" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2078" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
+  <rect x="286" y="2060" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2078" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
   <rect x="10" y="2088" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2106" font-family="Consolas, monospace" font-size="13" fill="#1e293b">71</text>
-  <rect x="286" y="2088" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2106" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="2088" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2106" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
   <rect x="10" y="2116" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2134" font-family="Consolas, monospace" font-size="13" fill="#1e293b">72</text>
-  <rect x="286" y="2116" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2134" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; LBRACKET ElementsOpt RBRACKET Term&apos;</text>
+  <rect x="286" y="2116" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2134" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="2144" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2162" font-family="Consolas, monospace" font-size="13" fill="#1e293b">73</text>
-  <rect x="286" y="2144" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2162" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LBRACKET&apos;</text>
+  <rect x="286" y="2144" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2162" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="2172" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2190" font-family="Consolas, monospace" font-size="13" fill="#1e293b">74</text>
-  <rect x="286" y="2172" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2190" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ElementsOpt -&gt; Expr MoreElements</text>
+  <rect x="286" y="2172" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2190" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; epsilon</text>
   <rect x="10" y="2200" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2218" font-family="Consolas, monospace" font-size="13" fill="#1e293b">75</text>
-  <rect x="286" y="2200" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2218" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="2200" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2218" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RBRACKET&apos;</text>
   <rect x="10" y="2228" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2246" font-family="Consolas, monospace" font-size="13" fill="#1e293b">76</text>
-  <rect x="286" y="2228" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2246" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; LBRACKET ElementsOpt RBRACKET Term&apos;</text>
+  <rect x="286" y="2228" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2246" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="2256" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2274" font-family="Consolas, monospace" font-size="13" fill="#1e293b">77</text>
-  <rect x="286" y="2256" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2274" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LBRACKET&apos;</text>
+  <rect x="286" y="2256" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2274" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="2284" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2302" font-family="Consolas, monospace" font-size="13" fill="#1e293b">78</text>
-  <rect x="286" y="2284" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2302" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ElementsOpt -&gt; Expr MoreElements</text>
+  <rect x="286" y="2284" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2302" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="2312" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2330" font-family="Consolas, monospace" font-size="13" fill="#1e293b">79</text>
-  <rect x="286" y="2312" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2330" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="2312" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2330" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="2340" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2358" font-family="Consolas, monospace" font-size="13" fill="#1e293b">80</text>
-  <rect x="286" y="2340" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2358" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="2340" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2358" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
   <rect x="10" y="2368" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2386" font-family="Consolas, monospace" font-size="13" fill="#1e293b">81</text>
-  <rect x="286" y="2368" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2386" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="2368" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2386" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="2396" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2414" font-family="Consolas, monospace" font-size="13" fill="#1e293b">82</text>
-  <rect x="286" y="2396" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2414" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="2396" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2414" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
   <rect x="10" y="2424" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2442" font-family="Consolas, monospace" font-size="13" fill="#1e293b">83</text>
-  <rect x="286" y="2424" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2442" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="2424" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2442" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
   <rect x="10" y="2452" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2470" font-family="Consolas, monospace" font-size="13" fill="#1e293b">84</text>
-  <rect x="286" y="2452" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2470" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
+  <rect x="286" y="2452" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2470" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="2480" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2498" font-family="Consolas, monospace" font-size="13" fill="#1e293b">85</text>
-  <rect x="286" y="2480" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2498" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
+  <rect x="286" y="2480" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2498" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
   <rect x="10" y="2508" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2526" font-family="Consolas, monospace" font-size="13" fill="#1e293b">86</text>
-  <rect x="286" y="2508" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2526" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="2508" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2526" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
   <rect x="10" y="2536" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2554" font-family="Consolas, monospace" font-size="13" fill="#1e293b">87</text>
-  <rect x="286" y="2536" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2554" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="2536" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2554" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="2564" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2582" font-family="Consolas, monospace" font-size="13" fill="#1e293b">88</text>
-  <rect x="286" y="2564" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2582" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="2564" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2582" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="2592" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2610" font-family="Consolas, monospace" font-size="13" fill="#1e293b">89</text>
-  <rect x="286" y="2592" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2610" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="2592" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2610" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="2620" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2638" font-family="Consolas, monospace" font-size="13" fill="#1e293b">90</text>
-  <rect x="286" y="2620" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2638" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="2620" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2638" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="2648" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2666" font-family="Consolas, monospace" font-size="13" fill="#1e293b">91</text>
-  <rect x="286" y="2648" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2666" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; epsilon</text>
+  <rect x="286" y="2648" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2666" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
   <rect x="10" y="2676" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2694" font-family="Consolas, monospace" font-size="13" fill="#1e293b">92</text>
-  <rect x="286" y="2676" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2694" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RBRACKET&apos;</text>
+  <rect x="286" y="2676" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2694" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="2704" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2722" font-family="Consolas, monospace" font-size="13" fill="#1e293b">93</text>
-  <rect x="286" y="2704" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2722" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="2704" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2722" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; PLUS_ASSIGN</text>
   <rect x="10" y="2732" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2750" font-family="Consolas, monospace" font-size="13" fill="#1e293b">94</text>
-  <rect x="286" y="2732" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2750" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="2732" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2750" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PLUS_ASSIGN&apos;</text>
   <rect x="10" y="2760" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2778" font-family="Consolas, monospace" font-size="13" fill="#1e293b">95</text>
-  <rect x="286" y="2760" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2778" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
+  <rect x="286" y="2760" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2778" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="2788" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2806" font-family="Consolas, monospace" font-size="13" fill="#1e293b">96</text>
-  <rect x="286" y="2788" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2806" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
+  <rect x="286" y="2788" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2806" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
   <rect x="10" y="2816" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2834" font-family="Consolas, monospace" font-size="13" fill="#1e293b">97</text>
-  <rect x="286" y="2816" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2834" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="2816" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2834" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
   <rect x="10" y="2844" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2862" font-family="Consolas, monospace" font-size="13" fill="#1e293b">98</text>
-  <rect x="286" y="2844" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2862" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; LBRACKET ElementsOpt RBRACKET Term&apos;</text>
+  <rect x="286" y="2844" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2862" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="2872" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2890" font-family="Consolas, monospace" font-size="13" fill="#1e293b">99</text>
-  <rect x="286" y="2872" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2890" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LBRACKET&apos;</text>
+  <rect x="286" y="2872" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2890" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="2900" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2918" font-family="Consolas, monospace" font-size="13" fill="#1e293b">100</text>
-  <rect x="286" y="2900" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2918" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ElementsOpt -&gt; Expr MoreElements</text>
+  <rect x="286" y="2900" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2918" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="2928" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="2946" font-family="Consolas, monospace" font-size="13" fill="#1e293b">101</text>
-  <rect x="286" y="2928" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="2946" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="2928" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="2946" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="2956" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="2974" font-family="Consolas, monospace" font-size="13" fill="#1e293b">102</text>
-  <rect x="286" y="2956" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="2974" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="2956" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="2974" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
   <rect x="10" y="2984" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3002" font-family="Consolas, monospace" font-size="13" fill="#1e293b">103</text>
-  <rect x="286" y="2984" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3002" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="2984" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3002" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="3012" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3030" font-family="Consolas, monospace" font-size="13" fill="#1e293b">104</text>
-  <rect x="286" y="3012" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3030" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="3012" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3030" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; MINUS_ASSIGN</text>
   <rect x="10" y="3040" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3058" font-family="Consolas, monospace" font-size="13" fill="#1e293b">105</text>
-  <rect x="286" y="3040" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3058" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="3040" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3058" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;MINUS_ASSIGN&apos;</text>
   <rect x="10" y="3068" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3086" font-family="Consolas, monospace" font-size="13" fill="#1e293b">106</text>
-  <rect x="286" y="3068" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3086" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; COMMA Expr MoreElements</text>
+  <rect x="286" y="3068" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3086" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="3096" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3114" font-family="Consolas, monospace" font-size="13" fill="#1e293b">107</text>
-  <rect x="286" y="3096" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3114" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
+  <rect x="286" y="3096" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3114" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
   <rect x="10" y="3124" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3142" font-family="Consolas, monospace" font-size="13" fill="#1e293b">108</text>
-  <rect x="286" y="3124" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3142" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="3124" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3142" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
   <rect x="10" y="3152" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3170" font-family="Consolas, monospace" font-size="13" fill="#1e293b">109</text>
-  <rect x="286" y="3152" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3170" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="3152" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3170" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="3180" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3198" font-family="Consolas, monospace" font-size="13" fill="#1e293b">110</text>
-  <rect x="286" y="3180" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3198" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="3180" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3198" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="3208" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3226" font-family="Consolas, monospace" font-size="13" fill="#1e293b">111</text>
-  <rect x="286" y="3208" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3226" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="3208" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3226" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="3236" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3254" font-family="Consolas, monospace" font-size="13" fill="#1e293b">112</text>
-  <rect x="286" y="3236" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3254" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="3236" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3254" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="3264" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3282" font-family="Consolas, monospace" font-size="13" fill="#1e293b">113</text>
-  <rect x="286" y="3264" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3282" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; epsilon</text>
+  <rect x="286" y="3264" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3282" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; PRINT LPAREN Expr RPAREN StmtTail</text>
   <rect x="10" y="3292" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3310" font-family="Consolas, monospace" font-size="13" fill="#1e293b">114</text>
-  <rect x="286" y="3292" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3310" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RBRACKET&apos;</text>
+  <rect x="286" y="3292" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3310" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PRINT&apos;</text>
   <rect x="10" y="3320" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3338" font-family="Consolas, monospace" font-size="13" fill="#1e293b">115</text>
-  <rect x="286" y="3320" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3338" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="3320" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3338" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LPAREN&apos;</text>
   <rect x="10" y="3348" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3366" font-family="Consolas, monospace" font-size="13" fill="#1e293b">116</text>
-  <rect x="286" y="3348" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3366" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="3348" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3366" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="3376" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3394" font-family="Consolas, monospace" font-size="13" fill="#1e293b">117</text>
-  <rect x="286" y="3376" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3394" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand MoreElements -&gt; epsilon</text>
+  <rect x="286" y="3376" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3394" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
   <rect x="10" y="3404" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3422" font-family="Consolas, monospace" font-size="13" fill="#1e293b">118</text>
-  <rect x="286" y="3404" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3422" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RBRACKET&apos;</text>
+  <rect x="286" y="3404" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3422" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="3432" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3450" font-family="Consolas, monospace" font-size="13" fill="#1e293b">119</text>
-  <rect x="286" y="3432" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="286" y="3432" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="296" y="3450" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="3460" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3478" font-family="Consolas, monospace" font-size="13" fill="#1e293b">120</text>
-  <rect x="286" y="3460" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3478" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="3460" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3478" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; PLUS Term Expr&apos;</text>
   <rect x="10" y="3488" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3506" font-family="Consolas, monospace" font-size="13" fill="#1e293b">121</text>
-  <rect x="286" y="3488" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3506" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="286" y="3488" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3506" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PLUS&apos;</text>
   <rect x="10" y="3516" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3534" font-family="Consolas, monospace" font-size="13" fill="#1e293b">122</text>
-  <rect x="286" y="3516" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3534" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="286" y="3516" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3534" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
   <rect x="10" y="3544" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3562" font-family="Consolas, monospace" font-size="13" fill="#1e293b">123</text>
-  <rect x="286" y="3544" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3562" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; FOR IDENT IN Expr COLON ForBody StmtTail</text>
+  <rect x="286" y="3544" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3562" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="3572" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3590" font-family="Consolas, monospace" font-size="13" fill="#1e293b">124</text>
-  <rect x="286" y="3572" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3590" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;FOR&apos;</text>
+  <rect x="286" y="3572" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3590" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="3600" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3618" font-family="Consolas, monospace" font-size="13" fill="#1e293b">125</text>
-  <rect x="286" y="3600" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3618" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="286" y="3600" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3618" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="3628" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3646" font-family="Consolas, monospace" font-size="13" fill="#1e293b">126</text>
-  <rect x="286" y="3628" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3646" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IN&apos;</text>
+  <rect x="286" y="3628" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3646" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RPAREN&apos;</text>
   <rect x="10" y="3656" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3674" font-family="Consolas, monospace" font-size="13" fill="#1e293b">127</text>
-  <rect x="286" y="3656" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3674" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="3656" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3674" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="3684" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3702" font-family="Consolas, monospace" font-size="13" fill="#1e293b">128</text>
-  <rect x="286" y="3684" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3702" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
+  <rect x="286" y="3684" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3702" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="3712" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3730" font-family="Consolas, monospace" font-size="13" fill="#1e293b">129</text>
-  <rect x="286" y="3712" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3730" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="286" y="3712" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3730" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; FOR IDENT IN Expr COLON ForBody StmtTail</text>
   <rect x="10" y="3740" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3758" font-family="Consolas, monospace" font-size="13" fill="#1e293b">130</text>
-  <rect x="286" y="3740" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3758" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="3740" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3758" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;FOR&apos;</text>
   <rect x="10" y="3768" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3786" font-family="Consolas, monospace" font-size="13" fill="#1e293b">131</text>
-  <rect x="286" y="3768" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3786" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="3768" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3786" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="3796" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3814" font-family="Consolas, monospace" font-size="13" fill="#1e293b">132</text>
-  <rect x="286" y="3796" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3814" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COLON&apos;</text>
+  <rect x="286" y="3796" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3814" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IN&apos;</text>
   <rect x="10" y="3824" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3842" font-family="Consolas, monospace" font-size="13" fill="#1e293b">133</text>
-  <rect x="286" y="3824" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3842" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ForBody -&gt; NEWLINE INDENT StmtList DEDENT</text>
+  <rect x="286" y="3824" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3842" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="3852" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3870" font-family="Consolas, monospace" font-size="13" fill="#1e293b">134</text>
-  <rect x="286" y="3852" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3870" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="286" y="3852" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3870" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
   <rect x="10" y="3880" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3898" font-family="Consolas, monospace" font-size="13" fill="#1e293b">135</text>
-  <rect x="286" y="3880" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3898" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INDENT&apos;</text>
+  <rect x="286" y="3880" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3898" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="3908" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3926" font-family="Consolas, monospace" font-size="13" fill="#1e293b">136</text>
-  <rect x="286" y="3908" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3926" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtList -&gt; IDENT AssignOp Expr StmtTail</text>
+  <rect x="286" y="3908" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3926" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="3936" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="3954" font-family="Consolas, monospace" font-size="13" fill="#1e293b">137</text>
-  <rect x="286" y="3936" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="3954" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="286" y="3936" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="3954" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="3964" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="3982" font-family="Consolas, monospace" font-size="13" fill="#1e293b">138</text>
-  <rect x="286" y="3964" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="3982" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
+  <rect x="286" y="3964" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="3982" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COLON&apos;</text>
   <rect x="10" y="3992" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4010" font-family="Consolas, monospace" font-size="13" fill="#1e293b">139</text>
-  <rect x="286" y="3992" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4010" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
+  <rect x="286" y="3992" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4010" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ForBody -&gt; NEWLINE INDENT StmtList DEDENT</text>
   <rect x="10" y="4020" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4038" font-family="Consolas, monospace" font-size="13" fill="#1e293b">140</text>
-  <rect x="286" y="4020" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4038" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="4020" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4038" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="4048" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4066" font-family="Consolas, monospace" font-size="13" fill="#1e293b">141</text>
-  <rect x="286" y="4048" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4066" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
+  <rect x="286" y="4048" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4066" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INDENT&apos;</text>
   <rect x="10" y="4076" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4094" font-family="Consolas, monospace" font-size="13" fill="#1e293b">142</text>
-  <rect x="286" y="4076" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4094" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="286" y="4076" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4094" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtList -&gt; StmtTail</text>
   <rect x="10" y="4104" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4122" font-family="Consolas, monospace" font-size="13" fill="#1e293b">143</text>
-  <rect x="286" y="4104" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4122" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="4104" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4122" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; PRINT LPAREN Expr RPAREN StmtTail</text>
   <rect x="10" y="4132" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4150" font-family="Consolas, monospace" font-size="13" fill="#1e293b">144</text>
-  <rect x="286" y="4132" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4150" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; PLUS Term Expr&apos;</text>
+  <rect x="286" y="4132" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4150" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PRINT&apos;</text>
   <rect x="10" y="4160" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4178" font-family="Consolas, monospace" font-size="13" fill="#1e293b">145</text>
-  <rect x="286" y="4160" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4178" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PLUS&apos;</text>
+  <rect x="286" y="4160" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4178" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LPAREN&apos;</text>
   <rect x="10" y="4188" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4206" font-family="Consolas, monospace" font-size="13" fill="#1e293b">146</text>
-  <rect x="286" y="4188" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4206" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="286" y="4188" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4206" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="4216" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4234" font-family="Consolas, monospace" font-size="13" fill="#1e293b">147</text>
-  <rect x="286" y="4216" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4234" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="286" y="4216" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4234" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
   <rect x="10" y="4244" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4262" font-family="Consolas, monospace" font-size="13" fill="#1e293b">148</text>
-  <rect x="286" y="4244" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4262" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="4244" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4262" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="4272" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4290" font-family="Consolas, monospace" font-size="13" fill="#1e293b">149</text>
-  <rect x="286" y="4272" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4290" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="4272" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4290" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="4300" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4318" font-family="Consolas, monospace" font-size="13" fill="#1e293b">150</text>
-  <rect x="286" y="4300" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4318" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="286" y="4300" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4318" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="4328" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4346" font-family="Consolas, monospace" font-size="13" fill="#1e293b">151</text>
-  <rect x="286" y="4328" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4346" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="286" y="4328" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4346" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RPAREN&apos;</text>
   <rect x="10" y="4356" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4374" font-family="Consolas, monospace" font-size="13" fill="#1e293b">152</text>
-  <rect x="286" y="4356" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4374" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; PRINT LPAREN Expr RPAREN StmtTail</text>
+  <rect x="286" y="4356" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4374" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
   <rect x="10" y="4384" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4402" font-family="Consolas, monospace" font-size="13" fill="#1e293b">153</text>
-  <rect x="286" y="4384" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4402" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PRINT&apos;</text>
+  <rect x="286" y="4384" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4402" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
   <rect x="10" y="4412" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4430" font-family="Consolas, monospace" font-size="13" fill="#1e293b">154</text>
-  <rect x="286" y="4412" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4430" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LPAREN&apos;</text>
+  <rect x="286" y="4412" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4430" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; epsilon</text>
   <rect x="10" y="4440" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4458" font-family="Consolas, monospace" font-size="13" fill="#1e293b">155</text>
-  <rect x="286" y="4440" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4458" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="286" y="4440" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4458" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;DEDENT&apos;</text>
   <rect x="10" y="4468" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4486" font-family="Consolas, monospace" font-size="13" fill="#1e293b">156</text>
-  <rect x="286" y="4468" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4486" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
+  <rect x="286" y="4468" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4486" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; FOR IDENT IN Expr COLON ForBody StmtTail</text>
   <rect x="10" y="4496" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4514" font-family="Consolas, monospace" font-size="13" fill="#1e293b">157</text>
-  <rect x="286" y="4496" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4514" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="286" y="4496" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4514" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;FOR&apos;</text>
   <rect x="10" y="4524" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4542" font-family="Consolas, monospace" font-size="13" fill="#1e293b">158</text>
-  <rect x="286" y="4524" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4542" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="286" y="4524" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4542" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="4552" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4570" font-family="Consolas, monospace" font-size="13" fill="#1e293b">159</text>
-  <rect x="286" y="4552" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4570" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="286" y="4552" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4570" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IN&apos;</text>
   <rect x="10" y="4580" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4598" font-family="Consolas, monospace" font-size="13" fill="#1e293b">160</text>
-  <rect x="286" y="4580" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4598" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RPAREN&apos;</text>
+  <rect x="286" y="4580" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4598" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
   <rect x="10" y="4608" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4626" font-family="Consolas, monospace" font-size="13" fill="#1e293b">161</text>
-  <rect x="286" y="4608" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4626" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="286" y="4608" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4626" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
   <rect x="10" y="4636" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4654" font-family="Consolas, monospace" font-size="13" fill="#1e293b">162</text>
-  <rect x="286" y="4636" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4654" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="286" y="4636" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4654" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
   <rect x="10" y="4664" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4682" font-family="Consolas, monospace" font-size="13" fill="#1e293b">163</text>
-  <rect x="286" y="4664" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4682" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; epsilon</text>
+  <rect x="286" y="4664" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4682" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
   <rect x="10" y="4692" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4710" font-family="Consolas, monospace" font-size="13" fill="#1e293b">164</text>
-  <rect x="286" y="4692" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4710" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;DEDENT&apos;</text>
+  <rect x="286" y="4692" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4710" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
   <rect x="10" y="4720" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="4738" font-family="Consolas, monospace" font-size="13" fill="#1e293b">165</text>
-  <rect x="286" y="4720" width="492" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="4738" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; epsilon</text>
+  <rect x="286" y="4720" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4738" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COLON&apos;</text>
   <rect x="10" y="4748" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="4766" font-family="Consolas, monospace" font-size="13" fill="#1e293b">166</text>
-  <rect x="286" y="4748" width="492" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="4766" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ACCEPT</text>
+  <rect x="286" y="4748" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4766" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ForBody -&gt; NEWLINE INDENT StmtList DEDENT</text>
+  <rect x="10" y="4776" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="4794" font-family="Consolas, monospace" font-size="13" fill="#1e293b">167</text>
+  <rect x="286" y="4776" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4794" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="4804" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="4822" font-family="Consolas, monospace" font-size="13" fill="#1e293b">168</text>
+  <rect x="286" y="4804" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4822" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INDENT&apos;</text>
+  <rect x="10" y="4832" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="4850" font-family="Consolas, monospace" font-size="13" fill="#1e293b">169</text>
+  <rect x="286" y="4832" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4850" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtList -&gt; StmtTail</text>
+  <rect x="10" y="4860" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="4878" font-family="Consolas, monospace" font-size="13" fill="#1e293b">170</text>
+  <rect x="286" y="4860" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4878" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
+  <rect x="10" y="4888" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="4906" font-family="Consolas, monospace" font-size="13" fill="#1e293b">171</text>
+  <rect x="286" y="4888" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4906" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="4916" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="4934" font-family="Consolas, monospace" font-size="13" fill="#1e293b">172</text>
+  <rect x="286" y="4916" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4934" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; PLUS_ASSIGN</text>
+  <rect x="10" y="4944" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="4962" font-family="Consolas, monospace" font-size="13" fill="#1e293b">173</text>
+  <rect x="286" y="4944" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="4962" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PLUS_ASSIGN&apos;</text>
+  <rect x="10" y="4972" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="4990" font-family="Consolas, monospace" font-size="13" fill="#1e293b">174</text>
+  <rect x="286" y="4972" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="4990" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="5000" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5018" font-family="Consolas, monospace" font-size="13" fill="#1e293b">175</text>
+  <rect x="286" y="5000" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5018" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
+  <rect x="10" y="5028" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5046" font-family="Consolas, monospace" font-size="13" fill="#1e293b">176</text>
+  <rect x="286" y="5028" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5046" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="5056" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5074" font-family="Consolas, monospace" font-size="13" fill="#1e293b">177</text>
+  <rect x="286" y="5056" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5074" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="5084" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5102" font-family="Consolas, monospace" font-size="13" fill="#1e293b">178</text>
+  <rect x="286" y="5084" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5102" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="5112" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5130" font-family="Consolas, monospace" font-size="13" fill="#1e293b">179</text>
+  <rect x="286" y="5112" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5130" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="10" y="5140" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5158" font-family="Consolas, monospace" font-size="13" fill="#1e293b">180</text>
+  <rect x="286" y="5140" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5158" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="5168" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5186" font-family="Consolas, monospace" font-size="13" fill="#1e293b">181</text>
+  <rect x="286" y="5168" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5186" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; PRINT LPAREN Expr RPAREN StmtTail</text>
+  <rect x="10" y="5196" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5214" font-family="Consolas, monospace" font-size="13" fill="#1e293b">182</text>
+  <rect x="286" y="5196" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5214" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PRINT&apos;</text>
+  <rect x="10" y="5224" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5242" font-family="Consolas, monospace" font-size="13" fill="#1e293b">183</text>
+  <rect x="286" y="5224" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5242" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LPAREN&apos;</text>
+  <rect x="10" y="5252" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5270" font-family="Consolas, monospace" font-size="13" fill="#1e293b">184</text>
+  <rect x="286" y="5252" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5270" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="5280" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5298" font-family="Consolas, monospace" font-size="13" fill="#1e293b">185</text>
+  <rect x="286" y="5280" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5298" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
+  <rect x="10" y="5308" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5326" font-family="Consolas, monospace" font-size="13" fill="#1e293b">186</text>
+  <rect x="286" y="5308" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5326" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="5336" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5354" font-family="Consolas, monospace" font-size="13" fill="#1e293b">187</text>
+  <rect x="286" y="5336" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5354" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; SLASH Factor Term&apos;</text>
+  <rect x="10" y="5364" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5382" font-family="Consolas, monospace" font-size="13" fill="#1e293b">188</text>
+  <rect x="286" y="5364" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5382" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;SLASH&apos;</text>
+  <rect x="10" y="5392" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5410" font-family="Consolas, monospace" font-size="13" fill="#1e293b">189</text>
+  <rect x="286" y="5392" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5410" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Factor -&gt; Primary</text>
+  <rect x="10" y="5420" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5438" font-family="Consolas, monospace" font-size="13" fill="#1e293b">190</text>
+  <rect x="286" y="5420" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5438" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Primary -&gt; INT</text>
+  <rect x="10" y="5448" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5466" font-family="Consolas, monospace" font-size="13" fill="#1e293b">191</text>
+  <rect x="286" y="5448" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5466" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="10" y="5476" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5494" font-family="Consolas, monospace" font-size="13" fill="#1e293b">192</text>
+  <rect x="286" y="5476" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5494" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="5504" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5522" font-family="Consolas, monospace" font-size="13" fill="#1e293b">193</text>
+  <rect x="286" y="5504" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5522" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="5532" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5550" font-family="Consolas, monospace" font-size="13" fill="#1e293b">194</text>
+  <rect x="286" y="5532" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5550" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RPAREN&apos;</text>
+  <rect x="10" y="5560" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5578" font-family="Consolas, monospace" font-size="13" fill="#1e293b">195</text>
+  <rect x="286" y="5560" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5578" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="10" y="5588" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5606" font-family="Consolas, monospace" font-size="13" fill="#1e293b">196</text>
+  <rect x="286" y="5588" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5606" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="5616" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5634" font-family="Consolas, monospace" font-size="13" fill="#1e293b">197</text>
+  <rect x="286" y="5616" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5634" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; epsilon</text>
+  <rect x="10" y="5644" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5662" font-family="Consolas, monospace" font-size="13" fill="#1e293b">198</text>
+  <rect x="286" y="5644" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5662" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;DEDENT&apos;</text>
+  <rect x="10" y="5672" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5690" font-family="Consolas, monospace" font-size="13" fill="#1e293b">199</text>
+  <rect x="286" y="5672" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5690" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; FOR IDENT IN Expr COLON ForBody StmtTail</text>
+  <rect x="10" y="5700" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5718" font-family="Consolas, monospace" font-size="13" fill="#1e293b">200</text>
+  <rect x="286" y="5700" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5718" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;FOR&apos;</text>
+  <rect x="10" y="5728" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5746" font-family="Consolas, monospace" font-size="13" fill="#1e293b">201</text>
+  <rect x="286" y="5728" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5746" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="5756" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5774" font-family="Consolas, monospace" font-size="13" fill="#1e293b">202</text>
+  <rect x="286" y="5756" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5774" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IN&apos;</text>
+  <rect x="10" y="5784" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5802" font-family="Consolas, monospace" font-size="13" fill="#1e293b">203</text>
+  <rect x="286" y="5784" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5802" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="5812" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5830" font-family="Consolas, monospace" font-size="13" fill="#1e293b">204</text>
+  <rect x="286" y="5812" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5830" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; RANGE LPAREN Expr COMMA Expr RangeStepOpt RPAREN Term&apos;</text>
+  <rect x="10" y="5840" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5858" font-family="Consolas, monospace" font-size="13" fill="#1e293b">205</text>
+  <rect x="286" y="5840" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5858" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RANGE&apos;</text>
+  <rect x="10" y="5868" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5886" font-family="Consolas, monospace" font-size="13" fill="#1e293b">206</text>
+  <rect x="286" y="5868" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5886" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LPAREN&apos;</text>
+  <rect x="10" y="5896" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5914" font-family="Consolas, monospace" font-size="13" fill="#1e293b">207</text>
+  <rect x="286" y="5896" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5914" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="5924" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5942" font-family="Consolas, monospace" font-size="13" fill="#1e293b">208</text>
+  <rect x="286" y="5924" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5942" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="10" y="5952" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="5970" font-family="Consolas, monospace" font-size="13" fill="#1e293b">209</text>
+  <rect x="286" y="5952" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="5970" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="10" y="5980" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="5998" font-family="Consolas, monospace" font-size="13" fill="#1e293b">210</text>
+  <rect x="286" y="5980" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="5998" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="6008" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6026" font-family="Consolas, monospace" font-size="13" fill="#1e293b">211</text>
+  <rect x="286" y="6008" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6026" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="6036" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6054" font-family="Consolas, monospace" font-size="13" fill="#1e293b">212</text>
+  <rect x="286" y="6036" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6054" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COMMA&apos;</text>
+  <rect x="10" y="6064" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6082" font-family="Consolas, monospace" font-size="13" fill="#1e293b">213</text>
+  <rect x="286" y="6064" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6082" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="6092" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6110" font-family="Consolas, monospace" font-size="13" fill="#1e293b">214</text>
+  <rect x="286" y="6092" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6110" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="10" y="6120" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6138" font-family="Consolas, monospace" font-size="13" fill="#1e293b">215</text>
+  <rect x="286" y="6120" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6138" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="10" y="6148" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6166" font-family="Consolas, monospace" font-size="13" fill="#1e293b">216</text>
+  <rect x="286" y="6148" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6166" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="6176" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6194" font-family="Consolas, monospace" font-size="13" fill="#1e293b">217</text>
+  <rect x="286" y="6176" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6194" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="6204" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6222" font-family="Consolas, monospace" font-size="13" fill="#1e293b">218</text>
+  <rect x="286" y="6204" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6222" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand RangeStepOpt -&gt; epsilon</text>
+  <rect x="10" y="6232" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6250" font-family="Consolas, monospace" font-size="13" fill="#1e293b">219</text>
+  <rect x="286" y="6232" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6250" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RPAREN&apos;</text>
+  <rect x="10" y="6260" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6278" font-family="Consolas, monospace" font-size="13" fill="#1e293b">220</text>
+  <rect x="286" y="6260" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6278" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="6288" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6306" font-family="Consolas, monospace" font-size="13" fill="#1e293b">221</text>
+  <rect x="286" y="6288" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6306" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="6316" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6334" font-family="Consolas, monospace" font-size="13" fill="#1e293b">222</text>
+  <rect x="286" y="6316" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6334" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COLON&apos;</text>
+  <rect x="10" y="6344" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6362" font-family="Consolas, monospace" font-size="13" fill="#1e293b">223</text>
+  <rect x="286" y="6344" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6362" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ForBody -&gt; NEWLINE INDENT StmtList DEDENT</text>
+  <rect x="10" y="6372" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6390" font-family="Consolas, monospace" font-size="13" fill="#1e293b">224</text>
+  <rect x="286" y="6372" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6390" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="6400" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6418" font-family="Consolas, monospace" font-size="13" fill="#1e293b">225</text>
+  <rect x="286" y="6400" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6418" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INDENT&apos;</text>
+  <rect x="10" y="6428" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6446" font-family="Consolas, monospace" font-size="13" fill="#1e293b">226</text>
+  <rect x="286" y="6428" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6446" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtList -&gt; StmtTail</text>
+  <rect x="10" y="6456" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6474" font-family="Consolas, monospace" font-size="13" fill="#1e293b">227</text>
+  <rect x="286" y="6456" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6474" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IF Expr COLON NEWLINE INDENT StmtList DEDENT ElseOpt StmtTail</text>
+  <rect x="10" y="6484" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6502" font-family="Consolas, monospace" font-size="13" fill="#1e293b">228</text>
+  <rect x="286" y="6484" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6502" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IF&apos;</text>
+  <rect x="10" y="6512" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6530" font-family="Consolas, monospace" font-size="13" fill="#1e293b">229</text>
+  <rect x="286" y="6512" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6530" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="6540" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6558" font-family="Consolas, monospace" font-size="13" fill="#1e293b">230</text>
+  <rect x="286" y="6540" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6558" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
+  <rect x="10" y="6568" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6586" font-family="Consolas, monospace" font-size="13" fill="#1e293b">231</text>
+  <rect x="286" y="6568" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6586" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="6596" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6614" font-family="Consolas, monospace" font-size="13" fill="#1e293b">232</text>
+  <rect x="286" y="6596" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6614" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="6624" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6642" font-family="Consolas, monospace" font-size="13" fill="#1e293b">233</text>
+  <rect x="286" y="6624" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6642" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="6652" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6670" font-family="Consolas, monospace" font-size="13" fill="#1e293b">234</text>
+  <rect x="286" y="6652" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6670" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COLON&apos;</text>
+  <rect x="10" y="6680" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6698" font-family="Consolas, monospace" font-size="13" fill="#1e293b">235</text>
+  <rect x="286" y="6680" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6698" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="6708" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6726" font-family="Consolas, monospace" font-size="13" fill="#1e293b">236</text>
+  <rect x="286" y="6708" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6726" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INDENT&apos;</text>
+  <rect x="10" y="6736" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6754" font-family="Consolas, monospace" font-size="13" fill="#1e293b">237</text>
+  <rect x="286" y="6736" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6754" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtList -&gt; StmtTail</text>
+  <rect x="10" y="6764" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6782" font-family="Consolas, monospace" font-size="13" fill="#1e293b">238</text>
+  <rect x="286" y="6764" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6782" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
+  <rect x="10" y="6792" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6810" font-family="Consolas, monospace" font-size="13" fill="#1e293b">239</text>
+  <rect x="286" y="6792" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6810" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="6820" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6838" font-family="Consolas, monospace" font-size="13" fill="#1e293b">240</text>
+  <rect x="286" y="6820" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6838" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; PLUS_ASSIGN</text>
+  <rect x="10" y="6848" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6866" font-family="Consolas, monospace" font-size="13" fill="#1e293b">241</text>
+  <rect x="286" y="6848" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6866" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PLUS_ASSIGN&apos;</text>
+  <rect x="10" y="6876" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6894" font-family="Consolas, monospace" font-size="13" fill="#1e293b">242</text>
+  <rect x="286" y="6876" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6894" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="6904" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6922" font-family="Consolas, monospace" font-size="13" fill="#1e293b">243</text>
+  <rect x="286" y="6904" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6922" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
+  <rect x="10" y="6932" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="6950" font-family="Consolas, monospace" font-size="13" fill="#1e293b">244</text>
+  <rect x="286" y="6932" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="6950" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="6960" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="6978" font-family="Consolas, monospace" font-size="13" fill="#1e293b">245</text>
+  <rect x="286" y="6960" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="6978" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="6988" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7006" font-family="Consolas, monospace" font-size="13" fill="#1e293b">246</text>
+  <rect x="286" y="6988" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7006" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="7016" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7034" font-family="Consolas, monospace" font-size="13" fill="#1e293b">247</text>
+  <rect x="286" y="7016" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7034" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="10" y="7044" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7062" font-family="Consolas, monospace" font-size="13" fill="#1e293b">248</text>
+  <rect x="286" y="7044" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7062" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="7072" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7090" font-family="Consolas, monospace" font-size="13" fill="#1e293b">249</text>
+  <rect x="286" y="7072" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7090" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; IDENT AssignOp Expr StmtTail</text>
+  <rect x="10" y="7100" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">250</text>
+  <rect x="286" y="7100" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="7128" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">251</text>
+  <rect x="286" y="7128" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand AssignOp -&gt; ASSIGN</text>
+  <rect x="10" y="7156" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">252</text>
+  <rect x="286" y="7156" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ASSIGN&apos;</text>
+  <rect x="10" y="7184" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">253</text>
+  <rect x="286" y="7184" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="7212" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">254</text>
+  <rect x="286" y="7212" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; STRING Term&apos;</text>
+  <rect x="10" y="7240" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">255</text>
+  <rect x="286" y="7240" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;STRING&apos;</text>
+  <rect x="10" y="7268" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">256</text>
+  <rect x="286" y="7268" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="7296" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">257</text>
+  <rect x="286" y="7296" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="7324" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">258</text>
+  <rect x="286" y="7324" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="10" y="7352" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">259</text>
+  <rect x="286" y="7352" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="7380" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">260</text>
+  <rect x="286" y="7380" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; PRINT LPAREN Expr RPAREN StmtTail</text>
+  <rect x="10" y="7408" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">261</text>
+  <rect x="286" y="7408" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PRINT&apos;</text>
+  <rect x="10" y="7436" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">262</text>
+  <rect x="286" y="7436" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LPAREN&apos;</text>
+  <rect x="10" y="7464" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">263</text>
+  <rect x="286" y="7464" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="7492" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">264</text>
+  <rect x="286" y="7492" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; IDENT Term&apos;</text>
+  <rect x="10" y="7520" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">265</text>
+  <rect x="286" y="7520" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;IDENT&apos;</text>
+  <rect x="10" y="7548" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">266</text>
+  <rect x="286" y="7548" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="7576" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">267</text>
+  <rect x="286" y="7576" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="7604" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">268</text>
+  <rect x="286" y="7604" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RPAREN&apos;</text>
+  <rect x="10" y="7632" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">269</text>
+  <rect x="286" y="7632" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="10" y="7660" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">270</text>
+  <rect x="286" y="7660" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="7688" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">271</text>
+  <rect x="286" y="7688" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; epsilon</text>
+  <rect x="10" y="7716" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">272</text>
+  <rect x="286" y="7716" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;DEDENT&apos;</text>
+  <rect x="10" y="7744" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">273</text>
+  <rect x="286" y="7744" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand ElseOpt -&gt; ELSE COLON NEWLINE INDENT StmtList DEDENT</text>
+  <rect x="10" y="7772" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">274</text>
+  <rect x="286" y="7772" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;ELSE&apos;</text>
+  <rect x="10" y="7800" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">275</text>
+  <rect x="286" y="7800" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;COLON&apos;</text>
+  <rect x="10" y="7828" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">276</text>
+  <rect x="286" y="7828" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="7856" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">277</text>
+  <rect x="286" y="7856" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INDENT&apos;</text>
+  <rect x="10" y="7884" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">278</text>
+  <rect x="286" y="7884" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtList -&gt; StmtTail</text>
+  <rect x="10" y="7912" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">279</text>
+  <rect x="286" y="7912" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; PRINT LPAREN Expr RPAREN StmtTail</text>
+  <rect x="10" y="7940" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="7958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">280</text>
+  <rect x="286" y="7940" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="7958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;PRINT&apos;</text>
+  <rect x="10" y="7968" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="7986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">281</text>
+  <rect x="286" y="7968" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="7986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;LPAREN&apos;</text>
+  <rect x="10" y="7996" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="8014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">282</text>
+  <rect x="286" y="7996" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="8014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr -&gt; Term Expr&apos;</text>
+  <rect x="10" y="8024" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="8042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">283</text>
+  <rect x="286" y="8024" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="8042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term -&gt; INT Term&apos;</text>
+  <rect x="10" y="8052" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="8070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">284</text>
+  <rect x="286" y="8052" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="8070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;INT&apos;</text>
+  <rect x="10" y="8080" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="8098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">285</text>
+  <rect x="286" y="8080" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="8098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Term&apos; -&gt; epsilon</text>
+  <rect x="10" y="8108" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="8126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">286</text>
+  <rect x="286" y="8108" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="8126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand Expr&apos; -&gt; epsilon</text>
+  <rect x="10" y="8136" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="8154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">287</text>
+  <rect x="286" y="8136" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="8154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;RPAREN&apos;</text>
+  <rect x="10" y="8164" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="8182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">288</text>
+  <rect x="286" y="8164" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="8182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; NEWLINE StmtTail</text>
+  <rect x="10" y="8192" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="8210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">289</text>
+  <rect x="286" y="8192" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="8210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;NEWLINE&apos;</text>
+  <rect x="10" y="8220" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="8238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">290</text>
+  <rect x="286" y="8220" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="8238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; epsilon</text>
+  <rect x="10" y="8248" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="8266" font-family="Consolas, monospace" font-size="13" fill="#1e293b">291</text>
+  <rect x="286" y="8248" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="8266" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;DEDENT&apos;</text>
+  <rect x="10" y="8276" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="8294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">292</text>
+  <rect x="286" y="8276" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="8294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; epsilon</text>
+  <rect x="10" y="8304" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="8322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">293</text>
+  <rect x="286" y="8304" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="8322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Match terminal &apos;DEDENT&apos;</text>
+  <rect x="10" y="8332" width="276" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="8350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">294</text>
+  <rect x="286" y="8332" width="660" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="8350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Expand StmtTail -&gt; epsilon</text>
+  <rect x="10" y="8360" width="276" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="8378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">295</text>
+  <rect x="286" y="8360" width="660" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="8378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ACCEPT</text>
 </svg>

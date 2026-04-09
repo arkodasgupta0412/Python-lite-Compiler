@@ -33,6 +33,17 @@ std::string readTextFile(const std::filesystem::path& path) {
   return buffer.str();
 }
 
+const cd::Symbol* findSymbol(const std::vector<cd::ScopeSnapshot>& scopes, const std::string& name) {
+  for (const auto& scope : scopes) {
+    for (const auto& symbol : scope.locals) {
+      if (symbol.name != nullptr && *symbol.name == name) {
+        return &symbol;
+      }
+    }
+  }
+  return nullptr;
+}
+
 void assertFileEquals(const std::filesystem::path& golden, const std::filesystem::path& actual) {
   const std::string expected = readTextFile(golden);
   const std::string got = readTextFile(actual);
@@ -106,9 +117,11 @@ void testSemanticBasic() {
   cd::CompilerPipeline pipeline;
   auto result = pipeline.run(src);
 
-  require(result.symbolSnapshot.count("x") == 1, "Symbol table missing x");
-  require(result.symbolSnapshot.count("y") == 1, "Symbol table missing y");
-  require(result.symbolSnapshot.at("x").varType == "int", "x type should be int");
+  const cd::Symbol* x = findSymbol(result.symbolSnapshot, "x");
+  const cd::Symbol* y = findSymbol(result.symbolSnapshot, "y");
+  require(x != nullptr, "Symbol table missing x");
+  require(y != nullptr, "Symbol table missing y");
+  require(cd::typeDebugName(x->type) == "int", "x type should be int");
 }
 
 void testNegativeLexicalError() {
@@ -143,14 +156,8 @@ void testNegativeSyntaxError() {
 void testNegativeSemanticError() {
   const std::string src = "print(x)\n";
   cd::CompilerPipeline pipeline;
-  bool threw = false;
-  try {
-    auto _ = pipeline.run(src);
-    (void)_;
-  } catch (const cd::SemanticError&) {
-    threw = true;
-  }
-  require(threw, "Expected semantic error for undefined identifier");
+  auto result = pipeline.run(src);
+  require(!result.semanticErrors.empty(), "Expected semantic error for undefined identifier");
 }
 
 void testGoldenReports() {

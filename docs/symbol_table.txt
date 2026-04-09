@@ -1,1 +1,20 @@
 Symbol Table (Environment Tree)
+===============================
+
+=== Global Scope ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+matrix              list[list[int]]   Variable    6       1       16
+nums1               list[int]         Variable    2       1       0
+nums2               list[int]         Variable    3       1       8
+
+=== Scope Depth 1 (Child 1) ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+item                int               Variable    9       5       24
+
+=== Scope Depth 2 (Child 1) ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+val                 int               Variable    10      5       28
+

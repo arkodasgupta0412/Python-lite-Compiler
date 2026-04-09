@@ -1,7 +1,9 @@
-Symbol Table
-============
+Symbol Table (Environment Tree)
+===============================
 
-Name                Type        Value
-------------------------------------------------------------------------
-x                   int         IntLiteral(1)
-y                   int         IntLiteral(2)
+=== Global Scope ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+x                   int               Variable    1       1       0
+y                   int               Variable    2       1       4
+
