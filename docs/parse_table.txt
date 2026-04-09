@@ -213,16 +213,127 @@ Expr:
 
 LL(1) Panic-Mode Recovery (Pop/Scan)
 ------------------------------------
-Accepted without recovery errors: no
-Recovered errors: 4
+Accepted without recovery errors: yes
+Recovered errors: 0
 Actions:
   - Expand Program -> IDENT AssignOp Expr StmtTail EOF
   - Match terminal 'IDENT'
   - Expand AssignOp -> ASSIGN
   - Match terminal 'ASSIGN'
   - Expand Expr -> Term Expr'
+  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
+  - Match terminal 'LBRACKET'
+  - Expand ElementsOpt -> Expr MoreElements
+  - Expand Expr -> Term Expr'
   - Expand Term -> INT Term'
   - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> COMMA Expr MoreElements
+  - Match terminal 'COMMA'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> COMMA Expr MoreElements
+  - Match terminal 'COMMA'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> epsilon
+  - Match terminal 'RBRACKET'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> IDENT AssignOp Expr StmtTail
+  - Match terminal 'IDENT'
+  - Expand AssignOp -> ASSIGN
+  - Match terminal 'ASSIGN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
+  - Match terminal 'LBRACKET'
+  - Expand ElementsOpt -> Expr MoreElements
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> COMMA Expr MoreElements
+  - Match terminal 'COMMA'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> COMMA Expr MoreElements
+  - Match terminal 'COMMA'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> epsilon
+  - Match terminal 'RBRACKET'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> IDENT AssignOp Expr StmtTail
+  - Match terminal 'IDENT'
+  - Expand AssignOp -> ASSIGN
+  - Match terminal 'ASSIGN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
+  - Match terminal 'LBRACKET'
+  - Expand ElementsOpt -> Expr MoreElements
+  - Expand Expr -> Term Expr'
+  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
+  - Match terminal 'LBRACKET'
+  - Expand ElementsOpt -> Expr MoreElements
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> COMMA Expr MoreElements
+  - Match terminal 'COMMA'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> epsilon
+  - Match terminal 'RBRACKET'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> COMMA Expr MoreElements
+  - Match terminal 'COMMA'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
+  - Match terminal 'LBRACKET'
+  - Expand ElementsOpt -> Expr MoreElements
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> COMMA Expr MoreElements
+  - Match terminal 'COMMA'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> INT Term'
+  - Match terminal 'INT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> epsilon
+  - Match terminal 'RBRACKET'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
+  - Expand MoreElements -> epsilon
+  - Match terminal 'RBRACKET'
   - Expand Term' -> epsilon
   - Expand Expr' -> epsilon
   - Expand StmtTail -> NEWLINE StmtTail
@@ -232,110 +343,42 @@ Actions:
   - Match terminal 'IDENT'
   - Match terminal 'IN'
   - Expand Expr -> Term Expr'
-  - Expand Term -> RANGE LPAREN Expr COMMA Expr RangeStepOpt RPAREN Term'
-  - Match terminal 'RANGE'
-  - Match terminal 'LPAREN'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
+  - Expand Term -> IDENT Term'
+  - Match terminal 'IDENT'
   - Expand Term' -> epsilon
   - Expand Expr' -> epsilon
-  - Match terminal 'COMMA'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand RangeStepOpt -> epsilon
-  - Match terminal 'RPAREN'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Panic pop: terminal mismatch, pop 'COLON' while seeing 'NEWLINE'
+  - Match terminal 'COLON'
   - Expand ForBody -> NEWLINE INDENT StmtList DEDENT
   - Match terminal 'NEWLINE'
   - Match terminal 'INDENT'
   - Expand StmtList -> IDENT AssignOp Expr StmtTail
   - Match terminal 'IDENT'
-  - Expand AssignOp -> PLUS_ASSIGN
-  - Match terminal 'PLUS_ASSIGN'
+  - Expand AssignOp -> ASSIGN
+  - Match terminal 'ASSIGN'
   - Expand Expr -> Term Expr'
   - Expand Term -> IDENT Term'
   - Match terminal 'IDENT'
   - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand StmtTail -> NEWLINE StmtTail
-  - Match terminal 'NEWLINE'
-  - Expand StmtTail -> PRINT LPAREN Expr RPAREN StmtTail
-  - Match terminal 'PRINT'
-  - Match terminal 'LPAREN'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> IDENT Term'
-  - Match terminal 'IDENT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Panic pop: terminal mismatch, pop 'RPAREN' while seeing 'NEWLINE'
-  - Expand StmtTail -> NEWLINE StmtTail
-  - Match terminal 'NEWLINE'
-  - Expand StmtTail -> epsilon
-  - Match terminal 'DEDENT'
-  - Expand StmtTail -> PRINT LPAREN Expr RPAREN StmtTail
-  - Match terminal 'PRINT'
-  - Match terminal 'LPAREN'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> IDENT Term'
-  - Match terminal 'IDENT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Match terminal 'RPAREN'
-  - Expand StmtTail -> NEWLINE StmtTail
-  - Match terminal 'NEWLINE'
-  - Expand StmtTail -> IF Expr COLON NEWLINE INDENT StmtList DEDENT ElseOpt StmtTail
-  - Match terminal 'IF'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> BOOL Term'
-  - Match terminal 'BOOL'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Panic pop: terminal mismatch, pop 'COLON' while seeing 'NEWLINE'
-  - Match terminal 'NEWLINE'
-  - Match terminal 'INDENT'
-  - Expand StmtList -> PRINT LPAREN Expr RPAREN StmtTail
-  - Match terminal 'PRINT'
-  - Match terminal 'LPAREN'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> IDENT Term'
-  - Match terminal 'IDENT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Match terminal 'RPAREN'
-  - Expand StmtTail -> NEWLINE StmtTail
-  - Match terminal 'NEWLINE'
-  - Expand StmtTail -> epsilon
-  - Match terminal 'DEDENT'
-  - Expand ElseOpt -> ELSE COLON NEWLINE INDENT StmtList DEDENT
-  - Match terminal 'ELSE'
-  - Match terminal 'COLON'
-  - Match terminal 'NEWLINE'
-  - Match terminal 'INDENT'
-  - Expand StmtList -> PRINT LPAREN Expr RPAREN StmtTail
-  - Match terminal 'PRINT'
-  - Match terminal 'LPAREN'
-  - Expand Expr -> Term Expr'
+  - Expand Expr' -> PLUS Term Expr'
+  - Match terminal 'PLUS'
   - Expand Term -> INT Term'
   - Match terminal 'INT'
   - Expand Term' -> epsilon
   - Expand Expr' -> epsilon
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> PRINT LPAREN Expr RPAREN StmtTail
+  - Match terminal 'PRINT'
+  - Match terminal 'LPAREN'
+  - Expand Expr -> Term Expr'
+  - Expand Term -> IDENT Term'
+  - Match terminal 'IDENT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> epsilon
   - Match terminal 'RPAREN'
   - Expand StmtTail -> NEWLINE StmtTail
   - Match terminal 'NEWLINE'
   - Expand StmtTail -> epsilon
   - Match terminal 'DEDENT'
-  - Expand StmtTail -> IDENT AssignOp Expr StmtTail
-  - Match terminal 'IDENT'
-  - Expand AssignOp -> PLUS_ASSIGN
-  - Match terminal 'PLUS_ASSIGN'
-  - Panic pop: pop non-terminal 'Expr' on lookahead 'NEWLINE'
-  - Expand StmtTail -> NEWLINE StmtTail
-  - Match terminal 'NEWLINE'
   - Expand StmtTail -> epsilon
   - ACCEPT

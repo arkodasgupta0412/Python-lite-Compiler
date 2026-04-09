@@ -1,9 +1,7 @@
 #pragma once
 
-#include <memory>
-#include <stdexcept>
 #include <string>
-#include <unordered_map>
+#include <utility>
 #include <vector>
 
 #include "compiler/ast_nodes.hpp"
@@ -11,20 +9,15 @@
 
 namespace cd {
 
-class SemanticError : public std::runtime_error {
- public:
-  explicit SemanticError(const std::string& msg) : std::runtime_error(msg) {}
-};
-
 class SemanticAnalyzer {
  public:
-  explicit SemanticAnalyzer(ISymbolTable& symbolTable) : symbolTable_(symbolTable) {}
-  void analyze(const Program& program);
+  explicit SemanticAnalyzer(SymbolTableManager& symbolTable) : symbolTable_(symbolTable) {}
+  std::vector<std::string> analyze(const Program& program);
 
  private:
-  ISymbolTable& symbolTable_;
+  SymbolTableManager& symbolTable_;
   std::vector<std::string> errors_;
-  std::vector<std::unordered_map<std::string, std::string>> listElementTypeScopes_;
+  std::vector<std::vector<std::pair<const std::string*, const Type*>>> listElementTypeScopes_;
 
   void visitStatement(const Statement& stmt);
   void visitAssignment(const AssignmentStatement& stmt);
@@ -33,9 +26,15 @@ class SemanticAnalyzer {
   void visitIf(const IfStatement& stmt);
   void enterScope();
   void exitScope();
-  std::string inferExprType(const Expression& expr);
-  std::string inferListElementType(const Expression& expr);
-  static std::string resolveBinaryType(const std::string& left, const std::string& op, const std::string& right);
+
+  const Type* inferExprType(const Expression& expr);
+  const Type* inferListElementType(const Expression& expr);
+  const Type* resolveBinaryType(const Type* left, const std::string& op, const Type* right) const;
+
+  const Type* trackedListElementType(const std::string* namePtr) const;
+  void setTrackedListElementType(const std::string* namePtr, const Type* elemType);
+  void eraseTrackedListElementType(const std::string* namePtr);
+  static bool isErrorLike(const Type* type, const Type* poisonType);
 };
 
 }  // namespace cd

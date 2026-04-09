@@ -35,10 +35,10 @@ std::unique_ptr<Statement> TopDownParser::forStatement() {
   auto iter = expression();
   consume(TokenType::COLON, "Expected ':' after iterable");
   if (match({TokenType::NEWLINE})) {
-    return std::make_unique<ForStatement>(name.lexeme, std::move(iter), blockStatement());
+    return std::make_unique<ForStatement>(name.lexeme, std::move(iter), blockStatement(), name.line, name.column);
   }
   auto body = statement();
-  return std::make_unique<ForStatement>(name.lexeme, std::move(iter), std::move(body));
+  return std::make_unique<ForStatement>(name.lexeme, std::move(iter), std::move(body), name.line, name.column);
 }
 
 std::unique_ptr<Statement> TopDownParser::ifStatement() {
@@ -84,7 +84,7 @@ std::unique_ptr<Statement> TopDownParser::assignmentStatement() {
                      std::to_string(t.column));
   }
   auto expr = expression();
-  return std::make_unique<AssignmentStatement>(name.lexeme, op, std::move(expr));
+  return std::make_unique<AssignmentStatement>(name.lexeme, op, std::move(expr), name.line, name.column);
 }
 
 std::unique_ptr<Expression> TopDownParser::expression() {
@@ -120,7 +120,10 @@ std::unique_ptr<Expression> TopDownParser::primary() {
   if (match({TokenType::FLOAT})) return std::make_unique<FloatLiteral>(std::stod(previous().lexeme));
   if (match({TokenType::STRING})) return std::make_unique<StringLiteral>(previous().lexeme);
   if (match({TokenType::BOOL})) return std::make_unique<BoolLiteral>(previous().lexeme == "true");
-  if (match({TokenType::IDENT})) return std::make_unique<Identifier>(previous().lexeme);
+  if (match({TokenType::IDENT})) {
+    const auto& ident = previous();
+    return std::make_unique<Identifier>(ident.lexeme, ident.line, ident.column);
+  }
   if (match({TokenType::RANGE})) {
     consume(TokenType::LPAREN, "Expected '(' after range");
     auto start = expression();

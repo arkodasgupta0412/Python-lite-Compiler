@@ -15,16 +15,17 @@ CompilationResult CompilerPipeline::run(const std::string& source) const {
   TopDownParser parser(tokens);
   auto program = parser.parse();
 
-  HashSymbolTable symbolTable;
-  SemanticAnalyzer semantic(symbolTable);
-  semantic.analyze(program);
+  auto symbolTable = std::make_shared<SymbolTableManager>();
+  SemanticAnalyzer semantic(*symbolTable);
+  std::vector<std::string> semanticErrors = semantic.analyze(program);
 
   auto cfg = CFGProvider::rawCFG();
   auto artifacts = analyzeCFG(cfg);
   artifacts.ll1PanicParse = parseLL1WithPanicMode(tokens, cfg.startSymbol, artifacts.transformedGrammar,
                                                   artifacts.follow, artifacts.parseTable);
 
-  return CompilationResult{tokens, symbolTable.snapshot(), artifacts, std::move(program)};
+  return CompilationResult{tokens, symbolTable->snapshotScopes(), semanticErrors, artifacts, std::move(program),
+                           symbolTable};
 }
 
 }  // namespace cd

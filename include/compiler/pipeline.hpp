@@ -1,6 +1,6 @@
 #pragma once
 
-#include <unordered_map>
+#include <memory>
 #include <vector>
 
 #include "compiler/ast_nodes.hpp"
@@ -12,9 +12,11 @@ namespace cd {
 
 struct CompilationResult {
   std::vector<Token> tokens;
-  std::unordered_map<std::string, SymbolRecord> symbolSnapshot;
+  std::vector<ScopeSnapshot> symbolSnapshot;
+  std::vector<std::string> semanticErrors;
   GrammarArtifacts grammarArtifacts;
   Program ast;
+  std::shared_ptr<SymbolTableManager> symbolTableOwner;
 };
 
 class CompilerPipeline {

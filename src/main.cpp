@@ -54,6 +54,16 @@ int main(int argc, char* argv[]) {
     writer.write("Grammar rules image written to docs/grammar.svg");
     try {
       auto result = pipeline.run(source);
+
+      if (!result.semanticErrors.empty()) {
+        writer.write("Semantic analysis completed with errors:");
+        for (const auto& err : result.semanticErrors) {
+          std::cerr << "Semantic Error: " << err << "\n";
+          writer.write("  " + err);
+        }
+        writer.write("Continuing with poisoned symbols to generate AST and symbol table outputs.");
+      }
+
       writer.writeSymbolTableReport(docsDir + "/symbol_table.txt", result.symbolSnapshot);
       writer.writeSymbolTableImage(docsDir + "/symbol_table.svg", result.symbolSnapshot);
       writer.write("Symbol table report written to docs/symbol_table.txt");
@@ -70,9 +80,6 @@ int main(int argc, char* argv[]) {
     } catch (const cd::ParseError& ex) {
       std::cerr << "Parse Error: " << ex.what() << "\n";
       writer.write("Skipping symbol table and AST outputs because strict parse failed.");
-    } catch (const cd::SemanticError& ex) {
-      std::cerr << "Semantic Error: " << ex.what() << "\n";
-      writer.write("Skipping symbol table and AST outputs because semantic analysis failed.");
     }
     return 0;
   } catch (const cd::LexicalError& ex) {

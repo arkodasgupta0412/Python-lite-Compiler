@@ -488,8 +488,8 @@ void OutputWriter::writeTokenStreamReport(const std::string& path, const std::ve
   }
 }
 
-void OutputWriter::writeSymbolTableReport(
-    const std::string& path, const std::unordered_map<std::string, SymbolRecord>& symbolSnapshot) const {
+void OutputWriter::writeSymbolTableReport(const std::string& path,
+                                          const std::vector<ScopeSnapshot>& symbolSnapshot) const {
   std::filesystem::path outPath(path);
   if (outPath.has_parent_path()) {
     std::filesystem::create_directories(outPath.parent_path());
@@ -497,14 +497,32 @@ void OutputWriter::writeSymbolTableReport(
 
   std::ofstream out(path);
   if (!out) throw std::runtime_error("Failed to write symbol table report: " + path);
-  out << "Symbol Table\n";
-  out << "============\n\n";
-  out << std::left << std::setw(20) << "Name" << std::setw(12) << "Type" << "Value\n";
-  out << std::string(72, '-') << "\n";
+  out << "Symbol Table (Environment Tree)\n";
+  out << "===============================\n\n";
 
-  std::map<std::string, SymbolRecord> sorted(symbolSnapshot.begin(), symbolSnapshot.end());
-  for (const auto& [name, record] : sorted) {
-    out << std::left << std::setw(20) << name << std::setw(12) << record.varType << record.valueRepr << "\n";
+  for (const auto& scope : symbolSnapshot) {
+    if (scope.depth == 0) {
+      out << "=== Global Scope ===\n";
+    } else {
+      out << "=== Scope Depth " << scope.depth << " (Child " << scope.childIndex << ") ===\n";
+    }
+
+    out << std::left << std::setw(20) << "Name" << std::setw(18) << "Type" << std::setw(12) << "Kind"
+        << std::setw(8) << "Line" << std::setw(8) << "Col" << "Offset\n";
+    out << std::string(86, '-') << "\n";
+
+    if (scope.locals.empty()) {
+      out << "(no symbols)\n\n";
+      continue;
+    }
+
+    for (const auto& symbol : scope.locals) {
+      const std::string name = (symbol.name == nullptr) ? "<null>" : *symbol.name;
+      out << std::left << std::setw(20) << name << std::setw(18) << typeDebugName(symbol.type) << std::setw(12)
+          << symbolKindName(symbol.kind) << std::setw(8) << symbol.line << std::setw(8) << symbol.column
+          << symbol.memoryOffset << "\n";
+    }
+    out << "\n";
   }
 }
 
@@ -517,15 +535,33 @@ void OutputWriter::writeTokenStreamImage(const std::string& path, const std::vec
   writeSVGTable(path, "Token Stream", {"Type", "Lexeme", "Line", "Column"}, rows);
 }
 
-void OutputWriter::writeSymbolTableImage(
-    const std::string& path, const std::unordered_map<std::string, SymbolRecord>& symbolSnapshot) const {
-  std::map<std::string, SymbolRecord> sorted(symbolSnapshot.begin(), symbolSnapshot.end());
+void OutputWriter::writeSymbolTableImage(const std::string& path,
+                                         const std::vector<ScopeSnapshot>& symbolSnapshot) const {
+
   std::vector<std::vector<std::string>> rows;
-  rows.reserve(sorted.size());
-  for (const auto& [name, record] : sorted) {
-    rows.push_back({name, record.varType, record.valueRepr});
+  for (const auto& scope : symbolSnapshot) {
+    const std::string scopeLabel = (scope.depth == 0)
+                                       ? "Global"
+                                       : ("Depth " + std::to_string(scope.depth) + " / Child " +
+                                          std::to_string(scope.childIndex));
+
+    if (scope.locals.empty()) {
+      rows.push_back({scopeLabel, "(no symbols)", "", "", "", "", ""});
+      continue;
+    }
+
+    for (const auto& symbol : scope.locals) {
+      rows.push_back({scopeLabel,
+                      (symbol.name == nullptr) ? "<null>" : *symbol.name,
+                      typeDebugName(symbol.type),
+                      symbolKindName(symbol.kind),
+                      std::to_string(symbol.line),
+                      std::to_string(symbol.column),
+                      std::to_string(symbol.memoryOffset)});
+    }
   }
-  writeSVGTable(path, "Symbol Table", {"Name", "Type", "Value"}, rows);
+
+  writeSVGTable(path, "Symbol Table (Environment Tree)", {"Scope", "Name", "Type", "Kind", "Line", "Col", "Offset"}, rows);
 }
 
 void OutputWriter::writeASTDot(const std::string& path, const Program& program) const {

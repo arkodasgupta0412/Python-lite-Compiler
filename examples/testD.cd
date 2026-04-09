@@ -1,0 +1,14 @@
+a = 10
+
+# Valid Shadowing: 'a' is in a different scope, so declare() should succeed.
+if true:
+    a = "hello"
+    print(a)
+
+b = 20
+
+# Same-Scope Type/Redefinition Collision: 
+# 'b' is already declared as an int in this scope. 
+b = "this is a string now"
+
+print(b)

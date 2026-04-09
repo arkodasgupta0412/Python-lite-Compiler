@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="1576" viewBox="0 0 500 1576">
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="1660" viewBox="0 0 500 1660">
   <rect x="0" y="0" width="100%" height="100%" fill="#f8fafc"/>
   <text x="10" y="28" font-family="Consolas, monospace" font-size="18" font-weight="700" fill="#0f172a">Token Stream</text>
   <rect x="10" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
@@ -12,7 +12,7 @@
   <rect x="10" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
   <rect x="130" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">x</text>
+  <text x="140" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">nums1</text>
   <rect x="250" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
@@ -24,311 +24,311 @@
   <rect x="250" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <text x="380" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
   <rect x="10" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
+  <text x="20" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LBRACKET</text>
   <rect x="130" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="140" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">[</text>
   <rect x="250" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="380" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="10" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="250" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
+  <text x="380" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="10" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">FOR</text>
+  <text x="20" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COMMA</text>
   <rect x="130" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">for</text>
+  <text x="140" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">,</text>
   <rect x="250" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <text x="260" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="10" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
+  <text x="20" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">i</text>
+  <text x="140" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="250" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <text x="260" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="380" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">13</text>
   <rect x="10" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IN</text>
+  <text x="20" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COMMA</text>
   <rect x="130" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">in</text>
+  <text x="140" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">,</text>
   <rect x="250" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <text x="260" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
+  <text x="380" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">14</text>
   <rect x="10" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RANGE</text>
+  <text x="20" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">range</text>
+  <text x="140" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="250" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <text x="260" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
+  <text x="380" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">16</text>
   <rect x="10" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LPAREN</text>
+  <text x="20" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RBRACKET</text>
   <rect x="130" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(</text>
+  <text x="140" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">]</text>
   <rect x="250" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <text x="260" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">15</text>
+  <text x="380" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">17</text>
   <rect x="10" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
+  <text x="20" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
   <rect x="130" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="140" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
   <rect x="250" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <text x="260" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="370" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">16</text>
+  <text x="380" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">18</text>
   <rect x="10" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COMMA</text>
+  <text x="20" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
   <rect x="130" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">,</text>
+  <text x="140" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">nums2</text>
   <rect x="250" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">17</text>
+  <text x="380" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="10" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
+  <text x="20" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ASSIGN</text>
   <rect x="130" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
+  <text x="140" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">=</text>
   <rect x="250" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">19</text>
+  <text x="380" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
   <rect x="10" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RPAREN</text>
+  <text x="20" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LBRACKET</text>
   <rect x="130" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">)</text>
+  <text x="140" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">[</text>
   <rect x="250" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">20</text>
+  <text x="380" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="10" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
   <rect x="250" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">21</text>
+  <text x="380" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="10" y="464" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INDENT</text>
+  <text x="20" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COMMA</text>
   <rect x="130" y="464" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">&lt;INDENT&gt;</text>
+  <text x="140" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">,</text>
   <rect x="250" y="464" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
+  <text x="260" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="464" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="10" y="492" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
+  <text x="20" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="492" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">x</text>
+  <text x="140" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
   <rect x="250" y="492" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
+  <text x="260" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="492" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="380" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">13</text>
   <rect x="10" y="520" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PLUS_ASSIGN</text>
+  <text x="20" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COMMA</text>
   <rect x="130" y="520" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">+=</text>
+  <text x="140" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">,</text>
   <rect x="250" y="520" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
+  <text x="260" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="520" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
+  <text x="380" y="538" font-family="Consolas, monospace" font-size="13" fill="#1e293b">14</text>
   <rect x="10" y="548" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
+  <text x="20" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="548" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">i</text>
+  <text x="140" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="250" y="548" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
+  <text x="260" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="548" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
+  <text x="380" y="566" font-family="Consolas, monospace" font-size="13" fill="#1e293b">16</text>
   <rect x="10" y="576" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RBRACKET</text>
   <rect x="130" y="576" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">]</text>
   <rect x="250" y="576" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
+  <text x="260" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="576" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
+  <text x="380" y="594" font-family="Consolas, monospace" font-size="13" fill="#1e293b">17</text>
   <rect x="10" y="604" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PRINT</text>
+  <text x="20" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
   <rect x="130" y="604" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">print</text>
+  <text x="140" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
   <rect x="250" y="604" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="260" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="370" y="604" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="380" y="622" font-family="Consolas, monospace" font-size="13" fill="#1e293b">18</text>
   <rect x="10" y="632" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LPAREN</text>
+  <text x="20" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
   <rect x="130" y="632" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(</text>
+  <text x="140" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">matrix</text>
   <rect x="250" y="632" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="260" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="632" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
+  <text x="380" y="650" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="10" y="660" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
+  <text x="20" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ASSIGN</text>
   <rect x="130" y="660" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">i</text>
+  <text x="140" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">=</text>
   <rect x="250" y="660" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="260" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="660" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
+  <text x="380" y="678" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
   <rect x="10" y="688" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LBRACKET</text>
   <rect x="130" y="688" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">[</text>
   <rect x="250" y="688" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="260" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="688" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
+  <text x="380" y="706" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="10" y="716" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">DEDENT</text>
+  <text x="20" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LBRACKET</text>
   <rect x="130" y="716" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">&lt;DEDENT&gt;</text>
+  <text x="140" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">[</text>
   <rect x="250" y="716" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="716" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="734" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="10" y="744" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PRINT</text>
+  <text x="20" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="744" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">print</text>
+  <text x="140" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="250" y="744" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="744" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="762" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
   <rect x="10" y="772" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LPAREN</text>
+  <text x="20" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COMMA</text>
   <rect x="130" y="772" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(</text>
+  <text x="140" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">,</text>
   <rect x="250" y="772" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="772" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
+  <text x="380" y="790" font-family="Consolas, monospace" font-size="13" fill="#1e293b">13</text>
   <rect x="10" y="800" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
+  <text x="20" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="800" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">x</text>
+  <text x="140" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
   <rect x="250" y="800" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="800" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
+  <text x="380" y="818" font-family="Consolas, monospace" font-size="13" fill="#1e293b">15</text>
   <rect x="10" y="828" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RPAREN</text>
+  <text x="20" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RBRACKET</text>
   <rect x="130" y="828" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">)</text>
+  <text x="140" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">]</text>
   <rect x="250" y="828" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="828" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
+  <text x="380" y="846" font-family="Consolas, monospace" font-size="13" fill="#1e293b">16</text>
   <rect x="10" y="856" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COMMA</text>
   <rect x="130" y="856" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">,</text>
   <rect x="250" y="856" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="856" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
+  <text x="380" y="874" font-family="Consolas, monospace" font-size="13" fill="#1e293b">17</text>
   <rect x="10" y="884" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IF</text>
+  <text x="20" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LBRACKET</text>
   <rect x="130" y="884" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">if</text>
+  <text x="140" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">[</text>
   <rect x="250" y="884" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
+  <text x="260" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="884" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="902" font-family="Consolas, monospace" font-size="13" fill="#1e293b">19</text>
   <rect x="10" y="912" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">BOOL</text>
+  <text x="20" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="912" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">true</text>
+  <text x="140" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
   <rect x="250" y="912" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
+  <text x="260" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="912" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
+  <text x="380" y="930" font-family="Consolas, monospace" font-size="13" fill="#1e293b">20</text>
   <rect x="10" y="940" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COMMA</text>
   <rect x="130" y="940" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">,</text>
   <rect x="250" y="940" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
+  <text x="260" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="940" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
+  <text x="380" y="958" font-family="Consolas, monospace" font-size="13" fill="#1e293b">21</text>
   <rect x="10" y="968" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INDENT</text>
+  <text x="20" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="968" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">&lt;INDENT&gt;</text>
+  <text x="140" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
   <rect x="250" y="968" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
+  <text x="260" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="968" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="986" font-family="Consolas, monospace" font-size="13" fill="#1e293b">23</text>
   <rect x="10" y="996" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PRINT</text>
+  <text x="20" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RBRACKET</text>
   <rect x="130" y="996" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">print</text>
+  <text x="140" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">]</text>
   <rect x="250" y="996" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
+  <text x="260" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="996" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="380" y="1014" font-family="Consolas, monospace" font-size="13" fill="#1e293b">24</text>
   <rect x="10" y="1024" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LPAREN</text>
+  <text x="20" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RBRACKET</text>
   <rect x="130" y="1024" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(</text>
+  <text x="140" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">]</text>
   <rect x="250" y="1024" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
+  <text x="260" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="1024" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
+  <text x="380" y="1042" font-family="Consolas, monospace" font-size="13" fill="#1e293b">25</text>
   <rect x="10" y="1052" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
+  <text x="20" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
   <rect x="130" y="1052" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">x</text>
+  <text x="140" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
   <rect x="250" y="1052" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
+  <text x="260" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
   <rect x="370" y="1052" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
+  <text x="380" y="1070" font-family="Consolas, monospace" font-size="13" fill="#1e293b">26</text>
   <rect x="10" y="1080" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RPAREN</text>
+  <text x="20" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">FOR</text>
   <rect x="130" y="1080" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">)</text>
+  <text x="140" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">for</text>
   <rect x="250" y="1080" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
+  <text x="260" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="370" y="1080" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
+  <text x="380" y="1098" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="10" y="1108" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
   <rect x="130" y="1108" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">item</text>
   <rect x="250" y="1108" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
+  <text x="260" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="370" y="1108" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">13</text>
+  <text x="380" y="1126" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
   <rect x="10" y="1136" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">DEDENT</text>
+  <text x="20" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IN</text>
   <rect x="130" y="1136" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">&lt;DEDENT&gt;</text>
+  <text x="140" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">in</text>
   <rect x="250" y="1136" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="370" y="1136" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="1154" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="10" y="1164" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ELSE</text>
+  <text x="20" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
   <rect x="130" y="1164" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">else</text>
+  <text x="140" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">nums1</text>
   <rect x="250" y="1164" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="370" y="1164" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="1182" font-family="Consolas, monospace" font-size="13" fill="#1e293b">13</text>
   <rect x="10" y="1192" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">COLON</text>
   <rect x="130" y="1192" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
@@ -336,7 +336,7 @@
   <rect x="250" y="1192" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="1210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="370" y="1192" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="380" y="1210" font-family="Consolas, monospace" font-size="13" fill="#1e293b">18</text>
   <rect x="10" y="1220" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="1238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
   <rect x="130" y="1220" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
@@ -344,7 +344,7 @@
   <rect x="250" y="1220" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="1238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="370" y="1220" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="1238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
+  <text x="380" y="1238" font-family="Consolas, monospace" font-size="13" fill="#1e293b">19</text>
   <rect x="10" y="1248" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="1266" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INDENT</text>
   <rect x="130" y="1248" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
@@ -354,83 +354,107 @@
   <rect x="370" y="1248" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="380" y="1266" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="10" y="1276" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PRINT</text>
+  <text x="20" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
   <rect x="130" y="1276" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">print</text>
+  <text x="140" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">val</text>
   <rect x="250" y="1276" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="370" y="1276" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="380" y="1294" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
   <rect x="10" y="1304" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LPAREN</text>
+  <text x="20" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ASSIGN</text>
   <rect x="130" y="1304" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(</text>
+  <text x="140" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">=</text>
   <rect x="250" y="1304" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="370" y="1304" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
+  <text x="380" y="1322" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="10" y="1332" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
+  <text x="20" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
   <rect x="130" y="1332" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">0</text>
+  <text x="140" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">item</text>
   <rect x="250" y="1332" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="370" y="1332" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="380" y="1350" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="10" y="1360" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RPAREN</text>
+  <text x="20" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PLUS</text>
   <rect x="130" y="1360" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">)</text>
+  <text x="140" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">+</text>
   <rect x="250" y="1360" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="370" y="1360" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
+  <text x="380" y="1378" font-family="Consolas, monospace" font-size="13" fill="#1e293b">16</text>
   <rect x="10" y="1388" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">INT</text>
   <rect x="130" y="1388" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="250" y="1388" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="370" y="1388" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">13</text>
+  <text x="380" y="1406" font-family="Consolas, monospace" font-size="13" fill="#1e293b">18</text>
   <rect x="10" y="1416" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">DEDENT</text>
+  <text x="20" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
   <rect x="130" y="1416" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">&lt;DEDENT&gt;</text>
+  <text x="140" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
   <rect x="250" y="1416" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
+  <text x="260" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="370" y="1416" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="1434" font-family="Consolas, monospace" font-size="13" fill="#1e293b">20</text>
   <rect x="10" y="1444" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
+  <text x="20" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PRINT</text>
   <rect x="130" y="1444" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">y</text>
+  <text x="140" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">print</text>
   <rect x="250" y="1444" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="370" y="1444" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="1462" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
   <rect x="10" y="1472" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">PLUS_ASSIGN</text>
+  <text x="20" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">LPAREN</text>
   <rect x="130" y="1472" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">+=</text>
+  <text x="140" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(</text>
   <rect x="250" y="1472" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="260" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="370" y="1472" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <text x="380" y="1490" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="10" y="1500" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <text x="20" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
   <rect x="130" y="1500" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="140" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <text x="140" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">val</text>
   <rect x="250" y="1500" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="260" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="370" y="1500" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="380" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <text x="380" y="1518" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="10" y="1528" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">EOF</text>
+  <text x="20" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RPAREN</text>
   <rect x="130" y="1528" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
+  <text x="140" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">)</text>
   <rect x="250" y="1528" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
+  <text x="260" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
   <rect x="370" y="1528" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="380" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <text x="380" y="1546" font-family="Consolas, monospace" font-size="13" fill="#1e293b">14</text>
+  <rect x="10" y="1556" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="1574" font-family="Consolas, monospace" font-size="13" fill="#1e293b">NEWLINE</text>
+  <rect x="130" y="1556" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="140" y="1574" font-family="Consolas, monospace" font-size="13" fill="#1e293b">\n</text>
+  <rect x="250" y="1556" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="260" y="1574" font-family="Consolas, monospace" font-size="13" fill="#1e293b">11</text>
+  <rect x="370" y="1556" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="380" y="1574" font-family="Consolas, monospace" font-size="13" fill="#1e293b">15</text>
+  <rect x="10" y="1584" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="20" y="1602" font-family="Consolas, monospace" font-size="13" fill="#1e293b">DEDENT</text>
+  <rect x="130" y="1584" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="140" y="1602" font-family="Consolas, monospace" font-size="13" fill="#1e293b">&lt;DEDENT&gt;</text>
+  <rect x="250" y="1584" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="260" y="1602" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
+  <rect x="370" y="1584" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="380" y="1602" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <rect x="10" y="1612" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="20" y="1630" font-family="Consolas, monospace" font-size="13" fill="#1e293b">EOF</text>
+  <rect x="130" y="1612" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="140" y="1630" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
+  <rect x="250" y="1612" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="260" y="1630" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
+  <rect x="370" y="1612" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="380" y="1630" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
 </svg>

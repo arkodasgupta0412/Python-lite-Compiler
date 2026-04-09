@@ -1,0 +1,11 @@
+# Semantic Error 1: 'ghost_var' does not exist.
+a = ghost_var + 100
+
+# Because 'a' is Poison, this should NOT throw an error.
+b = a * 5
+
+# Semantic Error 2: Booleans can't be divided.
+c = true / 10
+
+# Should NOT throw an error because 'c' is Poison.
+print(c)

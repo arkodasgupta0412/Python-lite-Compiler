@@ -46,13 +46,23 @@ std::string RangeExpression::repr() const {
   return out.str();
 }
 
-AssignmentStatement::AssignmentStatement(std::string n, std::string oper, std::unique_ptr<Expression> expr)
-    : name(std::move(n)), op(std::move(oper)), expression(std::move(expr)) {}
+AssignmentStatement::AssignmentStatement(std::string n, std::string oper, std::unique_ptr<Expression> expr,
+                                         int lineNo, int columnNo)
+    : name(std::move(n)),
+      op(std::move(oper)),
+      expression(std::move(expr)),
+      line(lineNo),
+      column(columnNo) {}
 
 PrintStatement::PrintStatement(std::unique_ptr<Expression> expr) : expression(std::move(expr)) {}
 
-ForStatement::ForStatement(std::string var, std::unique_ptr<Expression> iter, std::unique_ptr<Statement> stmt)
-    : loopVar(std::move(var)), iterable(std::move(iter)), body(std::move(stmt)) {}
+ForStatement::ForStatement(std::string var, std::unique_ptr<Expression> iter, std::unique_ptr<Statement> stmt,
+                           int lineNo, int columnNo)
+    : loopVar(std::move(var)),
+      iterable(std::move(iter)),
+      body(std::move(stmt)),
+      loopVarLine(lineNo),
+      loopVarColumn(columnNo) {}
 
 IfStatement::IfStatement(std::unique_ptr<Expression> conditionExpr, std::unique_ptr<Statement> thenStmt,
                          std::unique_ptr<Statement> elseStmt)
