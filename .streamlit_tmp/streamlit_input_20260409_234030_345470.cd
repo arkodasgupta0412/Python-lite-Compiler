@@ -1,0 +1,18 @@
+level = "global"
+
+if true:
+    # Shadowing the global variable
+    level = "mid_level"
+    
+    for i in range(0, 2):
+        # Shadowing the mid_level variable
+        level = "inner_level"
+        
+        # Should resolve to "inner_level" (the closest scope)
+        print(level)
+        
+    # Should resolve to "mid_level" (the inner_level scope was exited)
+    print(level)
+
+# Should resolve to "global"
+print(level)

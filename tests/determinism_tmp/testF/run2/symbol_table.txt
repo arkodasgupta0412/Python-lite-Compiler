@@ -1,0 +1,11 @@
+Symbol Table (Environment Tree)
+===============================
+
+=== Global Scope ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+a                   <error>           Variable    2       1       0
+b                   <error>           Variable    5       1       4
+c                   <error>           Variable    8       1       8
+ghost_var           <error>           Variable    0       0       -1
+

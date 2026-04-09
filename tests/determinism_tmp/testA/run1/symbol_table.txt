@@ -1,0 +1,15 @@
+Symbol Table (Environment Tree)
+===============================
+
+=== Global Scope ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+a                   int               Variable    1       1       0
+b                   float             Variable    2       1       8
+flag                bool              Variable    4       1       24
+greeting            str               Variable    3       1       16
+res1                int               Variable    7       1       28
+res2                float             Variable    8       1       32
+res3                int               Variable    9       1       40
+res4                float             Variable    10      1       48
+

@@ -1,0 +1,17 @@
+a = 10
+b = 20.5
+greeting = "hello"
+flag = true
+
+# Custom math operations
+res1 = a + 5
+res2 = b - 2.5
+res3 = a * 3
+res4 = 100 / a
+
+# Compound assignments
+a += 10
+a -= 5
+
+print(a)
+print(greeting)

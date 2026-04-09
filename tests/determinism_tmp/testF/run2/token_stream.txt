@@ -1,0 +1,29 @@
+Token Stream
+============
+
+Type            Lexeme          Line    Col     
+------------------------------------------------
+IDENTIFIER      a               2       1       
+OPERATOR        =               2       3       
+IDENTIFIER      ghost_var       2       5       
+OPERATOR        +               2       15      
+NUMBER          100             2       17      
+NEWLINE         \n              2       20      
+IDENTIFIER      b               5       1       
+OPERATOR        =               5       3       
+IDENTIFIER      a               5       5       
+OPERATOR        *               5       7       
+NUMBER          5               5       9       
+NEWLINE         \n              5       10      
+IDENTIFIER      c               8       1       
+OPERATOR        =               8       3       
+BOOLEAN         true            8       5       
+OPERATOR        /               8       10      
+NUMBER          10              8       12      
+NEWLINE         \n              8       14      
+KEYWORD         print           11      1       
+PUNCTUATOR      (               11      6       
+IDENTIFIER      c               11      7       
+PUNCTUATOR      )               11      8       
+NEWLINE         \n              11      9       
+EOF                             12      1       

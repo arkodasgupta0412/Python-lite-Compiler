@@ -1,0 +1,23 @@
+Symbol Table (Environment Tree)
+===============================
+
+=== Global Scope ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+level               str               Variable    1       1       0
+
+=== Scope Depth 1 (Child 1) ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+(no symbols)
+
+=== Scope Depth 2 (Child 1) ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+i                   int               Variable    7       6       8
+
+=== Scope Depth 3 (Child 1) ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+(no symbols)
+

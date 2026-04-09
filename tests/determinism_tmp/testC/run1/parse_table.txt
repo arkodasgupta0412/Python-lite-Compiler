@@ -234,30 +234,8 @@ Actions:
   - Expand AssignOp -> ASSIGN
   - Match terminal 'ASSIGN'
   - Expand Expr -> Term Expr'
-  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
-  - Match terminal 'LBRACKET'
-  - Expand ElementsOpt -> Expr MoreElements
-  - Expand Expr -> Term Expr'
   - Expand Term -> INT Term'
   - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> COMMA Expr MoreElements
-  - Match terminal 'COMMA'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> COMMA Expr MoreElements
-  - Match terminal 'COMMA'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> epsilon
-  - Match terminal 'RBRACKET'
   - Expand Term' -> epsilon
   - Expand Expr' -> epsilon
   - Expand StmtTail -> NEWLINE StmtTail
@@ -267,30 +245,8 @@ Actions:
   - Expand AssignOp -> ASSIGN
   - Match terminal 'ASSIGN'
   - Expand Expr -> Term Expr'
-  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
-  - Match terminal 'LBRACKET'
-  - Expand ElementsOpt -> Expr MoreElements
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> COMMA Expr MoreElements
-  - Match terminal 'COMMA'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> COMMA Expr MoreElements
-  - Match terminal 'COMMA'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> epsilon
-  - Match terminal 'RBRACKET'
+  - Expand Term -> STRING Term'
+  - Match terminal 'STRING'
   - Expand Term' -> epsilon
   - Expand Expr' -> epsilon
   - Expand StmtTail -> NEWLINE StmtTail
@@ -300,53 +256,27 @@ Actions:
   - Expand AssignOp -> ASSIGN
   - Match terminal 'ASSIGN'
   - Expand Expr -> Term Expr'
-  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
-  - Match terminal 'LBRACKET'
-  - Expand ElementsOpt -> Expr MoreElements
-  - Expand Expr -> Term Expr'
-  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
-  - Match terminal 'LBRACKET'
-  - Expand ElementsOpt -> Expr MoreElements
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
+  - Expand Term -> IDENT Term'
+  - Match terminal 'IDENT'
+  - Expand Term' -> epsilon
+  - Expand Expr' -> MINUS Term Expr'
+  - Match terminal 'MINUS'
+  - Expand Term -> MINUS Factor Term'
+  - Match terminal 'MINUS'
+  - Expand Factor -> Primary
+  - Expand Primary -> IDENT
+  - Match terminal 'IDENT'
   - Expand Term' -> epsilon
   - Expand Expr' -> epsilon
-  - Expand MoreElements -> COMMA Expr MoreElements
-  - Match terminal 'COMMA'
+  - Expand StmtTail -> NEWLINE StmtTail
+  - Match terminal 'NEWLINE'
+  - Expand StmtTail -> IDENT AssignOp Expr StmtTail
+  - Match terminal 'IDENT'
+  - Expand AssignOp -> ASSIGN
+  - Match terminal 'ASSIGN'
   - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> epsilon
-  - Match terminal 'RBRACKET'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> COMMA Expr MoreElements
-  - Match terminal 'COMMA'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> LBRACKET ElementsOpt RBRACKET Term'
-  - Match terminal 'LBRACKET'
-  - Expand ElementsOpt -> Expr MoreElements
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> COMMA Expr MoreElements
-  - Match terminal 'COMMA'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> epsilon
-  - Match terminal 'RBRACKET'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand MoreElements -> epsilon
-  - Match terminal 'RBRACKET'
+  - Expand Term -> BOOL Term'
+  - Match terminal 'BOOL'
   - Expand Term' -> epsilon
   - Expand Expr' -> epsilon
   - Expand StmtTail -> NEWLINE StmtTail
@@ -365,22 +295,6 @@ Actions:
   - Match terminal 'NEWLINE'
   - Match terminal 'INDENT'
   - Expand StmtList -> StmtTail
-  - Expand StmtTail -> IDENT AssignOp Expr StmtTail
-  - Match terminal 'IDENT'
-  - Expand AssignOp -> ASSIGN
-  - Match terminal 'ASSIGN'
-  - Expand Expr -> Term Expr'
-  - Expand Term -> IDENT Term'
-  - Match terminal 'IDENT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> PLUS Term Expr'
-  - Match terminal 'PLUS'
-  - Expand Term -> INT Term'
-  - Match terminal 'INT'
-  - Expand Term' -> epsilon
-  - Expand Expr' -> epsilon
-  - Expand StmtTail -> NEWLINE StmtTail
-  - Match terminal 'NEWLINE'
   - Expand StmtTail -> PRINT LPAREN Expr RPAREN StmtTail
   - Match terminal 'PRINT'
   - Match terminal 'LPAREN'

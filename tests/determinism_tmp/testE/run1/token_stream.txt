@@ -1,0 +1,52 @@
+Token Stream
+============
+
+Type            Lexeme          Line    Col     
+------------------------------------------------
+IDENTIFIER      level           1       1       
+OPERATOR        =               1       7       
+STRING          global          1       9       
+NEWLINE         \n              1       17      
+KEYWORD         if              3       1       
+BOOLEAN         true            3       4       
+PUNCTUATOR      :               3       8       
+NEWLINE         \n              3       9       
+INDENT          <INDENT>        5       1       
+IDENTIFIER      level           5       2       
+OPERATOR        =               5       8       
+STRING          mid_level       5       10      
+NEWLINE         \n              5       21      
+KEYWORD         for             7       2       
+IDENTIFIER      i               7       6       
+KEYWORD         in              7       8       
+KEYWORD         range           7       11      
+PUNCTUATOR      (               7       16      
+NUMBER          0               7       17      
+PUNCTUATOR      ,               7       18      
+NUMBER          2               7       20      
+PUNCTUATOR      )               7       21      
+PUNCTUATOR      :               7       22      
+NEWLINE         \n              7       23      
+INDENT          <INDENT>        9       1       
+IDENTIFIER      level           9       3       
+OPERATOR        =               9       9       
+STRING          inner_level     9       11      
+NEWLINE         \n              9       24      
+KEYWORD         print           12      3       
+PUNCTUATOR      (               12      8       
+IDENTIFIER      level           12      9       
+PUNCTUATOR      )               12      14      
+NEWLINE         \n              12      15      
+DEDENT          <DEDENT>        15      1       
+KEYWORD         print           15      2       
+PUNCTUATOR      (               15      7       
+IDENTIFIER      level           15      8       
+PUNCTUATOR      )               15      13      
+NEWLINE         \n              15      14      
+DEDENT          <DEDENT>        18      1       
+KEYWORD         print           18      1       
+PUNCTUATOR      (               18      6       
+IDENTIFIER      level           18      7       
+PUNCTUATOR      )               18      12      
+NEWLINE         \n              18      13      
+EOF                             19      1       

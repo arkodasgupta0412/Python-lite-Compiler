@@ -1,0 +1,38 @@
+Token Stream
+============
+
+Type            Lexeme          Line    Col     
+------------------------------------------------
+IDENTIFIER      val             1       1       
+OPERATOR        =               1       5       
+NUMBER          50              1       7       
+NEWLINE         \n              1       9       
+IDENTIFIER      text            2       1       
+OPERATOR        =               2       6       
+STRING          failure         2       8       
+NEWLINE         \n              2       17      
+IDENTIFIER      bad_math        5       1       
+OPERATOR        =               5       10      
+IDENTIFIER      val             5       12      
+OPERATOR        -               5       16      
+OPERATOR        -               5       17      
+IDENTIFIER      text            5       19      
+NEWLINE         \n              5       23      
+IDENTIFIER      flag            8       1       
+OPERATOR        =               8       6       
+BOOLEAN         false           8       8       
+NEWLINE         \n              8       13      
+KEYWORD         for             9       1       
+IDENTIFIER      x               9       5       
+KEYWORD         in              9       7       
+IDENTIFIER      flag            9       10      
+PUNCTUATOR      :               9       14      
+NEWLINE         \n              9       15      
+INDENT          <INDENT>        10      1       
+KEYWORD         print           10      5       
+PUNCTUATOR      (               10      10      
+IDENTIFIER      x               10      11      
+PUNCTUATOR      )               10      12      
+NEWLINE         \n              10      13      
+DEDENT          <DEDENT>        11      1       
+EOF                             11      1       

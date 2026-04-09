@@ -1,214 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="896" height="484" viewBox="0 0 896 484">
+<svg xmlns="http://www.w3.org/2000/svg" width="916" height="232" viewBox="0 0 916 232">
   <rect x="0" y="0" width="100%" height="100%" fill="#f8fafc"/>
   <text x="10" y="28" font-family="Consolas, monospace" font-size="18" font-weight="700" fill="#0f172a">Symbol Table (Environment Tree)</text>
   <rect x="10" y="44" width="156" height="28" fill="#dbeafe" stroke="#94a3b8"/>
   <text x="20" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Scope</text>
   <rect x="166" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
   <text x="176" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Name</text>
-  <rect x="286" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <rect x="286" y="44" width="140" height="28" fill="#dbeafe" stroke="#94a3b8"/>
   <text x="296" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Type</text>
-  <rect x="406" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
-  <text x="416" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Kind</text>
-  <rect x="526" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
-  <text x="536" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Line</text>
-  <rect x="646" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
-  <text x="656" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Col</text>
-  <rect x="766" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
-  <text x="776" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Offset</text>
+  <rect x="426" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <text x="436" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Kind</text>
+  <rect x="546" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <text x="556" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Line</text>
+  <rect x="666" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <text x="676" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Col</text>
+  <rect x="786" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
+  <text x="796" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Offset</text>
   <rect x="10" y="72" width="156" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Global</text>
   <rect x="166" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="176" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">cnt</text>
-  <rect x="286" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">int</text>
-  <rect x="406" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="416" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="536" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
-  <rect x="646" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="656" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
-  <rect x="766" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="776" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">40</text>
+  <text x="176" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">matrix</text>
+  <rect x="286" y="72" width="140" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">list[list[int]]</text>
+  <rect x="426" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="436" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
+  <rect x="546" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="556" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
+  <rect x="666" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="676" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <rect x="786" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="796" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">16</text>
   <rect x="10" y="100" width="156" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Global</text>
   <rect x="166" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="176" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">flag</text>
-  <rect x="286" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">bool</text>
-  <rect x="406" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="416" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="536" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
-  <rect x="646" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="656" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
-  <rect x="766" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="776" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">24</text>
+  <text x="176" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">nums1</text>
+  <rect x="286" y="100" width="140" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">list[int]</text>
+  <rect x="426" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="436" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
+  <rect x="546" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="556" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
+  <rect x="666" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="676" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <rect x="786" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="796" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">0</text>
   <rect x="10" y="128" width="156" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Global</text>
   <rect x="166" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="176" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">name</text>
-  <rect x="286" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">str</text>
-  <rect x="406" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="416" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="536" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">4</text>
-  <rect x="646" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="656" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
-  <rect x="766" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="776" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">16</text>
+  <text x="176" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">nums2</text>
+  <rect x="286" y="128" width="140" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="296" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">list[int]</text>
+  <rect x="426" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="436" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
+  <rect x="546" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="556" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
+  <rect x="666" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="676" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
+  <rect x="786" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="796" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
   <rect x="10" y="156" width="156" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Global</text>
+  <text x="20" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 1 / Child 1</text>
   <rect x="166" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="176" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">nums</text>
-  <rect x="286" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">list[int]</text>
-  <rect x="406" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="416" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="536" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">6</text>
-  <rect x="646" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="656" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
-  <rect x="766" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="776" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">32</text>
+  <text x="176" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">item</text>
+  <rect x="286" y="156" width="140" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="296" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">int</text>
+  <rect x="426" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="436" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
+  <rect x="546" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="556" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
+  <rect x="666" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="676" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <rect x="786" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="796" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">24</text>
   <rect x="10" y="184" width="156" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Global</text>
+  <text x="20" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 2 / Child 1</text>
   <rect x="166" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="176" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">x</text>
-  <rect x="286" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="176" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">val</text>
+  <rect x="286" y="184" width="140" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="296" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">int</text>
-  <rect x="406" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="416" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="536" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
-  <rect x="646" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="656" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
-  <rect x="766" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="776" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">0</text>
-  <rect x="10" y="212" width="156" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Global</text>
-  <rect x="166" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="176" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">y</text>
-  <rect x="286" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">float</text>
-  <rect x="406" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="416" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="536" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">3</text>
-  <rect x="646" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="656" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
-  <rect x="766" y="212" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="776" y="230" font-family="Consolas, monospace" font-size="13" fill="#1e293b">8</text>
-  <rect x="10" y="240" width="156" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 1 / Child 1</text>
-  <rect x="166" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="176" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ch</text>
-  <rect x="286" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">str</text>
-  <rect x="406" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="416" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="536" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">12</text>
-  <rect x="646" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="656" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
-  <rect x="766" y="240" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="776" y="258" font-family="Consolas, monospace" font-size="13" fill="#1e293b">48</text>
-  <rect x="10" y="268" width="156" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 2 / Child 1</text>
-  <rect x="166" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="176" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(no symbols)</text>
-  <rect x="286" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="406" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="416" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="526" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="536" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="646" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="656" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="766" y="268" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="776" y="286" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="10" y="296" width="156" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 1 / Child 2</text>
-  <rect x="166" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="176" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">n</text>
-  <rect x="286" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">int</text>
-  <rect x="406" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="416" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="536" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">15</text>
-  <rect x="646" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="656" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
-  <rect x="766" y="296" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="776" y="314" font-family="Consolas, monospace" font-size="13" fill="#1e293b">56</text>
-  <rect x="10" y="324" width="156" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 2 / Child 1</text>
-  <rect x="166" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="176" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(no symbols)</text>
-  <rect x="286" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="406" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="416" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="526" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="536" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="646" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="656" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="766" y="324" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="776" y="342" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="10" y="352" width="156" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 1 / Child 3</text>
-  <rect x="166" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="176" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">i</text>
-  <rect x="286" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">int</text>
-  <rect x="406" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="416" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="536" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">19</text>
-  <rect x="646" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="656" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
-  <rect x="766" y="352" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="776" y="370" font-family="Consolas, monospace" font-size="13" fill="#1e293b">60</text>
-  <rect x="10" y="380" width="156" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 2 / Child 1</text>
-  <rect x="166" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="176" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(no symbols)</text>
-  <rect x="286" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="406" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="416" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="526" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="536" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="646" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="656" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="766" y="380" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="776" y="398" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="10" y="408" width="156" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 3 / Child 1</text>
-  <rect x="166" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="176" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">msg</text>
-  <rect x="286" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="296" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">str</text>
-  <rect x="406" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="416" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
-  <rect x="526" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="536" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">22</text>
-  <rect x="646" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="656" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
-  <rect x="766" y="408" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="776" y="426" font-family="Consolas, monospace" font-size="13" fill="#1e293b">64</text>
-  <rect x="10" y="436" width="156" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Depth 3 / Child 2</text>
-  <rect x="166" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="176" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b">(no symbols)</text>
-  <rect x="286" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="296" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="406" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="416" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="526" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="536" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="646" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="656" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
-  <rect x="766" y="436" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="776" y="454" font-family="Consolas, monospace" font-size="13" fill="#1e293b"></text>
+  <rect x="426" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="436" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Variable</text>
+  <rect x="546" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="556" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
+  <rect x="666" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="676" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">5</text>
+  <rect x="786" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="796" y="202" font-family="Consolas, monospace" font-size="13" fill="#1e293b">28</text>
 </svg>

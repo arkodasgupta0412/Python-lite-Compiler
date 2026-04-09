@@ -1,0 +1,11 @@
+Symbol Table (Environment Tree)
+===============================
+
+=== Global Scope ===
+Name                Type              Kind        Line    Col     Offset
+--------------------------------------------------------------------------------------
+bad_math            <error>           Variable    5       1       16
+flag                bool              Variable    8       1       20
+text                str               Variable    2       1       8
+val                 int               Variable    1       1       0
+

@@ -657,7 +657,64 @@ bool OutputWriter::renderDotToSvg(const std::string& dotPath, const std::string&
   }
   std::string command = "dot -Tsvg \"" + dotPath + "\" -o \"" + svgPath + "\"";
   int code = std::system(command.c_str());
-  return code == 0;
+
+#ifdef _WIN32
+  if (code != 0) {
+    const std::vector<std::string> dotCandidates = {
+        "C:\\Program Files\\Graphviz\\bin\\dot.exe",
+        "C:\\Program Files (x86)\\Graphviz\\bin\\dot.exe",
+    };
+    for (const auto& dotExe : dotCandidates) {
+      if (!std::filesystem::exists(dotExe)) continue;
+      const std::string fallbackCommand =
+          "\"" + dotExe + "\" -Tsvg \"" + dotPath + "\" -o \"" + svgPath + "\"";
+      code = std::system(fallbackCommand.c_str());
+      if (code == 0) break;
+    }
+  }
+#endif
+
+  if (code == 0) return true;
+
+  // Fallback: generate a simple SVG preview containing the DOT source so
+  // the AST artifact still updates even when Graphviz is unavailable.
+  std::string dotText;
+  {
+    std::ifstream in(dotPath);
+    if (in) {
+      std::ostringstream buffer;
+      buffer << in.rdbuf();
+      dotText = buffer.str();
+    } else {
+      dotText = "Failed to read DOT file: " + dotPath;
+    }
+  }
+
+  const auto lines = splitLines(dotText);
+  std::size_t maxLen = 0;
+  for (const auto& line : lines) {
+    if (line.size() > maxLen) maxLen = line.size();
+  }
+
+  const int width = std::max(640, std::min(2200, static_cast<int>(maxLen * 8 + 40)));
+  const int lineHeight = 18;
+  const int height = std::max(320, std::min(2000, static_cast<int>(lines.size() * lineHeight + 36)));
+
+  std::ofstream out(svgPath);
+  if (!out) return false;
+
+  out << "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"" << width << "\" height=\"" << height
+      << "\" viewBox=\"0 0 " << width << " " << height << "\">\n";
+  out << "  <rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"#0b1220\"/>\n";
+  out << "  <text x=\"16\" y=\"24\" font-family=\"Consolas, monospace\" font-size=\"14\" fill=\"#e2e8f0\">\n";
+  out << "    <tspan x=\"16\" dy=\"0\">Graphviz 'dot' not found. Showing AST DOT source:</tspan>\n";
+  for (const auto& line : lines) {
+    out << "    <tspan x=\"16\" dy=\"" << lineHeight << "\">" << escapeXML(line) << "</tspan>\n";
+  }
+  out << "  </text>\n";
+  out << "</svg>\n";
+
+  return true;
 }
 
 }  // namespace cd
