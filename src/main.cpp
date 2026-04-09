@@ -84,12 +84,6 @@ int main(int argc, char* argv[]) {
       if (line <= 0 || column <= 0) cd::OutputWriter::extractLineColumn(ex.what(), line, column);
       writer.writeDiagnosticWithSnippet("Parse Error", ex.what(), source, line, column);
       writer.write("Skipping symbol table and AST outputs because strict parse failed.");
-    } catch (const cd::SemanticError& ex) {
-      int line = -1;
-      int column = -1;
-      cd::OutputWriter::extractLineColumn(ex.what(), line, column);
-      writer.writeDiagnosticWithSnippet("Semantic Error", ex.what(), source, line, column);
-      writer.write("Skipping symbol table and AST outputs because semantic analysis failed.");
     }
     return 0;
   } catch (const cd::LexicalError& ex) {
