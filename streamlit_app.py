@@ -1,6 +1,7 @@
 import os
 import re
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -759,8 +760,24 @@ def app() -> None:
         if run_done:
             st.text_area("Backend console output", value=run_log, height=340)
         else:
-            st.info("No run log yet for this session. Click Run Compiler to execute the backend.")
+            st.info("No run log yet for this session. Click Compile and Run to execute the backend.")
 
 
 if __name__ == "__main__":
-    app()
+    # If the file is executed directly (python/py), relaunch via Streamlit
+    # so users always get the UI instead of a plain script run.
+    try:
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+
+        in_streamlit_runtime = get_script_run_ctx() is not None
+    except Exception:
+        in_streamlit_runtime = False
+
+    if in_streamlit_runtime:
+        app()
+    else:
+        subprocess.run(
+            [sys.executable, "-m", "streamlit", "run", str(Path(__file__).resolve())],
+            cwd=REPO_ROOT,
+            check=False,
+        )
