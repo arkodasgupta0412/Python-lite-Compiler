@@ -5,35 +5,18 @@
 namespace cd {
 
 enum class TokenType {
-  IDENT,
-  INT,
+  IDENTIFIER,
+  KEYWORD,
+  NUMBER,
   FLOAT,
   STRING,
-  BOOL,
-  ASSIGN,
-  PLUS_ASSIGN,
-  MINUS_ASSIGN,
-  PLUS,
-  MINUS,
-  STAR,
-  SLASH,
-  LPAREN,
-  RPAREN,
-  LBRACKET,
-  RBRACKET,
-  COMMA,
-  COLON,
-  SEMICOLON,
+  BOOLEAN,
+  OPERATOR,
+  PUNCTUATOR,
   NEWLINE,
   INDENT,
   DEDENT,
-  PRINT,
-  FOR,
-  IN,
-  IF,
-  ELSE,
-  RANGE,
-  END_OF_FILE
+  ENDMARKER
 };
 
 struct Token {
@@ -44,5 +27,6 @@ struct Token {
 };
 
 std::string tokenTypeName(TokenType type);
+std::string tokenGrammarSymbol(const Token& token);
 
 }  // namespace cd
