@@ -67,9 +67,35 @@ def apply_cyber_theme() -> None:
             border-right: 1px solid rgba(32, 56, 88, 0.18);
         }
 
-        [data-testid="stSidebar"] * {
+        [data-testid="stSidebar"] {
+            color: #233149;
+        }
+
+        [data-testid="stSidebar"] label,
+        [data-testid="stSidebar"] p,
+        [data-testid="stSidebar"] h1,
+        [data-testid="stSidebar"] h2,
+        [data-testid="stSidebar"] h3,
+        [data-testid="stSidebar"] h4,
+        [data-testid="stSidebar"] h5,
+        [data-testid="stSidebar"] h6 {
             font-family: "Sora", "Segoe UI", sans-serif;
             color: #233149;
+        }
+
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
+            font-family: "Sora", "Segoe UI", sans-serif;
+            color: #233149;
+        }
+
+        /* Keep Streamlit/Material icon glyphs rendered with icon font. */
+        [data-testid="stSidebar"] .material-symbols-rounded,
+        [data-testid="stSidebar"] .material-icons,
+        [data-testid="stSidebar"] [class*="material-symbol"] {
+            font-family: "Material Symbols Rounded", "Material Symbols Outlined", "Material Icons" !important;
+            font-weight: normal;
+            letter-spacing: normal;
+            text-transform: none;
         }
 
         .control-title {
@@ -201,8 +227,15 @@ def apply_cyber_theme() -> None:
             border: 1px solid rgba(255, 255, 255, 0.16);
             background: #f2f5f9;
             color: #0f1f34;
+            caret-color: #ff4d6d;
             font-family: "JetBrains Mono", "Consolas", monospace;
             font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        .stTextArea textarea::selection, .stTextInput input::selection {
+            background: rgba(255, 77, 109, 0.28);
+            color: #0b1b2e;
         }
 
         .stTextArea textarea:focus {
@@ -241,6 +274,12 @@ def apply_cyber_theme() -> None:
 
         .stCaption {
             color: #95bbcf;
+        }
+
+        /* Hide default uploaded filename chip; we show a cleaner selected-file caption. */
+        [data-testid="stFileUploaderFile"],
+        [data-testid="stFileUploaderDeleteBtn"] {
+            display: none !important;
         }
 
         @media (max-width: 900px) {
@@ -355,6 +394,206 @@ def backend_status_message(return_code: int, run_log: str) -> tuple[str, str]:
     return "bad", "Backend failed (non-zero return code)."
 
 
+def detect_unsupported_features(code_text: str) -> list[str]:
+    checks = [
+        (r"\binput\s*\(", "input() calls are not supported"),
+        (r"%", "modulo operator '%' is not supported"),
+        (r"==|!=|<=|>=|<|>", "comparison operators (==, !=, <, >, <=, >=) are not supported"),
+        (r"\bprint\s*\([^)]*,[^)]*\)", "print() with multiple comma-separated arguments is not supported"),
+        (r"(\+\s*[+*/]|\*\s*[+*/]|/\s*[+*/])", "possible malformed expression (two operators in a row)"),
+    ]
+
+    issues: list[str] = []
+    for line_no, line in enumerate(code_text.splitlines(), start=1):
+        for pattern, message in checks:
+            if re.search(pattern, line):
+                issues.append(f"Line {line_no}: {message}")
+
+    deduped: list[str] = []
+    seen = set()
+    for issue in issues:
+        if issue not in seen:
+            seen.add(issue)
+            deduped.append(issue)
+    return deduped
+
+
+def split_top_level_args(text: str) -> list[str]:
+    parts: list[str] = []
+    current: list[str] = []
+    depth = 0
+    in_quote = False
+    quote_char = ""
+    escaped = False
+
+    for ch in text:
+        if in_quote:
+            current.append(ch)
+            if escaped:
+                escaped = False
+            elif ch == "\\":
+                escaped = True
+            elif ch == quote_char:
+                in_quote = False
+            continue
+
+        if ch in ('"', "'"):
+            in_quote = True
+            quote_char = ch
+            current.append(ch)
+            continue
+
+        if ch in "([{" :
+            depth += 1
+            current.append(ch)
+            continue
+
+        if ch in ")]}":
+            if depth > 0:
+                depth -= 1
+            current.append(ch)
+            continue
+
+        if ch == "," and depth == 0:
+            parts.append("".join(current).strip())
+            current = []
+            continue
+
+        current.append(ch)
+
+    tail = "".join(current).strip()
+    if tail:
+        parts.append(tail)
+    return parts
+
+
+def normalize_source_code(code_text: str) -> tuple[str, bool]:
+    normalized = code_text.replace("\r\n", "\n").replace("\r", "\n").expandtabs(4)
+    weird_spaces = [
+        "\u00A0",
+        "\u1680",
+        "\u2000",
+        "\u2001",
+        "\u2002",
+        "\u2003",
+        "\u2004",
+        "\u2005",
+        "\u2006",
+        "\u2007",
+        "\u2008",
+        "\u2009",
+        "\u200A",
+        "\u202F",
+        "\u205F",
+        "\u3000",
+    ]
+    for ws in weird_spaces:
+        normalized = normalized.replace(ws, " ")
+    return normalized, normalized != code_text
+
+
+def leading_spaces(line: str) -> int:
+    return len(line) - len(line.lstrip(" "))
+
+
+def detect_indentation_issues(code_text: str) -> list[str]:
+    issues: list[str] = []
+    lines = code_text.splitlines()
+
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if not stripped:
+            continue
+
+        is_block_header = stripped.startswith("for ") or stripped.startswith("if ") or stripped.startswith("else")
+        if not is_block_header or ":" not in stripped:
+            continue
+
+        colon_pos = line.find(":")
+        if colon_pos >= 0 and line[colon_pos + 1 :].strip():
+            # Inline body form like: for i in range(...): print(i)
+            continue
+
+        current_indent = leading_spaces(line)
+        j = i + 1
+        while j < len(lines) and not lines[j].strip():
+            j += 1
+
+        if j >= len(lines):
+            issues.append(f"Line {i + 1}: block header has no following body line.")
+            continue
+
+        next_indent = leading_spaces(lines[j])
+        if next_indent <= current_indent:
+            issues.append(f"Line {i + 1}: expected an indented block after ':'.")
+
+    return issues
+
+
+def rewrite_multi_arg_prints(code_text: str) -> tuple[str, int]:
+    rewritten: list[str] = []
+    changed = 0
+
+    for line in code_text.splitlines():
+        match = re.match(r"^(\s*)print\s*\((.*)\)\s*$", line)
+        if not match:
+            rewritten.append(line)
+            continue
+
+        indent = match.group(1)
+        inner = match.group(2).strip()
+        args = split_top_level_args(inner)
+        if len(args) <= 1:
+            rewritten.append(line)
+            continue
+
+        changed += 1
+        for arg in args:
+            rewritten.append(f"{indent}print({arg})")
+
+    return "\n".join(rewritten) + ("\n" if code_text.endswith("\n") else ""), changed
+
+
+def extract_primary_issue(run_log: str) -> str:
+    if not run_log.strip():
+        return ""
+
+    prefixes = ["Lexical Error:", "Parse Error:", "Semantic Error:", "Error:"]
+    for line in run_log.splitlines():
+        stripped = line.strip()
+        for prefix in prefixes:
+            if stripped.startswith(prefix):
+                return stripped
+
+    for line in run_log.splitlines():
+        stripped = line.strip()
+        if stripped:
+            return stripped
+    return ""
+
+
+def suggest_fix(run_log: str) -> str:
+    if "Expected INDENT to start for-loop block" in run_log:
+        return (
+            "Indentation issue: after a line ending with ':', the next block line must be indented. "
+            "For nested for-loops, indent the inner for-loop under the outer one."
+        )
+    if "Expected ')' after print expression" in run_log and "Found ','" in run_log:
+        return "Use a single-expression print, e.g. print(sum) or print(\"Sum: \" + sum_str) if string conversion exists."
+    if "Unexpected character '%'" in run_log:
+        return "Modulo (%) is not supported by this compiler subset yet."
+    if "Unexpected token while parsing primary expression" in run_log:
+        if "Found '*'" in run_log or "Found '/'" in run_log or "Found '+'" in run_log:
+            return "Malformed expression: two operators appear in sequence (example: 1 + * 2). Remove the extra operator."
+        return "Only literals, identifiers, range(...), parenthesized expressions, and list literals are supported as primary expressions."
+    if "Type mismatch for '" in run_log:
+        return (
+            "Semantic typing edge case: keep += and -= operands numeric. For loops, prefer iterating direct list literals, "
+            "simple list variables, strings, or range(...), rather than derived list expressions."
+        )
+    return ""
+
+
 def app() -> None:
     apply_cyber_theme()
     init_state()
@@ -365,7 +604,7 @@ def app() -> None:
     st.markdown(
         f"""
         <div class="hero">
-            <div class="hero-badge">Hackathon Build</div>
+            <div class="hero-badge">Compiler Project</div>
             <h1>Compiler Lab Studio</h1>
             <p>Professional compiler observability dashboard for lexical, grammar, symbol, and AST artifacts.</p>
             <div class="hero-grid">
@@ -405,6 +644,7 @@ def app() -> None:
         uploaded = st.file_uploader("Upload source file", type=["cd", "txt", "py"])
         if uploaded is not None:
             code_text = uploaded.read().decode("utf-8", errors="replace")
+            st.caption(f"Selected file: {uploaded.name}")
             st.text_area("Uploaded preview", value=code_text, height=280)
             input_display = uploaded.name
     else:
@@ -417,10 +657,39 @@ def app() -> None:
 
     run_click = st.button("Compile and Run", type="primary")
 
+    st.info(
+        "Supported subset: assignments (=, +=, -=), arithmetic (+, -, *, /), print(single_expression), "
+        "for ... in range/list/string, and basic if/else with subset expressions. "
+        "Note: some complex list-derived flows can trigger semantic type mismatch checks."
+    )
+
     if run_click:
         if not code_text.strip():
             st.error("No input code provided.")
         else:
+            normalized_input, was_normalized = normalize_source_code(code_text)
+            if was_normalized:
+                st.info("Normalized pasted whitespace and tabs for stable indentation parsing.")
+
+            indent_issues = detect_indentation_issues(normalized_input)
+            if indent_issues:
+                st.error("Indentation pre-check failed:\n- " + "\n- ".join(indent_issues))
+                st.session_state["run_done"] = False
+                return
+
+            normalized_code, print_rewrites = rewrite_multi_arg_prints(normalized_input)
+            if print_rewrites:
+                st.info(
+                    f"Auto-adapted {print_rewrites} print statement(s): converted multi-argument print(...) into "
+                    "multiple single-expression print(...) calls for compiler compatibility."
+                )
+
+            unsupported = detect_unsupported_features(normalized_code)
+            if unsupported:
+                st.warning(
+                    "Detected unsupported constructs for this compiler:\n- " + "\n- ".join(unsupported)
+                )
+
             if rebuild or not BINARY_PATH.exists():
                 ok, compile_log = compile_backend()
                 st.session_state["compile_log"] = compile_log
@@ -429,17 +698,14 @@ def app() -> None:
                     st.error("Backend compilation failed. Check Compiler Log tab.")
                     return
 
-            if mode == "Use example file":
-                input_path = EXAMPLES_DIR / input_display
-            else:
-                input_path = write_temp_input(code_text)
+            input_path = write_temp_input(normalized_code)
 
             code, run_log = run_backend(input_path)
             st.session_state["run_done"] = True
             st.session_state["run_log"] = run_log
             st.session_state["return_code"] = code
             st.session_state["input_path"] = str(input_path)
-            st.session_state["source_code"] = code_text
+            st.session_state["source_code"] = normalized_code
 
     run_done = bool(st.session_state["run_done"])
     run_log = st.session_state.get("run_log", "")
@@ -452,6 +718,15 @@ def app() -> None:
             f'<div class="status-chip"><span>Pipeline Status</span><p class="{klass}">Status: {message}</p></div>',
             unsafe_allow_html=True,
         )
+        primary_issue = extract_primary_issue(run_log)
+        if primary_issue:
+            if level == "bad":
+                st.error(primary_issue)
+            elif level == "warn":
+                st.warning(primary_issue)
+        hint = suggest_fix(run_log)
+        if hint:
+            st.info(f"Hint: {hint}")
         st.caption(f"Input path used: {st.session_state['input_path']}")
     else:
         st.info("Compiler has not been run in this UI session. Showing existing artifacts from docs if available.")
