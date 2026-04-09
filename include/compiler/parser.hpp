@@ -35,6 +35,15 @@ class TopDownParser {
   std::unique_ptr<Expression> primary();
 
   void consumeSeparators();
+  bool matchKeyword(const std::string& lexeme);
+  bool matchOperator(const std::string& lexeme);
+  bool matchPunctuator(const std::string& lexeme);
+  const Token& consumeKeyword(const std::string& lexeme, const std::string& message);
+  const Token& consumeOperator(const std::string& lexeme, const std::string& message);
+  const Token& consumePunctuator(const std::string& lexeme, const std::string& message);
+  bool checkKeyword(const std::string& lexeme) const;
+  bool checkOperator(const std::string& lexeme) const;
+  bool checkPunctuator(const std::string& lexeme) const;
   bool match(std::initializer_list<TokenType> types);
   const Token& consume(TokenType type, const std::string& message);
   bool check(TokenType type) const;
