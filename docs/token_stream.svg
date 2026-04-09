@@ -10,19 +10,19 @@
   <rect x="370" y="44" width="120" height="28" fill="#dbeafe" stroke="#94a3b8"/>
   <text x="380" y="62" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0f172a">Column</text>
   <rect x="10" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="20" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENT</text>
+  <text x="20" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">IDENTIFIER</text>
   <rect x="130" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="140" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">nums1</text>
   <rect x="250" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
+  <text x="260" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="370" y="72" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="380" y="90" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="10" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="20" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">ASSIGN</text>
+  <text x="20" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">OPERATOR</text>
   <rect x="130" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="140" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">=</text>
   <rect x="250" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
+  <text x="260" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="370" y="100" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="380" y="118" font-family="Consolas, monospace" font-size="13" fill="#1e293b">7</text>
   <rect x="10" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
@@ -30,7 +30,7 @@
   <rect x="130" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="140" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">[</text>
   <rect x="250" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="260" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
+  <text x="260" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="370" y="128" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="380" y="146" font-family="Consolas, monospace" font-size="13" fill="#1e293b">9</text>
   <rect x="10" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
@@ -38,7 +38,7 @@
   <rect x="130" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="140" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="250" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="260" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">2</text>
+  <text x="260" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">1</text>
   <rect x="370" y="156" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="380" y="174" font-family="Consolas, monospace" font-size="13" fill="#1e293b">10</text>
   <rect x="10" y="184" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>

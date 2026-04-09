@@ -11,9 +11,10 @@
 #include "compiler/semantic.hpp"
 
 int main(int argc, char* argv[]) {
+  cd::OutputWriter writer;
+  std::string source;
   try {
     cd::ProgramReader reader;
-    cd::OutputWriter writer;
     cd::CompilerPipeline pipeline;
     std::string exePath = (argc > 0 && argv[0] != nullptr) ? argv[0] : "";
     std::size_t slashPos = exePath.find_last_of("/\\");
@@ -21,7 +22,7 @@ int main(int argc, char* argv[]) {
     std::string docsDir = exeDir + "/docs";
 
     std::string path = (argc > 1) ? argv[1] : "examples/sample_program.cd";
-    std::string source = reader.read(path);
+    source = reader.read(path);
     cd::Lexer lexer(source);
     auto tokens = lexer.tokenize();
 
@@ -78,12 +79,24 @@ int main(int argc, char* argv[]) {
         writer.write("AST SVG not generated (Graphviz 'dot' command not found).");
       }
     } catch (const cd::ParseError& ex) {
-      std::cerr << "Parse Error: " << ex.what() << "\n";
+      int line = ex.line();
+      int column = ex.column();
+      if (line <= 0 || column <= 0) cd::OutputWriter::extractLineColumn(ex.what(), line, column);
+      writer.writeDiagnosticWithSnippet("Parse Error", ex.what(), source, line, column);
       writer.write("Skipping symbol table and AST outputs because strict parse failed.");
+    } catch (const cd::SemanticError& ex) {
+      int line = -1;
+      int column = -1;
+      cd::OutputWriter::extractLineColumn(ex.what(), line, column);
+      writer.writeDiagnosticWithSnippet("Semantic Error", ex.what(), source, line, column);
+      writer.write("Skipping symbol table and AST outputs because semantic analysis failed.");
     }
     return 0;
   } catch (const cd::LexicalError& ex) {
-    std::cerr << "Lexical Error: " << ex.what() << "\n";
+    int line = -1;
+    int column = -1;
+    cd::OutputWriter::extractLineColumn(ex.what(), line, column);
+    writer.writeDiagnosticWithSnippet("Lexical Error", ex.what(), source, line, column);
     return 1;
   } catch (const std::exception& ex) {
     std::cerr << "Error: " << ex.what() << "\n";

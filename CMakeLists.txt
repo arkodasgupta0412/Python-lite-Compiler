@@ -7,8 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include_directories(include)
 
-add_executable(cd_frontend
-  src/main.cpp
+set(COMPILER_SOURCES
   src/compiler/ast_nodes.cpp
   src/compiler/cfg.cpp
   src/compiler/grammar_tools.cpp
@@ -20,3 +19,19 @@ add_executable(cd_frontend
   src/compiler/symbol_table.cpp
   src/compiler/tokens.cpp
 )
+
+add_executable(cd_frontend
+  src/main.cpp
+  ${COMPILER_SOURCES}
+)
+
+enable_testing()
+
+add_executable(cd_tests
+  tests/test_main.cpp
+  ${COMPILER_SOURCES}
+)
+
+target_compile_definitions(cd_tests PRIVATE CD_PROJECT_SOURCE_DIR="${CMAKE_SOURCE_DIR}")
+
+add_test(NAME cd_tests COMMAND cd_tests)

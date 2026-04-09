@@ -1,0 +1,21 @@
+Token Stream
+============
+
+Type            Lexeme          Line    Col     
+------------------------------------------------
+IDENTIFIER      x               1       1       
+OPERATOR        =               1       3       
+NUMBER          1               1       5       
+NEWLINE         \n              1       6       
+IDENTIFIER      y               2       1       
+OPERATOR        =               2       3       
+NUMBER          2               2       5       
+NEWLINE         \n              2       6       
+KEYWORD         print           3       1       
+PUNCTUATOR      (               3       6       
+IDENTIFIER      x               3       7       
+OPERATOR        +               3       9       
+IDENTIFIER      y               3       11      
+PUNCTUATOR      )               3       12      
+NEWLINE         \n              3       13      
+EOF                             4       1       

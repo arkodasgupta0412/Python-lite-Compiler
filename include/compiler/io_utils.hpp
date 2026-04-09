@@ -19,6 +19,12 @@ class ProgramReader {
 class OutputWriter {
  public:
   void write(const std::string& text) const;
+  void writeDiagnosticWithSnippet(const std::string& kind,
+                                  const std::string& message,
+                                  const std::string& source,
+                                  int line,
+                                  int column) const;
+  static bool extractLineColumn(const std::string& message, int& line, int& column);
   void writeParseTableReport(const std::string& path, const GrammarArtifacts& artifacts) const;
   void writeGrammarImages(const std::string& outputDir, const GrammarArtifacts& artifacts) const;
   void writePanicRecoveryImage(const std::string& path, const LL1PanicParseResult& panicResult) const;

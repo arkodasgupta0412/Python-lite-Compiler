@@ -37,4 +37,4 @@ Term'  -> STAR Factor Term' | SLASH Factor Term' | ε
 Factor -> MINUS Factor | Primary
 ```
 
-Left factoring is then applied automatically in `grammar_tools.py` when useful.
+Left factoring is then applied automatically in `grammar_tools.cpp` when useful.

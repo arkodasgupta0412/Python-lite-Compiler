@@ -64,7 +64,7 @@
   <rect x="10" y="464" width="120" height="28" fill="#ffffff" stroke="#cbd5e1"/>
   <text x="20" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">Program</text>
   <rect x="130" y="464" width="460" height="28" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="140" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">{ for, IDENT, if, \n, print, ;, ε }</text>
+  <text x="140" y="482" font-family="Consolas, monospace" font-size="13" fill="#1e293b">{ $, for, IDENT, if, \n, print, ; }</text>
   <rect x="10" y="492" width="120" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="20" y="510" font-family="Consolas, monospace" font-size="13" fill="#1e293b">RangeCall</text>
   <rect x="130" y="492" width="460" height="28" fill="#f1f5f9" stroke="#cbd5e1"/>

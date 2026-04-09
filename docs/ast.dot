@@ -24,7 +24,6 @@ digraph AST {
   n12 [label="Int: 6"];
   n9 -> n12;
   n7 -> n8;
-  n7 -> n9;
   n0 -> n7;
   n13 [label="Assign (=)"];
   n14 [label="Id: matrix"];

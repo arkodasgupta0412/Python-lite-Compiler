@@ -81,3 +81,39 @@ Make sure you are at the root directory of the project
 ```./cd_frontend.exe examples/sample_program.cd```
 
 Other programs in ```examples/``` directory can be tested out as well.
+
+## Streamlit GUI (Hackathon Cyber Style)
+
+A Streamlit frontend is included in [streamlit_app.py](streamlit_app.py).
+
+Features:
+- Input source by typing code directly.
+- Input source by uploading a file.
+- Input source by selecting an existing file from [examples](examples).
+- Runs the same C++ backend compiler executable.
+- Renders generated SVG artifacts from [docs](docs):
+  - token stream,
+  - FIRST/FOLLOW,
+  - LL(1) parse table,
+  - grammar,
+  - panic recovery,
+  - symbol table,
+  - AST.
+
+### Run GUI
+
+1. Install Python dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Start the Streamlit app:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Notes:
+- The GUI can rebuild the backend executable using g++ before execution.
+- Compiler artifacts continue to be written to [docs](docs) by the backend.

@@ -20,12 +20,19 @@ struct LL1PanicParseResult {
   std::vector<std::string> actionLog;
 };
 
+struct LL1ValidationResult {
+  bool valid{true};
+  std::vector<std::string> firstFirstConflicts;
+  std::vector<std::string> firstFollowConflicts;
+};
+
 struct GrammarArtifacts {
   GrammarMap transformedGrammar;
   SetMap first;
   SetMap follow;
   ParseTable parseTable;
   std::vector<std::string> conflicts;
+  LL1ValidationResult ll1Validation;
   LL1PanicParseResult ll1PanicParse;
 };
 
