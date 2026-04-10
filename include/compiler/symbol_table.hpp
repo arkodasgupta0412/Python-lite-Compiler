@@ -22,7 +22,7 @@ class RedefinitionError : public SymbolTableError {
   explicit RedefinitionError(const std::string& msg) : SymbolTableError(msg) {}
 };
 
-// Arena allocator using bump allocation over fixed-size chunks.
+// Slide 1: Arena allocator for chunked O(1) bump allocations.
 class ArenaAllocator {
  public:
   explicit ArenaAllocator(std::size_t chunkBytes = 1U << 20);
@@ -49,6 +49,7 @@ class ArenaAllocator {
 
 class StringPool {
  public:
+  // Slide 1: Intern each identifier once so lookups use stable pointers.
   explicit StringPool(ArenaAllocator& arena, std::size_t initialCapacity = 128);
   const std::string* intern(std::string_view raw);
   std::size_t size() const noexcept;
@@ -135,6 +136,7 @@ class ErrorType final : public Type {
 
 class TypePool {
  public:
+  // Slide 1: Structural type interning makes type equality an O(1) pointer check.
   explicit TypePool(ArenaAllocator& arena, std::size_t initialCapacity = 128);
 
   const Type* getPrimitive(PrimitiveKind kind);
@@ -175,6 +177,7 @@ enum class SymbolKind {
   Builtin,
 };
 
+// Slide 1: Symbol taxonomy tags entities and records frame offsets for storage-backed symbols.
 struct Symbol {
   const std::string* name{nullptr};
   const Type* type{nullptr};
@@ -190,9 +193,9 @@ struct ScopeSnapshot {
   std::vector<Symbol> locals;
 };
 
-// Open-addressed flat hash map specialized for interned identifier pointers.
 class FlatSymbolMap {
  public:
+  // Slide 1: Flat linear-probing table favors contiguous cache-friendly probes.
   explicit FlatSymbolMap(std::size_t initialCapacity = 16);
 
   bool define(const std::string* key, const Symbol& value);
@@ -224,6 +227,7 @@ class FlatSymbolMap {
 
 class Scope {
  public:
+  // Slide 2: Each lexical block is its own scope node linked to a parent.
   Scope(Scope* parent, ArenaAllocator* arena, int initialOffset = 0);
 
   Scope* addChild();
@@ -266,7 +270,6 @@ class SymbolTableManager {
                int column,
                int memoryOffset = -1);
 
-  // Updates nearest declaration if present; otherwise defines in current scope.
   void assignOrDeclare(const std::string& rawName,
                        const Type* type,
                        SymbolKind kind,
@@ -274,10 +277,9 @@ class SymbolTableManager {
                        int column,
                        int memoryOffset = -1);
 
-  // Lookup with optional poisoning: missing identifiers can be inserted as ErrorType in current scope.
+  // Slide 3: Undefined names can be poisoned into scope as <error> symbols to prevent cascades.
   const Symbol* resolve(const std::string& name, int line = 0, int column = 0, bool poisonOnMiss = true) const;
 
-  // Local/global lookup without poisoning.
   const Symbol* lookup(const std::string& name) const;
 
   const std::string* internString(const std::string& raw) const;
@@ -318,4 +320,4 @@ class SymbolTableManager {
 std::string symbolKindName(SymbolKind kind);
 std::string typeDebugName(const Type* type);
 
-}  // namespace cd
+} 

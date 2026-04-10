@@ -7,7 +7,6 @@
 #include <sstream>
 
 namespace {
-
 constexpr double kMaxLoadFactor = 0.70;
 constexpr std::size_t kMinCapacity = 16;
 
@@ -18,7 +17,6 @@ std::size_t nextPowerOfTwo(std::size_t n) {
 }
 
 std::size_t pointerHash(std::size_t value) {
-  // Shift-out low alignment bits to reduce pointer clustering.
   value >>= 3;
   return value * 11400714819323198485ull;
 }
@@ -62,11 +60,12 @@ int typeStorageSize(const cd::Type* type) {
   return 8;
 }
 
-}  // namespace
+}
 
 namespace cd {
 
 ArenaAllocator::ArenaAllocator(std::size_t chunkBytes) : chunkBytes_(std::max<std::size_t>(chunkBytes, 4096)) {
+  // Slide 1: Pre-grab large chunks so hot allocations stay O(1) bump-pointer ops.
   addChunk(chunkBytes_);
 }
 
@@ -97,6 +96,7 @@ void* ArenaAllocator::allocate(std::size_t bytes, std::size_t alignment) {
   }
 
   std::size_t offset = chunk->used + adjustment;
+  // Slide 1: Allocation is just pointer bumping inside arena chunks.
   chunk->used = offset + bytes;
   return chunk->data.get() + offset;
 }
@@ -159,6 +159,7 @@ const std::string* StringPool::intern(std::string_view raw) {
   std::unique_lock<std::shared_mutex> writeLock(mutex_);
   if (const std::string* found = findExistingLocked(raw)) return found;
 
+  // Slide 1: Identifier interning stores one canonical pointer per distinct spelling.
   ensureCapacityLocked();
   std::size_t idx = findSlotLocked(raw);
 
@@ -301,6 +302,7 @@ const Type* TypePool::internTypeLocked(Type* candidate) {
   ensureCapacityLocked();
   const std::size_t hash = candidate->structuralHash();
   std::size_t idx = findSlotLocked(hash, *candidate);
+  // Slide 1: Structural hashing + interning canonicalizes complex types for pointer-equality checks.
   if (table_[idx].occupied) return table_[idx].type;
 
   table_[idx].type = candidate;
@@ -406,6 +408,7 @@ void FlatSymbolMap::rehash(std::size_t newCapacity) {
 }
 
 bool FlatSymbolMap::define(const std::string* key, const Symbol& value) {
+  // Slide 1: Flat linear probing keeps metadata in contiguous memory for cache-friendly lookups.
   ensureCapacity();
   const std::size_t mask = table_.size() - 1;
   std::size_t idx = hashKey(key) & mask;
@@ -449,6 +452,7 @@ Scope::Scope(Scope* parent, ArenaAllocator* arena, int initialOffset)
     : parent_(parent), table_(16), arena_(arena), nextOffset_(initialOffset) {}
 
 Scope* Scope::addChild() {
+  // Slide 2: Each block gets a child environment that points back to its lexical parent.
   Scope* child = arena_->create<Scope>(this, arena_, nextOffset_);
   children_.push_back(child);
   return child;
@@ -465,6 +469,7 @@ const Symbol* Scope::lookupLocal(const std::string* namePtr) const { return tabl
 Symbol* Scope::lookupLocalMutable(const std::string* namePtr) { return table_.find(namePtr); }
 
 const Symbol* Scope::lookup(const std::string* namePtr) const {
+  // Slide 2: Lexical resolution walks the parent chain until a declaration is found.
   if (const Symbol* local = lookupLocal(namePtr)) return local;
   return (parent_ != nullptr) ? parent_->lookup(namePtr) : nullptr;
 }
@@ -477,6 +482,7 @@ Symbol* Scope::lookupMutable(const std::string* namePtr) {
 int Scope::allocateOffset(const Type* type, SymbolKind kind) {
   if (!needsStorage(kind)) return -1;
 
+  // Slide 1: Symbol kind + type decide physical stack-frame offset assignment.
   const int size = typeStorageSize(type);
   const int alignment = std::min(size, 8);
   const int assigned = alignTo(nextOffset_, alignment);
@@ -502,9 +508,11 @@ void SymbolTableManager::exitScope() {
   if (currentScope_->parent() != nullptr) {
     Scope* completed = currentScope_;
     Scope* parent = currentScope_->parent();
+    // Slide 2: Flatten child offsets upward so nested scopes share one compact frame layout.
     if (completed->nextOffset() > parent->nextOffset()) {
       parent->setNextOffset(completed->nextOffset());
     }
+    // Slide 2: I keep finished scopes alive for diagnostics/LSP snapshots instead of deleting them.
     currentScope_ = parent;
   }
 }
@@ -566,6 +574,7 @@ const Symbol* SymbolTableManager::resolveInterned(const std::string* namePtr,
 
   if (!poisonOnMiss) return nullptr;
 
+  // Slide 3: Report undefined-symbol error once, then move forward without panicking.
   std::ostringstream msg;
   msg << "Undefined symbol '" << *namePtr << "'";
   if (line > 0 && column > 0) {
@@ -576,13 +585,14 @@ const Symbol* SymbolTableManager::resolveInterned(const std::string* namePtr,
 
   if (currentScope_->lookupLocal(namePtr) == nullptr) {
     try {
+      // Slide 3: Inject a synthetic <error> variable so downstream analysis can continue safely.
       Symbol poison{namePtr, poisonType_, SymbolKind::Variable, line, column, -1};
       const_cast<Scope*>(currentScope_)->define(poison);
     } catch (const RedefinitionError&) {
-      // In case of races or duplicate poison insertion, resolve below.
     }
   }
 
+  // Slide 3: Returning poison lets later nodes propagate <error> and suppress cascaded noise.
   return currentScope_->lookup(namePtr);
 }
 
@@ -631,6 +641,7 @@ void SymbolTableManager::collectScopeSnapshots(const Scope* scope,
                                                int depth,
                                                int childIndex,
                                                std::vector<ScopeSnapshot>& out) const {
+  // Slide 2: Snapshotting retained scopes preserves full lexical history for tooling.
   ScopeSnapshot snapshot;
   snapshot.depth = depth;
   snapshot.childIndex = childIndex;
@@ -699,4 +710,4 @@ std::string typeDebugName(const Type* type) {
   return type->debugName();
 }
 
-}  // namespace cd
+}
